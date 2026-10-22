@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>프로그램 안내 | 대전곤충생태관</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/MBC1961/MBC1961.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sub.css">
+  <link rel="stylesheet" href="css/program-info.css">
+</head>
+<body>
+
+  <!-- Header: 서브 페이지는 흰색 버전으로 상단 고정 (header--fixed) -->
+  <header class="header header--fixed" id="header">
+    <div class="top-bar">
+      <div class="inner">
+        <ul class="family-site">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림">대전광역시청</a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림">한밭수목원</a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림">대전엑스포시민광장</a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림">천연기념물센터</a></li>
+        </ul>
+        <ul class="util">
+          <li><a href="index.html">home</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/integMemberLogin.do?siteCd=drh&amp;subSiteCd=ist" target="_blank" rel="noopener" title="새 창 열림">login</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/registerMember/integMemberJoinClause.do" target="_blank" rel="noopener" title="새 창 열림">회원가입</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img class="logo-default" src="images/logo.png" alt="대전곤충생태관">
+            <img class="logo-active" src="images/logo_hover.png" alt="" aria-hidden="true">
+          </a>
+        </h1>
+        <button type="button" class="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- PC: 메뉴를 누르면 아래 패널과 서브메뉴가 내려옴 / 태블릿·모바일: 아코디언 -->
+        <nav class="gnb" id="gnb">
+          <ul class="gnb-list">
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-1" data-text="생태관 소개">생태관 소개</button>
+              <ul class="sub" id="sub-1">
+                <li><a href="about.html">곤충생태관은?</a></li>
+                <li><a href="history.html">연혁 및 조성개요</a></li>
+                <li><a href="organization.html">조직 및 업무</a></li>
+                <li><a href="industry.html">곤충산업육성</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-2" data-text="체험 프로그램">체험 프로그램</button>
+              <ul class="sub" id="sub-2">
+                <li><a href="program_Information.html" aria-current="page">프로그램 안내</a></li>
+                <li><a href="program_reservation.html">프로그램 신청</a></li>
+                <li><a href="volunteer.html">자원봉사 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-3" data-text="이용안내">이용안내</button>
+              <ul class="sub" id="sub-3">
+                <li><a href="guide.html">생태관 이용안내</a></li>
+                <li><a href="rules.html">유의사항</a></li>
+                <li><a href="location.html">찾아오시는 길</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-4" data-text="커뮤니티">커뮤니티</button>
+              <ul class="sub" id="sub-4">
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="gallery.html">포토갤러리</a></li>
+                <li><a href="archive.html">자료실</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="gnb-panel" aria-hidden="true">
+      <div class="inner">
+        <p class="gnb-panel-title"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main sub-main">
+    <!-- 상단 비주얼 -->
+    <section class="sub-visual">
+      <div class="inner">
+        <ol class="breadcrumb">
+          <li><a href="index.html">홈</a></li>
+          <li>체험 프로그램</li>
+          <li aria-current="page">프로그램 안내</li>
+        </ol>
+        <h2 class="sub-title">프로그램 안내</h2>
+        <p class="sub-desc">대전곤충생태관에서 만날 수 있는 체험·전시 프로그램을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section class="pinfo">
+      <div class="inner">
+        <!-- 필터: 유형 + 진행 상태 -->
+        <div class="pinfo-toolbar">
+          <ul class="program-tabs pinfo-filter" aria-label="프로그램 유형">
+            <li><button type="button" class="is-active" data-type="all" aria-pressed="true">전체</button></li>
+            <li><button type="button" data-type="experience" aria-pressed="false">체험</button></li>
+            <li><button type="button" data-type="exhibit" aria-pressed="false">전시</button></li>
+          </ul>
+          <label class="pinfo-toggle">
+            <input type="checkbox" id="onlyActive">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span>운영 중인 프로그램만 보기</span>
+          </label>
+        </div>
+        <p class="pinfo-count" id="pinfoCount" aria-live="polite"></p>
+
+        <!-- 카드: data/programs.js를 읽어 program-info.js에서 생성 -->
+        <ul class="pinfo-list" id="pinfoList"></ul>
+        <p class="pinfo-empty" id="pinfoEmpty" hidden>조건에 맞는 프로그램이 없어요.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 띠 배너: 모든 페이지 공통 / 배너 전체가 반딧불이 불빛체험 예약으로 연결 -->
+  <a href="program_reservation.html?program=firefly-2026-summer" class="strip-banner" aria-label="2026 대전곤충생태관 반딧불이 불빛체험, 2차 예약 마감 D-Day. 예약 바로가기">
+    <span class="inner">
+      <span class="strip-title">2026 대전곤충생태관<strong>반딧불이 불빛체험</strong></span>
+      <span class="strip-dday">2차 예약 마감 D-Day</span>
+      <span class="strip-btn">예약 바로가기</span>
+    </span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="related">
+      <div class="inner">
+        <h2 class="related-title">
+          <svg class="related-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 10.5 12 4l8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          관련사이트
+        </h2>
+        <ul class="related-list">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_city.png" alt="대전광역시청"></a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/hanbat_arboretum.png" alt="한밭수목원"></a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_expo.png" alt="대전엑스포시민광장"></a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/natural_heritage_center.png" alt="천연기념물센터"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="inner">
+        <div class="footer-info">
+          <ul class="policy">
+            <li class="point"><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=2062" target="_blank" rel="noopener" title="새 창 열림">개인정보처리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=1757" target="_blank" rel="noopener" title="새 창 열림">영상정보처리기기 운영 · 관리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/board/boardNormalList.do?boardId=homepage_0001&amp;menuSeq=1507" target="_blank" rel="noopener" title="새 창 열림">누리집</a></li>
+          </ul>
+          <address>
+            <span>(35204) 대전광역시 서구 둔산대로 191(만년동)/한밭수목원내</span>
+            <span>대표전화 (042) 270-5274</span>
+          </address>
+          <p class="copyright">COPYRIGHT 2017 (c) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="footer-logo">
+          <img src="images/footer_logo.png" alt="대전광역시">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/programs.js"></script>
+  <script src="js/program-utils.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/program-info.js"></script>
+</body>
+</html>

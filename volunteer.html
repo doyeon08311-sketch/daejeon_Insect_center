@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>자원봉사 신청 | 대전곤충생태관</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/MBC1961/MBC1961.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sub.css">
+  <link rel="stylesheet" href="css/reservation.css">
+  <link rel="stylesheet" href="css/volunteer.css">
+</head>
+<body>
+
+  <!-- Header: 서브 페이지는 흰색 버전으로 상단 고정 (header--fixed) -->
+  <header class="header header--fixed" id="header">
+    <div class="top-bar">
+      <div class="inner">
+        <ul class="family-site">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림">대전광역시청</a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림">한밭수목원</a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림">대전엑스포시민광장</a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림">천연기념물센터</a></li>
+        </ul>
+        <ul class="util">
+          <li><a href="index.html">home</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/integMemberLogin.do?siteCd=drh&amp;subSiteCd=ist" target="_blank" rel="noopener" title="새 창 열림">login</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/registerMember/integMemberJoinClause.do" target="_blank" rel="noopener" title="새 창 열림">회원가입</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img class="logo-default" src="images/logo.png" alt="대전곤충생태관">
+            <img class="logo-active" src="images/logo_hover.png" alt="" aria-hidden="true">
+          </a>
+        </h1>
+        <button type="button" class="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- PC: 메뉴를 누르면 아래 패널과 서브메뉴가 내려옴 / 태블릿·모바일: 아코디언 -->
+        <nav class="gnb" id="gnb">
+          <ul class="gnb-list">
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-1" data-text="생태관 소개">생태관 소개</button>
+              <ul class="sub" id="sub-1">
+                <li><a href="about.html">곤충생태관은?</a></li>
+                <li><a href="history.html">연혁 및 조성개요</a></li>
+                <li><a href="organization.html">조직 및 업무</a></li>
+                <li><a href="industry.html">곤충산업육성</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-2" data-text="체험 프로그램">체험 프로그램</button>
+              <ul class="sub" id="sub-2">
+                <li><a href="program_Information.html">프로그램 안내</a></li>
+                <li><a href="program_reservation.html">프로그램 신청</a></li>
+                <li><a href="volunteer.html" aria-current="page">자원봉사 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-3" data-text="이용안내">이용안내</button>
+              <ul class="sub" id="sub-3">
+                <li><a href="guide.html">생태관 이용안내</a></li>
+                <li><a href="rules.html">유의사항</a></li>
+                <li><a href="location.html">찾아오시는 길</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-4" data-text="커뮤니티">커뮤니티</button>
+              <ul class="sub" id="sub-4">
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="gallery.html">포토갤러리</a></li>
+                <li><a href="archive.html">자료실</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="gnb-panel" aria-hidden="true">
+      <div class="inner">
+        <p class="gnb-panel-title"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main sub-main">
+    <!-- 상단 비주얼 -->
+    <section class="sub-visual">
+      <div class="inner">
+        <ol class="breadcrumb">
+          <li><a href="index.html">홈</a></li>
+          <li>체험 프로그램</li>
+          <li aria-current="page">자원봉사 신청</li>
+        </ol>
+        <h2 class="sub-title">자원봉사 신청</h2>
+        <p class="sub-desc">대전곤충생태관에서는 따뜻한 마음을 나눌 봉사자분들의 참여를 기다립니다.</p>
+      </div>
+    </section>
+
+    <!-- 활동 안내 -->
+    <section class="vol-guide">
+      <div class="inner">
+        <h3 class="sec-title"><img src="images/icon_leaf.png" alt="">자원봉사 안내</h3>
+
+        <ul class="vol-cards">
+          <li class="vol-card c-green">
+            <i class="bi bi-clock" aria-hidden="true"></i>
+            <p class="vol-card-label">활동 시간</p>
+            <p class="vol-card-value">오전 10:00~12:00<br>오후 14:00~16:00</p>
+          </li>
+          <li class="vol-card c-blue">
+            <i class="bi bi-person-check" aria-hidden="true"></i>
+            <p class="vol-card-label">참여 대상</p>
+            <p class="vol-card-value">중학생 이상</p>
+            <p class="vol-card-sub">단체 봉사는 전화로 사전 신청</p>
+          </li>
+          <li class="vol-card c-amber">
+            <i class="bi bi-calendar-check" aria-hidden="true"></i>
+            <p class="vol-card-label">신청 기간</p>
+            <p class="vol-card-value">봉사일 15일 전(0시)<br>~ 2일 전까지</p>
+          </li>
+          <li class="vol-card c-pink">
+            <i class="bi bi-people" aria-hidden="true"></i>
+            <p class="vol-card-label">모집 인원</p>
+            <p class="vol-card-value">1일 시간대별 2명</p>
+            <p class="vol-card-sub">날짜별 남은 인원을 꼭 확인하세요</p>
+          </li>
+        </ul>
+
+        <div class="vol-detail">
+          <div class="vol-tasks">
+            <p class="vol-sub-title"><i class="bi bi-list-check" aria-hidden="true"></i>자원봉사 내용</p>
+            <ul class="task-chips">
+              <li><i class="bi bi-signpost-split" aria-hidden="true"></i>방문객 안내</li>
+              <li><i class="bi bi-tools" aria-hidden="true"></i>시설물 파손 확인</li>
+              <li><i class="bi bi-bug" aria-hidden="true"></i>생태관 생물 상태 확인</li>
+              <li><i class="bi bi-recycle" aria-hidden="true"></i>환경정화 활동</li>
+              <li><i class="bi bi-flower1" aria-hidden="true"></i>곤충 사육 관리</li>
+            </ul>
+          </div>
+          <div class="vol-1365">
+            <p class="vol-sub-title"><i class="bi bi-patch-check" aria-hidden="true"></i>1365 자원봉사포털 안내</p>
+            <ul class="vol-notes">
+              <li><strong>회원가입한 분에 한해 봉사시간 입력</strong>이 가능하며, 봉사활동 중 사고 발생 시 상해보상을 받을 수 있으므로 반드시 사전에 가입해 주세요.</li>
+              <li>봉사시간 확인서는 1365 자원봉사포털에서 확인·출력할 수 있습니다.</li>
+            </ul>
+            <a href="https://www.1365.go.kr" class="link-1365" target="_blank" rel="noopener" title="새 창 열림">1365 자원봉사포털 바로가기 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <p class="vol-group-call">
+          <i class="bi bi-telephone" aria-hidden="true"></i>
+          <span><strong>단체 봉사</strong>를 원하시면 대전곤충생태관 <a href="tel:042-270-5274">042-270-5274</a>로 사전 신청해 주세요.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 신청 -->
+    <section class="vol-apply" id="volApply">
+      <div class="inner">
+        <h3 class="sec-title"><img src="images/icon_bee.png" alt="">봉사 신청</h3>
+        <p class="panel-guide">봉사일 15일 전부터 2일 전까지 신청할 수 있어요. 매주 월요일(휴관일)은 신청할 수 없습니다.</p>
+
+        <form class="reserve-body vol-body" id="volForm" novalidate>
+          <div class="reserve-form">
+            <!-- 1. 날짜·시간 -->
+            <fieldset class="vol-step">
+              <legend class="vol-step-title"><span class="vol-step-num">1</span>봉사 날짜와 시간</legend>
+              <div class="date-time">
+                <div class="calendar">
+                  <div class="cal-head">
+                    <button type="button" class="cal-nav" data-dir="-1" aria-label="이전 달"><img src="images/icon_left_arrow.png" alt=""></button>
+                    <p class="cal-title" id="calTitle" aria-live="polite"></p>
+                    <button type="button" class="cal-nav" data-dir="1" aria-label="다음 달"><img src="images/icon_right_arrow.png" alt=""></button>
+                  </div>
+                  <ol class="cal-week" aria-hidden="true">
+                    <li>일</li><li>월</li><li>화</li><li>수</li><li>목</li><li>금</li><li>토</li>
+                  </ol>
+                  <div class="cal-grid" id="calGrid"></div>
+                  <p class="cal-legend"><span class="dot dot-open"></span>신청 가능 <span class="dot dot-full"></span>마감</p>
+                </div>
+                <div class="time-box">
+                  <p class="time-date" id="timeDate">먼저 날짜를 선택해 주세요.</p>
+                  <ul class="time-list" id="timeList"></ul>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 2. 신청자 정보 -->
+            <fieldset class="vol-step">
+              <legend class="vol-step-title"><span class="vol-step-num">2</span>신청자 정보</legend>
+              <p class="panel-guide"><span class="req">*</span> 표시는 필수 입력 항목입니다.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="volName">이름 <span class="req">*</span></label>
+                  <input type="text" id="volName" autocomplete="name" placeholder="홍길동">
+                  <p class="field-msg" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="volPhone">연락처 <span class="req">*</span></label>
+                  <input type="tel" id="volPhone" autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000">
+                  <p class="field-msg" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <span class="label">구분 <span class="req">*</span></span>
+                  <div class="chips" id="volGroup">
+                    <label class="chip"><input type="radio" name="volGroup" value="중학생"><span>중학생</span></label>
+                    <label class="chip"><input type="radio" name="volGroup" value="고등학생"><span>고등학생</span></label>
+                    <label class="chip"><input type="radio" name="volGroup" value="대학생"><span>대학생</span></label>
+                    <label class="chip"><input type="radio" name="volGroup" value="일반"><span>일반</span></label>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="volId">1365 아이디 <span class="req">*</span></label>
+                  <input type="text" id="volId" autocomplete="off" placeholder="1365 자원봉사포털 아이디">
+                  <p class="field-msg" aria-live="polite"></p>
+                </div>
+                <div class="field field-full">
+                  <label for="volMemo">하고 싶은 말 <span class="opt">(선택)</span></label>
+                  <textarea id="volMemo" rows="3" maxlength="200" placeholder="희망 활동이나 전달할 내용을 적어 주세요."></textarea>
+                </div>
+              </div>
+              <div class="agree">
+                <label class="check">
+                  <input type="checkbox" id="agree1365">
+                  <span>1365 자원봉사포털 회원가입을 완료했습니다. <span class="req">*</span></span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="agreePrivacy">
+                  <span>개인정보 수집·이용에 동의합니다. <span class="req">*</span></span>
+                </label>
+                <details class="agree-detail">
+                  <summary>내용 보기</summary>
+                  <p>수집 항목: 이름, 연락처, 구분, 1365 아이디 / 이용 목적: 자원봉사 신청 확인 및 봉사시간 입력 / 보유 기간: 봉사활동 종료 후 1년</p>
+                </details>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- 신청 요약 -->
+          <aside class="summary" aria-label="신청 정보">
+            <p class="summary-title">신청 정보</p>
+            <dl class="summary-list">
+              <div><dt>날짜</dt><dd id="sumDate">-</dd></div>
+              <div><dt>시간</dt><dd id="sumTime">-</dd></div>
+              <div><dt>신청자</dt><dd id="sumName">-</dd></div>
+            </dl>
+            <div class="summary-btns">
+              <button type="submit" class="btn btn-green" id="volSubmit" disabled>봉사 신청하기</button>
+            </div>
+            <p class="summary-help" id="volHelp" aria-live="polite"></p>
+          </aside>
+        </form>
+
+        <!-- 신청 완료 -->
+        <div class="step-done vol-done" id="volDone" tabindex="-1" hidden>
+          <img class="done-icon" src="images/icon_butterfly.png" alt="">
+          <p class="done-title">자원봉사 신청이 완료되었습니다!</p>
+          <p class="done-desc">신청번호 <strong id="volNumber"></strong><br>봉사 당일 활동 시작 10분 전까지 1층 안내데스크로 와 주세요.</p>
+          <dl class="done-summary" id="volSummary"></dl>
+          <div class="done-btns">
+            <a href="index.html" class="btn btn-line">메인으로</a>
+            <button type="button" class="btn btn-green" id="volRestart">다른 날짜 신청하기</button>
+          </div>
+        </div>
+
+        <p class="vol-contact"><i class="bi bi-building" aria-hidden="true"></i>담당부서 농생명정책과 <span class="bar" aria-hidden="true"></span><i class="bi bi-telephone" aria-hidden="true"></i>문의 <a href="tel:042-270-5273">042-270-5273</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 띠 배너: 모든 페이지 공통 / 배너 전체가 반딧불이 불빛체험 예약으로 연결 -->
+  <a href="program_reservation.html?program=firefly-2026-summer" class="strip-banner" aria-label="2026 대전곤충생태관 반딧불이 불빛체험, 2차 예약 마감 D-Day. 예약 바로가기">
+    <span class="inner">
+      <span class="strip-title">2026 대전곤충생태관<strong>반딧불이 불빛체험</strong></span>
+      <span class="strip-dday">2차 예약 마감 D-Day</span>
+      <span class="strip-btn">예약 바로가기</span>
+    </span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="related">
+      <div class="inner">
+        <h2 class="related-title">
+          <svg class="related-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 10.5 12 4l8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          관련사이트
+        </h2>
+        <ul class="related-list">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_city.png" alt="대전광역시청"></a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/hanbat_arboretum.png" alt="한밭수목원"></a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_expo.png" alt="대전엑스포시민광장"></a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/natural_heritage_center.png" alt="천연기념물센터"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="inner">
+        <div class="footer-info">
+          <ul class="policy">
+            <li class="point"><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=2062" target="_blank" rel="noopener" title="새 창 열림">개인정보처리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=1757" target="_blank" rel="noopener" title="새 창 열림">영상정보처리기기 운영 · 관리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/board/boardNormalList.do?boardId=homepage_0001&amp;menuSeq=1507" target="_blank" rel="noopener" title="새 창 열림">누리집</a></li>
+          </ul>
+          <address>
+            <span>(35204) 대전광역시 서구 둔산대로 191(만년동)/한밭수목원내</span>
+            <span>대표전화 (042) 270-5274</span>
+          </address>
+          <p class="copyright">COPYRIGHT 2017 (c) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="footer-logo">
+          <img src="images/footer_logo.png" alt="대전광역시">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/volunteer.js"></script>
+</body>
+</html>

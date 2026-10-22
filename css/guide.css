@@ -1,0 +1,912 @@
+/* ===== 생태관 이용안내 (guide.html) — 미니 메뉴·문의 줄·이미지 자리는 notice.css / about.css 재사용 ===== */
+
+/* 기본 이용 정보 */
+.guide-basic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 26px 28px;
+  border-radius: 16px;
+  background: linear-gradient(110deg, rgb(234, 247, 238) 0%, rgb(255, 247, 229) 100%);
+}
+.guide-basic li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.guide-basic .bi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: rgb(32, 160, 85);
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(19, 76, 19, 0.08);
+}
+.gb-label { font-size: 15px; color: var(--작은-글씨버튼그레이); }
+.guide-basic strong {
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--제목큰글씨그린);
+}
+.guide-basic a { color: inherit; }
+
+/* 섹션 공통 */
+.guide-sec { margin-top: 56px; }
+.guide-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--선);
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--제목큰글씨그린);
+}
+.guide-title .bi { position: relative; top: 1.5px; font-size: 24px; color: rgb(32, 160, 85); } /* 아이콘이 Gmarket 제목보다 위로 떠 보여 살짝 내림 */
+
+/* 1F / 2F 필터 */
+.guide-title--tabs { justify-content: space-between; }
+.guide-title--tabs h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: inherit;
+  color: inherit;
+}
+.floor-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f1f4f0;
+}
+.floor-tab {
+  min-width: 64px;
+  height: 38px;
+  padding: 3px 18px 0;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--작은-글씨버튼그레이);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.floor-tab:hover { color: var(--제목큰글씨그린); }
+.floor-tab.is-active { color: #fff; background: rgb(32, 160, 85); }
+.floor-panel[hidden] { display: none !important; }
+.floor-badge {
+  margin-left: 4px;
+  padding: 6px 10px 2px;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  background: rgb(32, 160, 85);
+}
+
+/* 2층 준비 중 */
+.map-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 1846 / 693;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #9aa39a;
+}
+.map-empty .bi { font-size: 40px; color: inherit; }
+.zone-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 60px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  color: var(--작은-글씨버튼그레이);
+  background: #f5f6f4;
+}
+.zone-empty .bi { font-size: 18px; color: rgb(32, 160, 85); }
+
+/* 관람안내도 이미지 */
+.guide-map {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+  background: #fff;
+}
+.guide-map img { display: block; width: 100%; height: auto; }
+
+/* 지도 위 표시: 위치는 이미지 기준 %, 크기는 지도 폭(cqw) 기준이라 화면 크기와 함께 비례 */
+.map-stage { position: relative; container-type: inline-size; }
+.mk {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max(20px, 2.7cqw);
+  height: max(20px, 2.7cqw);
+  padding: 0.12em 0 0;
+  border: 0;
+  border-radius: 50%;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: max(10px, 1.2cqw);
+  line-height: 1;
+  white-space: nowrap;
+  color: #fff;
+  transition: transform 0.2s;
+}
+.mk-g { background: rgb(0, 112, 255); }  /* 생태유리온실 */
+.mk-y { background: rgb(255, 110, 0); }  /* 곤충홍보관 */
+.mk-q { background: rgb(226, 45, 45); }  /* 퀴즈정답 */
+.mk-e { background: rgb(0, 150, 136); }    /* 2층 전시시설 */
+.mk-r { background: rgb(96, 100, 98); }   /* 2층 연구시설 */
+
+/* 2층 방 구역 색 (참고 안내도처럼 반투명) */
+.room {
+  position: absolute;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.room-breed { background: rgba(110, 210, 90, 0.35); }   /* 사육실 */
+.room-gray { background: rgba(140, 140, 140, 0.3); }    /* 세척건조실·저온창고 */
+.room-curve { border-top-right-radius: 85% 55%; }       /* 건물 둥근 모서리 */
+.room-lab { background: rgba(80, 190, 190, 0.3); }      /* 연구실 */
+button.mk { cursor: pointer; }
+button.mk:hover,
+.mk.is-on {
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* 번호 클릭 시 전시명 말풍선 */
+.mk-tip {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, calc(-100% - max(16px, 1.8cqw)));
+  padding: 12px 18px 11px;
+  border-radius: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: max(18px, 1.95cqw);
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--제목큰글씨그린);
+  pointer-events: none;
+}
+.mk-tip::after {
+  /* 꼬리: 몸통과 같은 색 마름모를 반쯤 겹쳐 그림 — 위치가 소수점 픽셀이어도 이음새 선이 생기지 않음 */
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  margin: -7px 0 0 -6.5px;
+  background: var(--제목큰글씨그린);
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.mk-tip[hidden] { display: none; }
+.mk-tip.is-left { transform: translate(-18px, calc(-100% - max(16px, 1.8cqw))); }
+.mk-tip.is-left::after { left: 18px; }
+.mk-tip.is-right { transform: translate(calc(-100% + 18px), calc(-100% - max(16px, 1.8cqw))); }
+.mk-tip.is-right::after { left: auto; right: 12px; margin-left: 0; }
+
+/* 지도 아래 로비 복도: 지도 바닥(건물 앞) 쪽에 붙은 복도 띠 — 위쪽 벽선 + 바닥색 + 시설을 잇는 통로선 */
+.map-lobby-wrap {
+  position: relative;
+  margin-top: 4px;
+  padding: 14px 18px 16px;
+  border-top: 4px solid rgb(196, 170, 130); /* 지도 건물 외벽과 이어지는 벽선 */
+  border-radius: 0 0 10px 10px;
+  background: rgb(250, 240, 222); /* 지도 복도 바닥과 비슷한 베이지 */
+}
+.lobby-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 15px;
+  color: rgb(120, 86, 40);
+}
+.lobby-label .bi { font-size: 16px; }
+.lobby-label span {
+  margin-left: 6px;
+  font-family: var(--font-base);
+  font-weight: 400;
+  font-size: 13px;
+  color: rgb(150, 120, 80);
+}
+.map-lobby {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+/* 시설들을 잇는 복도 통로선 */
+.map-lobby::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 8px;
+  border-top: 2px dashed rgb(214, 190, 150);
+}
+.map-lobby li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px 6px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--운영-시간문의오시는-길-내용);
+  white-space: nowrap;
+  background: #fff;
+}
+.map-lobby .bi { font-size: 16px; color: rgb(32, 160, 85); }
+.map-lobby .lobby-door,
+.map-lobby .lobby-stair { font-weight: 700; color: var(--제목큰글씨그린); }
+
+/* 범례 */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 16px;
+}
+.map-legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.map-legend .mk { position: static; transform: none; }
+.map-legend .mk { width: 24px; height: 24px; font-size: 11px; }
+
+/* Q 퀴즈정답 표시 (본문 안) */
+.quiz-q {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding-top: 2px;
+  border-radius: 50%;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background: rgb(226, 45, 45);
+  vertical-align: middle;
+}
+/* 목록 ↔ 지도 연동 강조 */
+.spot-list li { cursor: pointer; transition: background 0.2s; }
+.spot-list li.is-on,
+.spot-list li.is-target { background: rgba(255, 255, 255, 0.7); }
+/* 메인 사계 카드에서 넘어온 곤충의 전시 구역: 다른 곳을 클릭할 때까지 강조 유지 */
+.mk.is-target { z-index: 2; transform: translate(-50%, -50%) scale(1.3); }
+
+/* 관람 순서 */
+.guide-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.guide-flow li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 12px;
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+  text-align: center;
+}
+.guide-flow li + li::before {
+  content: "\F285"; /* bi-chevron-right */
+  position: absolute;
+  top: 50%;
+  left: -23px;
+  transform: translateY(-50%);
+  font-family: "bootstrap-icons";
+  font-size: 18px;
+  color: rgb(32, 160, 85);
+}
+.flow-step {
+  padding: 4.5px 8px 1.5px; /* Gmarket Sans가 위로 뜨는 만큼 보정 */
+  border-radius: 999px; /* 항상 완전한 알약 모양 */
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 10.5px;
+  color: #fff;
+  background: rgb(32, 160, 85);
+}
+.guide-flow strong {
+  margin-top: 6px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--제목큰글씨그린);
+}
+.guide-flow li > span:last-child { font-size: 14px; color: var(--작은-글씨버튼그레이); }
+
+/* 전시 구역 */
+.guide-zones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.zone {
+  padding: 26px 28px;
+  border-radius: 16px;
+}
+.zone-green { background: rgb(234, 247, 238); }
+.zone-yellow { background: rgb(255, 247, 229); }
+.zone-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--제목큰글씨그린);
+}
+.zone-title .bi { color: rgb(32, 160, 85); }
+.spot-list li {
+  border-bottom: 1px solid rgba(64, 120, 96, 0.12);
+  font-size: 16px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.spot-list li:last-child { border-bottom: 0; }
+/* 번호·이름 줄 = 토글 버튼 (js/guide.js에서 감쌈) */
+.spot-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 4px 9px 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  cursor: pointer;
+}
+.spot-name { flex: 1; }
+.spot-arrow {
+  font-size: 14px;
+  color: var(--작은-글씨버튼그레이);
+  transition: transform 0.3s;
+}
+.spot-list li.is-open .spot-arrow { transform: rotate(180deg); color: var(--제목큰글씨그린); }
+.spot-list li.is-open .spot-name { font-weight: 700; color: var(--제목큰글씨그린); }
+/* 펼쳐지는 사진 패널: grid 0fr → 1fr로 높이 애니메이션 */
+.spot-photo {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+.spot-list li.is-open .spot-photo { grid-template-rows: 1fr; }
+.spot-photo-in { overflow: hidden; }
+/* 전시 사진: 모든 구역 같은 크기 — 4번(907×536) 비율에서 높이만 120%(536 → 643.2). 넘치는 부분은 가운데 기준으로 잘림 */
+.spot-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 907 / 643.2;
+  object-fit: cover;
+  margin: 2px 0 14px;
+  border-radius: 10px;
+  background: #e9ebe8;
+}
+.spot-photo .img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 16 / 9;
+  margin: 2px 0 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #9aa39a;
+}
+.spot-photo .img-placeholder .bi { font-size: 32px; }
+@media (prefers-reduced-motion: reduce) {
+  .spot-photo,
+  .spot-arrow { transition: none; }
+}
+.spot-num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding-top: 2px;
+  border-radius: 50%;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  color: #fff;
+  background: rgb(0, 112, 255);
+}
+.zone-yellow .spot-num { background: rgb(255, 110, 0); }
+/* 2층: 전시시설(진한 그린) / 연구시설(회색 박스·회색 번호) */
+.zone-gray { background: #f1f2f0; }
+.zone-gray .zone-title .bi { color: rgb(96, 100, 98); }
+.zone-2f-e .spot-num { background: rgb(0, 150, 136); }
+.zone-2f-r .spot-num { background: rgb(96, 100, 98); }
+
+/* 관람 팁 */
+.guide-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px; /* 전시 구역 제목 아래, 생태유리온실·곤충홍보관 박스 위 */
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: #f5f6f4;
+}
+.guide-tips p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 16px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.guide-tips p > .bi { position: relative; top: 1px; font-size: 18px; color: rgb(32, 160, 85); } /* 아이콘이 글자보다 위로 떠 보여 살짝 내림 */
+.guide-tips strong { color: var(--제목큰글씨그린); }
+
+@media (max-width: 1024px) {
+  .guide-basic { gap: 10px; }
+  .guide-zones { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .floor-tab { min-width: 52px; height: 32px; padding: 2px 14px 0; font-size: 14px; }
+  .floor-badge { padding: 5px 10px 3px; font-size: 12px; }
+  .map-empty { aspect-ratio: 4 / 3; font-size: 14px; }
+  .zone-empty { padding: 40px 16px; font-size: 14px; }
+  .guide-basic { gap: 18px 10px; padding: 20px 16px; }
+  .guide-basic .bi { width: 44px; height: 44px; font-size: 20px; }
+  .guide-basic strong { font-size: 16px; }
+  .guide-sec { margin-top: 40px; }
+  .guide-title { font-size: 21px; }
+  .guide-map { padding: 8px; }
+  .map-lobby-wrap { padding: 12px 12px 14px; }
+  .lobby-label { flex-wrap: wrap; font-size: 14px; }
+  .lobby-label span { flex-basis: 100%; margin: 2px 0 0; font-size: 12px; }
+  .map-lobby { flex-wrap: wrap; justify-content: flex-start; gap: 6px; }
+  .map-lobby::before { display: none; }
+  .map-lobby li { padding: 6px 10px 5px; font-size: 13px; }
+  .map-legend { gap: 8px 14px; }
+  .map-legend li { font-size: 13px; }
+  .guide-facil li { height: 34px; padding: 0 12px; font-size: 14px; }
+  .guide-flow { grid-template-columns: 1fr; gap: 26px; }
+  .guide-flow li { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 16px 18px; text-align: left; }
+  .guide-flow strong { margin-top: 0; font-size: 17px; }
+  .guide-flow li > span:last-child { margin-left: auto; font-size: 13px; }
+  .guide-flow li + li::before { content: "\F282"; top: -24px; left: 50%; transform: translateX(-50%); } /* bi-chevron-down */
+  .zone { padding: 20px 18px; }
+  .zone-title { font-size: 18px; }
+  .spot-list li { font-size: 15px; }
+  .guide-tips { padding: 16px 18px; }
+  .guide-tips p { font-size: 14px; }
+}
+
+/* [초안] 지도 위 구역명 자리 — 확정 후 실제 스타일로 교체 */
+.zone-tag-draft {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: max(6px, 0.7cqw) max(12px, 1.4cqw);
+  border: 1px dashed #9aa39a;
+  border-radius: 6px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: max(12px, 1.4cqw);
+  line-height: 1;
+  white-space: nowrap;
+  color: #6b736b;
+  background: #e4e6e3;
+  pointer-events: none;
+}
+/* 모바일: 지도가 작아져 최소 크기 표시가 지도에 겹치므로 작게 + 조금 위로 */
+@media (max-width: 768px) {
+  .zone-tag-draft {
+    transform: translate(-50%, -80%);
+    padding: 4px 7px 3px;
+    font-size: 10px;
+  }
+}
+
+/* ===== 1층: 구역 고르기 → 구역 확대 지도 + 전시 사진 ===== */
+/* 구역 색: 생태유리온실 = 푸른빛, 곤충홍보관 = 주황빛 */
+.zone-pick,
+.zone-view { --zone-left: 0, 112, 255; --zone-right: 255, 110, 0; }
+
+/* --- 1단계: 전체 지도 --- */
+.zone-pick { padding: 26px 0 25px; } /* 위: 말풍선 자리 / 아래: 위쪽 여백(카드 안쪽 16px + 26px)과 같게 — 로비 띠 여백 8px 제외 */
+.map-overview { position: relative; container-type: inline-size; }
+.map-overview .ov-base { display: block; width: 100%; height: auto; }
+/* 건물 모양 그대로 덮는 오버레이 (images/map_1f_tint_left/right.png: 구역 모양만 남긴 반투명 색 이미지) */
+.map-overview .ov-zone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: saturate(0.8); /* 오버레이 색 채도 80% */
+  transition: opacity 0.35s;
+}
+/* 마우스를 올린 구역은 밝게(색만 살짝), 다른 구역은 더 어둡게 */
+.map-overview:has(.zone-btn-left:hover, .zone-btn-left:focus-visible) .ov-zone-left,
+.map-overview:has(.zone-btn-right:hover, .zone-btn-right:focus-visible) .ov-zone-right { opacity: 0.25; }
+
+.zone-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.zone-btn-left { left: 0; width: 50%; }
+.zone-btn-right { left: 50%; width: 50%; }
+.zone-btn-in {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: max(6px, 0.7cqw);
+  color: #fff;
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+.zone-btn-left .zone-btn-in { left: 59%; }
+.zone-btn-right .zone-btn-in { left: 46%; top: 58%; }
+/* 위계: 번호(작은 배지) → 구역명(가장 큼) → 둘러보기(행동 유도) */
+.zone-btn-in .zone-no {
+  padding: max(4px, 0.4cqw) max(10px, 0.9cqw) max(2px, 0.25cqw);
+  border-radius: 999px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: max(11px, 1.1cqw);
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.92);
+}
+.zone-btn-left .zone-no { color: rgb(var(--zone-left)); }
+.zone-btn-right .zone-no { color: rgb(var(--zone-right)); }
+.zone-btn-in strong {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: max(18px, 2.6cqw);
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.zone-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: max(2px, 0.3cqw);
+  padding: max(5px, 0.5cqw) max(10px, 1cqw) max(4px, 0.4cqw) max(12px, 1.1cqw);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  font-size: max(11px, 1cqw);
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+.zone-btn:hover .zone-btn-in,
+.zone-btn:focus-visible .zone-btn-in { transform: translate(-50%, -50%) scale(1.04); }
+.zone-btn-left:hover .zone-go, .zone-btn-left:focus-visible .zone-go { color: rgb(var(--zone-left)); background: #fff; border-color: #fff; }
+.zone-btn-right:hover .zone-go, .zone-btn-right:focus-visible .zone-go { color: rgb(var(--zone-right)); background: #fff; border-color: #fff; }
+.zone-btn:focus-visible { outline: none; }
+
+.map-overview .ov-where {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 19%;
+  transform: translateY(-35%);
+  pointer-events: none;
+  animation: whereFloat 2.4s ease-in-out infinite;
+}
+@keyframes whereFloat { 50% { translate: 0 -6px; } }
+
+/* --- 2단계: 구역 확대 --- */
+.zone-view[hidden] { display: none; }
+.zone-view { padding-bottom: 20px; } /* 안내 문구와 아래 로비 복도 띠 사이 */
+.zone-view-left { --zc: var(--zone-left); }
+.zone-view-right { --zc: var(--zone-right); }
+/* 위계 1: 머리줄 — 현재 구역(왼쪽) / 전체 지도로 돌아가기(오른쪽) */
+.zone-view-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+/* 현재 구역 표시: 채움 없이 가볍게 — 구역 색 작은 번호 + 진한 글자 (지도로 가는 시선을 뺏지 않도록) */
+.zone-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-left: 12px; /* "전체 지도" 쪽 오른쪽 여백과 같은 값 */
+  padding: 0 0 0 16px; /* 세로선 4px + 간격 12px */
+  position: relative;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+/* 세로선: 글자 높이보다 짧게 (가운데 정렬) */
+.zone-chip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  background: rgb(var(--zc));
+  transform: translateY(-55%);
+}
+.zone-chip .zone-no {
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(var(--zc));
+}
+.zone-back {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 2px 16px 0 14px;
+  border: 1px solid #d6dbd4;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.zone-back:hover { border-color: rgb(var(--zc)); color: rgb(var(--zc)); }
+/* 위계 2: 지도 + 사진 (같은 높이, 같은 비중) */
+.zone-view-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+/* 왼쪽 칸(지도 + 안내 문구) 높이 = 오른쪽 사진 높이: 사진이 왼쪽 칸 높이에 맞춰 늘어남 */
+.zone-left { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.zone-stage img { display: block; width: 100%; height: auto; }
+.zone-stage .mk { width: max(22px, 4.2cqw); height: max(22px, 4.2cqw); font-size: max(11px, 1.9cqw); }
+.zone-stage .mk.is-selected {
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(1.3);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(var(--zc), 0.35);
+}
+.zone-photo {
+  position: relative;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e9ebe8;
+  box-shadow: 0 0 0 3px rgba(var(--zc), 0.85);
+  /* 두 구역 같은 크기 (373.6 × 250: 안내 문구가 빠진 높이만큼 줄임) */
+  align-self: center;
+  aspect-ratio: 373.6 / 250;
+}
+.zone-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.zone-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px 18px 8px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.85));
+}
+.zone-photo figcaption:empty { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ov-where { animation: none; }
+  .ov-zone,
+  .zone-btn-in { transition: none; }
+}
+@media (max-width: 768px) {
+  .zone-pick { padding: 26px 0 26px; }
+  .map-overview .ov-where { width: 34%; }
+  .zone-btn-in strong { font-size: 15px; }
+  .zone-go { display: none; }
+  .zone-view-head { margin-bottom: 12px; }
+  .zone-chip { gap: 6px; margin-left: 0; padding-left: 13px; font-size: 19.5px; }
+  .zone-chip::before { height: 15px; }
+  .zone-chip .zone-no { font-size: 15.5px; }
+  .zone-back { height: 32px; padding: 2px 12px 0 10px; font-size: 13px; }
+  .zone-view-grid { grid-template-columns: 1fr; gap: 14px; }
+  .zone-photo { aspect-ratio: 4 / 3; }
+  .zone-photo figcaption { padding: 26px 12px 10px; font-size: 15px; }
+  .zone-left { gap: 8px; }
+}
+
+/* 구역 화면 등장 모션: 지도가 먼저 커지며 나타나고 → 번호가 차례로 → 사진·안내 문구는 뒤따라 (js/guide.js의 .is-enter) */
+.zone-view.is-enter .zone-stage > img { animation: zoneMapIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.zone-view.is-enter .zone-stage .mk { animation: zoneMkIn 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both; animation-delay: calc(0.45s + var(--i, 0) * 0.04s); }
+.zone-view.is-enter .zone-photo,
+.zone-view.is-enter .zone-view-head { animation: zoneSoftIn 0.4s ease-out both; }
+@keyframes zoneMapIn {
+  from { opacity: 0; transform: scale(0.88); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes zoneMkIn {
+  from { opacity: 0; scale: 0.3; }
+  to { opacity: 1; scale: 1; }
+}
+@keyframes zoneSoftIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zone-view.is-enter .zone-stage > img,
+  .zone-view.is-enter .zone-stage .mk,
+  .zone-view.is-enter .zone-photo,
+  .zone-view.is-enter .zone-view-head { animation: none; }
+}
+
+/* 오른쪽 칸: 처음엔 캐릭터(images/map-character-cut.png: map-character.png 흰 배경을 투명 처리) → 번호를 누르면(.has-photo) 같은 자리에 사진 박스 */
+.zone-view-grid,
+.zone-view-head { padding-right: 12px; } /* 사진 박스 오른쪽 여백 — "전체 지도" 버튼도 같은 선에 맞춤 */
+.zone-view-grid > .zone-left { grid-column: 1; grid-row: 1; padding-left: 5px; } /* 지도 5px 오른쪽으로 */
+.zone-view-grid > .zone-guide,
+.zone-view-grid > .zone-photo { grid-column: 2; grid-row: 1; }
+.zone-guide {
+  align-self: center;
+  justify-self: center;
+  width: 75.6%;
+  max-width: 333px; /* 캐릭터: 317px의 105% */
+  margin-right: 20px; /* 가운데에서 10px 왼쪽으로 */
+  height: auto;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.zone-view:not(.has-photo) .zone-photo { visibility: hidden; opacity: 0; }
+.zone-view.has-photo .zone-guide { opacity: 0; transform: scale(0.92); }
+.zone-view.has-photo .zone-photo { animation: zoneSoftIn 0.4s ease-out both; }
+/* 캐릭터가 같은 말을 하므로, 안내 문구는 사진이 나온 뒤에만 */
+/* 등장 순서: 지도 → 번호(차례로) → 캐릭터(아래에서 통통) */
+/* 캐릭터 대기 모션: 위아래로 둥실 + 살짝 갸웃 (transform과 겹치지 않게 translate·rotate 속성 사용) */
+.zone-guide { transform-origin: 75% 100%; animation: guideIdle 3.2s ease-in-out infinite; }
+.zone-view.is-enter:not(.has-photo) .zone-guide {
+  --gd: calc(0.45s + (var(--n, 12) - 1) * 0.04s + 0.15s); /* 마지막 번호가 다 뜬 뒤 */
+  animation: zoneGuideIn 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) both, guideIdle 3.2s ease-in-out infinite;
+  animation-delay: var(--gd), calc(var(--gd) + 0.5s);
+}
+@keyframes guideIdle {
+  0%, 100% { translate: 0 0; rotate: 0deg; }
+  25% { translate: 0 -7px; rotate: -1.5deg; }
+  50% { translate: 0 -2px; rotate: 0deg; }
+  75% { translate: 0 -7px; rotate: 1.5deg; }
+}
+@keyframes zoneGuideIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zone-guide { transition: none; animation: none !important; }
+  .zone-view.is-enter:not(.has-photo) .zone-guide,
+  .zone-view.has-photo .zone-photo { animation: none; }
+}
+@media (max-width: 768px) {
+  .zone-view-grid,
+  .zone-view-head { padding-right: 0; }
+  .zone-view-grid > .zone-left { padding-left: 0; }
+  .zone-view-grid > .zone-left,
+  .zone-view-grid > .zone-guide,
+  .zone-view-grid > .zone-photo { grid-column: 1; }
+  .zone-view-grid > .zone-guide,
+  .zone-view-grid > .zone-photo { grid-row: 2; }
+  .zone-guide { max-width: 242px; margin-right: 0; }
+}
+
+/* ===== 2층: 한 화면 (지도 + 캐릭터 → 사진 / 안내 박스) ===== */
+.zone-view-2f { --zone-left: 0, 112, 255; --zone-right: 255, 110, 0; --zc: 0, 150, 136; padding-top: 4px; }
+.zone-view-2f .zone-view-head { padding-left: 12px; }
+.zone-view-2f .zone-chip { margin-left: 0; }
+/* 머리줄 오른쪽 범례 ("전체 지도" 버튼 자리) */
+.zone-legend { display: flex; gap: 16px; }
+.zone-legend li { display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--운영-시간문의오시는-길-내용); }
+.zone-legend .mk { position: static; transform: none; width: 20px; height: 20px; font-size: 11px; }
+/* 사진 비공개 안내 박스: 사진 박스와 같은 자리·크기 */
+.zone-view-grid > .zone-note { grid-column: 2; grid-row: 1; }
+.zone-note {
+  align-self: center;
+  aspect-ratio: 373.6 / 250;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  background: #f1f2f0;
+  box-shadow: 0 0 0 3px rgba(96, 100, 98, 0.5);
+}
+.zone-note .bi { font-size: 34px; color: rgb(96, 100, 98); }
+.zone-note-title {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--제목큰글씨그린);
+}
+.zone-note-text { font-size: 15px; line-height: 1.6; color: var(--작은-글씨버튼그레이); }
+.zone-view:not(.has-note) .zone-note { visibility: hidden; opacity: 0; }
+.zone-view.has-note .zone-note { animation: zoneSoftIn 0.4s ease-out both; }
+.zone-view.has-note .zone-guide { opacity: 0; transform: scale(0.92); }
+@media (prefers-reduced-motion: reduce) {
+  .zone-view.has-note .zone-note { animation: none; }
+}
+@media (max-width: 768px) {
+  .zone-view-2f .zone-view-head { padding-left: 0; }
+  .zone-view-grid > .zone-note { grid-column: 1; grid-row: 2; }
+  .zone-note { aspect-ratio: 4 / 3; }
+  .zone-legend { gap: 10px; }
+  .zone-legend li { font-size: 13px; }
+}
+
+/* 2층 구역 라벨: 글자 세로 가운데(Gmarket이 위로 뜨는 만큼 보정) + 박스 아래 끝을 지붕선 8px 위에 고정 (top = 지붕선 % - 8px) */
+.zone-tag-draft.zone-tag-above {
+  transform: translate(-50%, -100%);
+  padding-top: calc(max(6px, 0.7cqw) + 1.5px);
+  padding-bottom: calc(max(6px, 0.7cqw) - 1.5px);
+}
+@media (max-width: 768px) {
+  .zone-tag-draft.zone-tag-above { transform: translate(-50%, -100%); padding-top: 5.5px; padding-bottom: 2.5px; }
+}
+
+/* 퀵버튼 '안내도'(guide.html#map)로 들어왔을 때 제목 위 여유 */
+#map { scroll-margin-top: 30px; }
+html:has(#map) { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html:has(#map) { scroll-behavior: auto; } }

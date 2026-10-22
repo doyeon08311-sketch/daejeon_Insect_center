@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>대전곤충생태관</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/MBC1961/MBC1961.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="top-bar">
+      <div class="inner">
+        <ul class="family-site">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림">대전광역시청</a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림">한밭수목원</a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림">대전엑스포시민광장</a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림">천연기념물센터</a></li>
+        </ul>
+        <ul class="util">
+          <li><a href="index.html">home</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/integMemberLogin.do?siteCd=drh&amp;subSiteCd=ist" target="_blank" rel="noopener" title="새 창 열림">login</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/registerMember/integMemberJoinClause.do" target="_blank" rel="noopener" title="새 창 열림">회원가입</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img class="logo-default" src="images/logo.png" alt="대전곤충생태관">
+            <img class="logo-active" src="images/logo_hover.png" alt="" aria-hidden="true">
+          </a>
+        </h1>
+        <button type="button" class="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- PC: 메뉴를 누르면 아래 패널과 서브메뉴가 내려옴 / 태블릿·모바일: 아코디언 -->
+        <nav class="gnb" id="gnb">
+          <ul class="gnb-list">
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-1" data-text="생태관 소개">생태관 소개</button>
+              <ul class="sub" id="sub-1">
+                <li><a href="about.html">곤충생태관은?</a></li>
+                <li><a href="history.html">연혁 및 조성개요</a></li>
+                <li><a href="organization.html">조직 및 업무</a></li>
+                <li><a href="industry.html">곤충산업육성</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-2" data-text="체험 프로그램">체험 프로그램</button>
+              <ul class="sub" id="sub-2">
+                <li><a href="program_Information.html">프로그램 안내</a></li>
+                <li><a href="program_reservation.html">프로그램 신청</a></li>
+                <li><a href="volunteer.html">자원봉사 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-3" data-text="이용안내">이용안내</button>
+              <ul class="sub" id="sub-3">
+                <li><a href="guide.html">생태관 이용안내</a></li>
+                <li><a href="rules.html">유의사항</a></li>
+                <li><a href="location.html">찾아오시는 길</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-4" data-text="커뮤니티">커뮤니티</button>
+              <ul class="sub" id="sub-4">
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="gallery.html">포토갤러리</a></li>
+                <li><a href="archive.html">자료실</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="gnb-panel" aria-hidden="true">
+      <div class="inner">
+        <p class="gnb-panel-title"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero">
+      <svg class="hero-curve" viewBox="0 0 1920 490" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,293 C250,460 650,520 1060,256 C1350,340 1750,250 1920,50 L1920,490 L0,490 Z" fill="#fff"/>
+      </svg>
+      <div class="inner">
+        <div class="hero-text">
+          <p class="hero-sub">곤충의 세계를 만나는</p>
+          <h2 class="hero-title">대전곤충생태관</h2>
+          <div class="hero-btns">
+            <a href="program_reservation.html" class="hero-btn btn-program">프로그램 예약 <span class="plus">+</span></a>
+            <a href="volunteer.html" class="hero-btn btn-volunteer">봉사활동 예약 <span class="plus">+</span></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-character">
+            <!-- 모바일(768px 이하)은 전용 이미지 -->
+            <picture>
+              <source media="(max-width: 768px)" srcset="images/main-hero-character-mo.png">
+              <img src="images/main-hero-character.png" alt="체험 프로그램 예약 필수!(선착순)">
+            </picture>
+          </div>
+          <div class="hero-picture">
+            <img src="images/main-hero-picture.png" alt="호박벌 관찰, 장수풍뎅이 체험 사진">
+          </div>
+        </div>
+        <div class="hero-info">
+          <dl class="info-item">
+            <dt><img src="images/icon_hours.png" alt="">운영시간</dt>
+            <dd class="info-main">10:00-17:00</dd>
+            <dd class="info-sub">매주 월요일 정기휴무</dd>
+          </dl>
+          <dl class="info-item">
+            <dt><img src="images/icon_call.png" alt="">문의</dt>
+            <dd class="info-main">042-270-5279</dd>
+            <dd class="info-sub">상담 시간 10:00-17:00</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 이달의 프로그램 -->
+    <section class="program">
+      <div class="inner">
+        <div class="sec-head">
+          <h2 class="sec-title"><img src="images/icon_butterfly.png" alt="">이달의 프로그램</h2>
+          <ul class="program-tabs">
+            <li><button type="button" class="is-active" data-filter="all" aria-pressed="true">전체</button></li>
+            <li><button type="button" data-filter="experience" aria-pressed="false">체험</button></li>
+            <li><button type="button" data-filter="exhibit" aria-pressed="false">전시</button></li>
+          </ul>
+        </div>
+        <div class="program-slider">
+          <div class="swiper program-swiper">
+            <!-- 카드는 data/programs.js를 읽어 main.js에서 생성 -->
+            <div class="swiper-wrapper"></div>
+          </div>
+          <button type="button" class="slide-btn slide-prev program-prev" aria-label="이전 프로그램"><img src="images/icon_left_arrow.png" alt=""></button>
+          <button type="button" class="slide-btn slide-next program-next" aria-label="다음 프로그램"><img src="images/icon_right_arrow.png" alt=""></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 알림마당 + 미니 배너 -->
+    <section class="notice-area">
+      <div class="inner">
+        <div class="notice">
+          <div class="sec-head">
+            <h2 class="sec-title"><img src="images/icon_bee.png" alt="">알림마당</h2>
+            <a href="notice.html" class="more">+ 더보기</a>
+          </div>
+          <!-- 최신 공지 4개: data/notices.js에서 main.js가 생성 -->
+          <ul class="notice-list" id="mainNotice"></ul>
+        </div>
+        <a href="guide.html" class="mini-banner">
+          <img src="images/mini_banner.png" alt="꿈돌이와 사이버 생태관 둘러보기">
+        </a>
+      </div>
+    </section>
+
+    <!-- 생태관의 사계 (data-season은 main.js에서 현재 계절로 설정) -->
+    <section class="season" data-season="summer">
+      <div class="season-bg" aria-hidden="true">
+        <span class="bg-spring"></span>
+        <span class="bg-summer"></span>
+        <span class="bg-autumn"></span>
+        <span class="bg-winter"></span>
+      </div>
+      <div class="inner">
+        <div class="season-side">
+          <h2 class="sec-title season-title"><img src="images/icon_sun.png" alt="">생태관의 사계</h2>
+          <img class="season-bubble" src="images/Speech_bubble.png" alt="버튼을 클릭해 봐!!">
+          <ul class="season-menu">
+            <li><button type="button" data-season="spring" aria-pressed="false">봄의 곤충</button></li>
+            <li><button type="button" data-season="summer" aria-pressed="true">여름의 곤충</button></li>
+            <li><button type="button" data-season="autumn" aria-pressed="false">가을의 곤충</button></li>
+            <li><button type="button" data-season="winter" aria-pressed="false">겨울의 곤충</button></li>
+          </ul>
+        </div>
+        <div class="season-content">
+          <ul class="season-grid" data-season="spring" aria-label="봄의 곤충">
+            <li><a href="guide.html" class="insect-card" data-insect="1"><div class="thumb"><img src="images/Tab_Banner_Spring_01(01).png" alt=""></div><p class="insect-name">배추흰나비</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="2"><div class="thumb"><img src="images/Tab_Banner_Spring_01(02).png" alt=""></div><p class="insect-name">칠성무당벌레</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="3"><div class="thumb"><img src="images/Tab_Banner_Spring_01(03).png" alt=""></div><p class="insect-name">호랑나비</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="4"><div class="thumb"><img src="images/Tab_Banner_Spring_01(04).png" alt=""></div><p class="insect-name">아이누 길앞잡이</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="5"><div class="thumb"><img src="images/Tab_Banner_Spring_01(05).png" alt=""></div><p class="insect-name">머리뿔가위벌</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="6"><div class="thumb"><img src="images/Tab_Banner_Spring_01(06).png" alt=""></div><p class="insect-name">광대노린재</p></a></li>
+          </ul>
+          <ul class="season-grid" data-season="summer" aria-label="여름의 곤충">
+            <li><a href="guide.html" class="insect-card" data-insect="7"><div class="thumb"><img src="images/Tab_Banner_Summer_02(01).png" alt=""></div><p class="insect-name">참매미</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="8"><div class="thumb"><img src="images/Tab_Banner_Summer_02(02).png" alt=""></div><p class="insect-name">장수풍뎅이</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="9"><div class="thumb"><img src="images/Tab_Banner_Summer_02(03).png" alt=""></div><p class="insect-name">넓적사슴벌레</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="10"><div class="thumb"><img src="images/Tab_Banner_Summer_02(04).png" alt=""></div><p class="insect-name">된장잠자리</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="11"><div class="thumb"><img src="images/Tab_Banner_Summer_02(05).png" alt=""></div><p class="insect-name">호박벌</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="12"><div class="thumb"><img src="images/Tab_Banner_Summer_02(06).png" alt=""></div><p class="insect-name">애반딧불이</p></a></li>
+          </ul>
+          <ul class="season-grid" data-season="autumn" aria-label="가을의 곤충">
+            <li><a href="guide.html" class="insect-card" data-insect="13"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(1).png" alt=""></div><p class="insect-name">왕귀뚜라미</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="14"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(2).png" alt=""></div><p class="insect-name">물방개</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="15"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(3).png" alt=""></div><p class="insect-name">고추잠자리</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="16"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(4).png" alt=""></div><p class="insect-name">벼메뚜기</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="17"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(5).png" alt=""></div><p class="insect-name">왕사마귀</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="18"><div class="thumb"><img src="images/Tab_Banner_Autumn_03(6).png" alt=""></div><p class="insect-name">쌍별귀뚜라미</p></a></li>
+          </ul>
+          <ul class="season-grid" data-season="winter" aria-label="겨울의 곤충">
+            <li><a href="guide.html" class="insect-card" data-insect="19"><div class="thumb"><img src="images/Tab_Banner_Winter_04(01).png" alt=""></div><p class="insect-name">겨울각다귀</p></a></li>
+            <li><a href="guide.html" class="insect-card" data-insect="20"><div class="thumb"><img src="images/Tab_Banner_Winter_04(02).png" alt=""></div><p class="insect-name">겨울자나방</p></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 생태관 라이브 -->
+    <section class="live">
+      <div class="inner">
+        <div class="sec-head">
+          <h2 class="sec-title"><img src="images/icon_leaf.png" alt="">생태관 라이브</h2>
+          <ul class="sns-links">
+            <li><a href="https://www.youtube.com/channel/UCWaGZPczhgHNC2ZZy13ErYw" target="_blank" rel="noopener" title="새 창 열림"><img src="images/youtube.png" alt="유튜브"></a></li>
+            <li><a href="https://www.instagram.com/dj_insect_eco_center_official/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/insta.png" alt="인스타그램"></a></li>
+            <li><a href="https://blog.naver.com/storydaejeon/224361866775" target="_blank" rel="noopener" title="새 창 열림"><img src="images/blog.png" alt="블로그"></a></li>
+          </ul>
+        </div>
+        <ul class="live-list">
+          <li>
+            <a href="https://youtu.be/UzZ1mCD2S90?si=KV4ywAs1tHr1yMdT" target="_blank" rel="noopener" title="새 창 열림" class="live-card live-youtube">
+              <div class="thumb"><img src="images/youtube_live.png" alt=""></div>
+              <span class="live-tag">유튜브</span>
+              <p class="live-text"><strong>날아라! 장수풍뎅이</strong>비행 연습의 순간</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/p/DdLbD4vGdSr/" target="_blank" rel="noopener" title="새 창 열림" class="live-card live-insta">
+              <div class="thumb"><img src="images/insta_live.png" alt=""></div>
+              <span class="live-tag">인스타</span>
+              <p class="live-text"><strong>아기 호박벌 등장!</strong>호린이 보고 가세요!</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://blog.naver.com/storydaejeon/224346617179?trackingCode=blog_bloghome_searchlist" target="_blank" rel="noopener" title="새 창 열림" class="live-card live-blog">
+              <div class="thumb"><img src="images/blog_live.png" alt=""></div>
+              <span class="live-tag">블로그</span>
+              <p class="live-text"><strong>여름날의 반딧불이</strong>환상의 순간을 담다</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 갤러리 배너: 작은 원을 누르면 사진들이 자리를 순환하며 큰 원(data-slot="0")으로 이동 -->
+    <section class="gallery">
+      <div class="inner">
+        <div class="gallery-text">
+          <h2 class="gallery-title">자연과 교감하는<br>살아있는 시간</h2>
+          <a href="gallery.html" class="gallery-btn">추억 기록 보러가기 <img src="images/icon_line_arrow.png" alt=""></a>
+        </div>
+        <div class="gallery-stage">
+          <button type="button" class="gallery-photo" data-slot="0" aria-label="사진 크게 보기"><img src="images/gallery_05.png" alt="곤충 전시를 관람하는 어린이"></button>
+          <button type="button" class="gallery-photo" data-slot="1" aria-label="사진 크게 보기"><img src="images/gallery_01.png" alt="곤충 사육장 체험"></button>
+          <button type="button" class="gallery-photo" data-slot="2" aria-label="사진 크게 보기"><img src="images/gallery_02.png" alt="선생님과 곤충을 관찰하는 어린이"></button>
+          <button type="button" class="gallery-photo" data-slot="3" aria-label="사진 크게 보기"><img src="images/gallery_03.png" alt="나비가 찾아온 정원"></button>
+          <button type="button" class="gallery-photo" data-slot="4" aria-label="사진 크게 보기"><img src="images/gallery_04.png" alt="번데기와 나비 전시"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 찾아오시는 길 -->
+    <section class="location" id="location">
+      <div class="inner">
+        <h2 class="sec-title"><img src="images/icon_map.png" alt="">찾아오시는 길</h2>
+        <div class="location-body">
+          <!-- 카카오맵 (js/location-map.js): 지도 / 로드뷰 전환 -->
+          <div class="map-box">
+            <div class="map-canvas" id="kakaoMap" role="region" aria-label="대전곤충생태관 위치 지도"></div>
+            <div class="map-canvas" id="kakaoRoadview" role="region" aria-label="대전곤충생태관 주변 로드뷰" hidden></div>
+            <button type="button" class="map-toggle" id="mapToggle" aria-pressed="false" hidden>
+              <svg class="icon-roadview" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 12S5.5 4.5 12 4.5 22.5 12 22.5 12 18.5 19.5 12 19.5 1.5 12 1.5 12z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.8" fill="currentColor"/></svg>
+              <svg class="icon-map" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2zm0 2.2v11.6m6-9.6v11.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span class="map-toggle-text">로드뷰 보기</span>
+            </button>
+            <p class="map-message" id="mapMessage" hidden></p>
+            <p class="map-address">대전광역시 서구 둔산대로 191(만년동)<span class="map-address-extra">/한밭수목원내</span></p>
+          </div>
+          <div class="route">
+            <div class="route-item route-car">
+              <h3 class="route-title">자차 이동 시 <img src="images/icon_car.png" alt=""></h3>
+              <p><strong>한밭수목원 공용 주차장</strong> 이용<br>
+                <strong>최초 3시간까지 무료 주차</strong><br>
+                (3시간 초과 시 15분당 600원 부과)<br>
+                (1일 최대 주차 요금: 12,000원)</p>
+            </div>
+            <div class="route-item route-bus">
+              <h3 class="route-title">대중 교통 이동 시 <img src="images/icon_bus.png" alt=""></h3>
+              <dl>
+                <dt>한밭수목원 정류장 하차 버스</dt>
+                <dd><strong>606, 618, 911</strong> (도보 4~5분)</dd>
+                <dt>대전예술의전당 정류장 하차 버스</dt>
+                <dd><strong>606, 618, 911</strong> (도보 7~8분)</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 띠 배너: 모든 페이지 공통 / 배너 전체가 반딧불이 불빛체험 예약으로 연결 -->
+  <a href="program_reservation.html?program=firefly-2026-summer" class="strip-banner" aria-label="2026 대전곤충생태관 반딧불이 불빛체험, 2차 예약 마감 D-Day. 예약 바로가기">
+    <span class="inner">
+      <span class="strip-title">2026 대전곤충생태관<strong>반딧불이 불빛체험</strong></span>
+      <span class="strip-dday">2차 예약 마감 D-Day</span>
+      <span class="strip-btn">예약 바로가기</span>
+    </span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="related">
+      <div class="inner">
+        <h2 class="related-title">
+          <svg class="related-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 10.5 12 4l8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          관련사이트
+        </h2>
+        <ul class="related-list">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_city.png" alt="대전광역시청"></a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/hanbat_arboretum.png" alt="한밭수목원"></a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_expo.png" alt="대전엑스포시민광장"></a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/natural_heritage_center.png" alt="천연기념물센터"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="inner">
+        <div class="footer-info">
+          <ul class="policy">
+            <li class="point"><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=2062" target="_blank" rel="noopener" title="새 창 열림">개인정보처리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=1757" target="_blank" rel="noopener" title="새 창 열림">영상정보처리기기 운영 · 관리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/board/boardNormalList.do?boardId=homepage_0001&amp;menuSeq=1507" target="_blank" rel="noopener" title="새 창 열림">누리집</a></li>
+          </ul>
+          <address>
+            <span>(35204) 대전광역시 서구 둔산대로 191(만년동)/한밭수목원내</span>
+            <span>대표전화 (042) 270-5274</span>
+          </address>
+          <p class="copyright">COPYRIGHT 2017 (c) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="footer-logo">
+          <img src="images/footer_logo.png" alt="대전광역시">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+  <script src="data/programs.js"></script>
+  <script src="data/notices.js"></script>
+  <script src="data/insects.js"></script>
+  <script src="js/program-utils.js"></script>
+  <script src="js/main.js"></script>
+  <!-- 카카오맵 SDK: 카카오 개발자센터 > 앱 > 플랫폼(Web)에 사이트 도메인 등록 필요 -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=32d136e8837ad7b05462753454050af1&amp;libraries=services&amp;autoload=false"></script>
+  <script src="js/location-map.js"></script>
+</body>
+</html>

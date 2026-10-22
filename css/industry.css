@@ -1,0 +1,153 @@
+/* ===== 곤충산업육성 (industry.html) — 섹션 제목·표는 history.css, 미니 메뉴·문의 줄은 notice.css / about.css 재사용 ===== */
+
+/* 정의 배너 */
+.ind-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  padding: 34px 40px;
+  border-radius: 16px;
+  background: linear-gradient(110deg, rgb(234, 247, 238) 0%, rgb(255, 247, 229) 100%);
+}
+.ind-label {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 17px;
+  color: rgb(32, 160, 85);
+}
+.ind-def {
+  margin-top: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+.ind-def strong { font-weight: 700; color: var(--제목큰글씨그린); }
+.ind-banner-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  font-size: 38px;
+  color: rgb(32, 160, 85);
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(19, 76, 19, 0.1);
+}
+
+/* 주요 영역 표 */
+.ind-table td { padding: 18px 24px; line-height: 1.6; }
+.ind-table td p + p { margin-top: 6px; }
+.ind-keys { font-weight: 700; color: var(--제목큰글씨그린); }
+
+/* 분야별 곤충 */
+.ind-list { margin-top: 10px; }
+.ind-item {
+  display: flex;
+  gap: 28px;
+  padding: 34px 10px;
+  border-bottom: 1px solid #edf0ec;
+}
+.ind-item.is-ours {
+  margin-top: 14px;
+  padding: 30px 28px;
+  border: 0;
+  border-radius: 16px;
+  background: rgb(255, 247, 229);
+}
+.ind-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  font-size: 36px;
+  color: #fff;
+  background: rgb(32, 160, 85);
+}
+.ind-item.is-ours .ind-icon { color: var(--제목큰글씨그린); background: rgb(255, 214, 102); }
+.ind-body { flex: 1; min-width: 0; }
+.ind-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 23px;
+  color: var(--제목큰글씨그린);
+}
+.ind-center {
+  padding: 7.5px 12px 2.5px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--선);
+  background: rgb(234, 247, 238);
+}
+.ind-item.is-ours .ind-center { color: #fff; background: rgb(32, 160, 85); }
+.ind-desc {
+  margin-top: 12px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+.ind-kinds {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #f5f6f4;
+  word-break: keep-all;
+}
+.ind-item.is-ours .ind-kinds { background: rgba(255, 255, 255, 0.75); }
+.ind-kinds strong { flex-shrink: 0; color: var(--제목큰글씨그린); }
+
+/* 천적 표 */
+.ind-enemy { margin-top: 20px; }
+.ind-enemy caption {
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  color: var(--선);
+}
+.ind-col-pest { width: 130px; }
+.ind-col-enemy { width: 220px; }
+.ind-enemy th,
+.ind-enemy td { height: 52px; padding: 0 14px; font-size: 15px; border-right: 1px solid #edf0ec; }
+.ind-enemy th:last-child,
+.ind-enemy td:last-child { border-right: 0; }
+.ind-enemy td:last-child { text-align: center; }
+
+@media (max-width: 768px) {
+  .ind-banner { margin-bottom: 44px; padding: 24px 20px; }
+  .ind-label { font-size: 14px; }
+  .ind-def { font-size: 17px; }
+  .ind-def br { display: none; }
+  .ind-banner-icon { width: 56px; height: 56px; font-size: 24px; }
+  .ind-table td { padding: 14px 10px; }
+  .ind-item { flex-direction: column; gap: 14px; padding: 26px 0; }
+  .ind-item.is-ours { padding: 22px 18px; }
+  .ind-icon { width: 56px; height: 56px; font-size: 24px; }
+  .ind-name { font-size: 19px; }
+  .ind-center { font-size: 12px; }
+  .ind-desc { font-size: 15px; }
+  .ind-kinds { flex-direction: column; gap: 4px; padding: 12px 14px; font-size: 14px; }
+  .ind-col-pest { width: 80px; }
+  .ind-col-enemy { width: 110px; }
+  .ind-enemy th, .ind-enemy td { height: auto; padding: 10px 6px; font-size: 13px; }
+}

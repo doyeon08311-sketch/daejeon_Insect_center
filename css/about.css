@@ -1,0 +1,148 @@
+/* ===== 곤충생태관은? (about.html) — 미니 메뉴·레이아웃은 notice.css 재사용 ===== */
+
+/* 이미지 자리: 회색 박스 (사진 제공 시 <img>로 교체) */
+.img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 16px;
+  font-size: 15px;
+  color: #9aa197;
+  background: #e9ecea;
+}
+.img-placeholder .bi { font-size: 40px; color: #c3c9c1; }
+
+.about-hero {
+  display: block;
+  width: 100%;
+  height: auto; /* 원본 비율(927×591) 그대로, 자르지 않음 */
+  border-radius: 16px;
+}
+
+/* 인사말 */
+.about-greeting {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  column-gap: 50px;
+  margin-top: 56px;
+}
+.about-hello {
+  grid-column: 1;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--선);
+}
+.about-lead {
+  grid-column: 1;
+  margin-top: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.45;
+  color: var(--제목큰글씨그린);
+}
+.about-lead em {
+  font-style: normal;
+  background: linear-gradient(transparent 62%, rgb(255, 236, 140) 62%);
+}
+.about-text {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  padding-left: 40px;
+  border-left: 2px solid rgb(234, 247, 238);
+}
+.about-text p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+.about-text p + p { margin-top: 18px; }
+.about-text strong { font-weight: 700; color: var(--제목큰글씨그린); }
+.about-text .about-thanks {
+  font-weight: 600;
+  color: var(--선);
+}
+
+/* 핵심 정보 */
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.about-facts li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 26px 12px 24px;
+  border: 1px solid #e4e8e2;
+  border-top: 4px solid rgb(32, 160, 85);
+  border-radius: 14px;
+  text-align: center;
+}
+.about-facts .bi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: rgb(32, 160, 85);
+  background: rgb(234, 247, 238);
+}
+.fact-label {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--작은-글씨버튼그레이);
+}
+.fact-value {
+  margin-top: 4px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+
+/* 담당부서·문의 */
+.about-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 56px;
+  padding-top: 30px;
+  border-top: 1px solid #e4e8e2;
+  font-size: 17px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.about-contact .bi { color: var(--선); }
+.about-contact a { font-weight: 700; color: var(--제목큰글씨그린); }
+.about-contact .bar {
+  width: 1px;
+  height: 14px;
+  margin: 0 10px;
+  background: #cfd4cd;
+}
+
+@media (max-width: 1024px) {
+  .about-greeting { grid-template-columns: 1fr; row-gap: 0; }
+  .about-text { grid-column: 1; grid-row: auto; margin-top: 24px; padding-left: 0; border-left: 0; }
+  .about-facts { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .about-greeting { margin-top: 36px; }
+  .about-hello { font-size: 15px; }
+  .about-lead { font-size: 23px; }
+  .about-text p { font-size: 15px; }
+  .about-facts { gap: 10px; margin-top: 36px; }
+  .about-facts li { padding: 20px 8px 18px; }
+  .about-facts .bi { width: 44px; height: 44px; font-size: 19px; }
+  .fact-value { font-size: 15px; }
+  .about-contact { flex-wrap: wrap; font-size: 15px; }
+}

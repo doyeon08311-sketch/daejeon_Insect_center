@@ -1,0 +1,106 @@
+/* ===== 서브 페이지 공통 (상단 비주얼·경로·버튼·라벨·상태 배지) ===== */
+
+/* 상단 비주얼: 메인 히어로 배경을 흐리게 깔고 흰 그라데이션 */
+.sub-visual {
+  position: relative;
+  padding: 70px 0 64px;
+  background: url("../images/main_hero_bg.png") center 35% / cover no-repeat;
+}
+.sub-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 55%, rgba(255, 255, 255, 0.35) 100%);
+}
+.sub-visual .inner { position: relative; }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: var(--작은-글씨버튼그레이);
+}
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+/* 구분 아이콘: Bootstrap Icons chevron-right */
+.breadcrumb li + li::before {
+  content: "\f285";
+  margin: 0 10px;
+  font-family: "bootstrap-icons";
+  font-size: 0.75em;
+}
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+}
+.breadcrumb a:hover { color: var(--선); }
+.breadcrumb [aria-current] { color: var(--선); font-weight: 600; }
+/* 경로~제목, 제목~설명 사이의 실제 글자 간격이 같도록(28px) 맞춤 */
+.sub-title {
+  margin-top: 18px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.2;
+  color: var(--제목큰글씨그린);
+}
+.sub-desc {
+  margin-top: 9px;
+  font-size: 20px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+
+/* 체험/전시 라벨 색 */
+.tag-exhibit { background: rgb(64, 90, 120); }
+.tag-experience { background: rgb(120, 109, 64); }
+
+/* 예약 상태 배지 색 (기본 접수중은 각 페이지에서 노랑) */
+.status-soon { color: #fff !important; background: var(--포인트블루) !important; }
+.status-onsite { color: #fff !important; background: rgb(120, 109, 64) !important; }
+.status-none { color: #fff !important; background: var(--선) !important; }
+.status-ended { color: #fff !important; background: var(--헤더푸터) !important; }
+
+/* 버튼 (메인 히어로 버튼과 같은 둥근 형태) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 6px 26px 0; /* Gmarket Sans가 위로 뜨는 만큼 보정 */
+  border-radius: 28px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 19px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.btn[hidden] { display: none; }
+.btn-green { color: #fff; background: var(--버튼그린); }
+/* 호버: 움직임 없이 색만 진하게 (테두리 버튼과 동일한 방식) */
+.btn-green:hover:not(:disabled) { background: rgb(14, 112, 55); }
+.btn-green:disabled,
+.btn-green.is-disabled { background: #c6cbc4; cursor: not-allowed; pointer-events: none; }
+.btn-line {
+  border: 2px solid var(--선);
+  color: var(--선);
+  background: #fff;
+}
+.btn-line:hover { color: #fff; background: var(--선); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+
+@media (max-width: 1024px) {
+  .sub-visual { padding: 50px 0 44px; }
+  .sub-title { font-size: 40px; }
+  .sub-desc { margin-top: 11px; font-size: 17px; }
+}
+
+@media (max-width: 768px) {
+  .sub-visual { padding: 36px 0 32px; }
+  .breadcrumb { font-size: 13px; }
+  .sub-title { margin-top: 13px; font-size: 30px; }
+  .sub-desc { margin-top: 6px; font-size: 15px; }
+  .btn { height: 50px; font-size: 16px; }
+}

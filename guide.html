@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>생태관 이용안내 | 대전곤충생태관</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/MBC1961/MBC1961.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sub.css">
+  <link rel="stylesheet" href="css/notice.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+
+  <!-- Header: 서브 페이지는 흰색 버전으로 상단 고정 (header--fixed) -->
+  <header class="header header--fixed" id="header">
+    <div class="top-bar">
+      <div class="inner">
+        <ul class="family-site">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림">대전광역시청</a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림">한밭수목원</a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림">대전엑스포시민광장</a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림">천연기념물센터</a></li>
+        </ul>
+        <ul class="util">
+          <li><a href="index.html">home</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/integMemberLogin.do?siteCd=drh&amp;subSiteCd=ist" target="_blank" rel="noopener" title="새 창 열림">login</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/registerMember/integMemberJoinClause.do" target="_blank" rel="noopener" title="새 창 열림">회원가입</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img class="logo-default" src="images/logo.png" alt="대전곤충생태관">
+            <img class="logo-active" src="images/logo_hover.png" alt="" aria-hidden="true">
+          </a>
+        </h1>
+        <button type="button" class="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- PC: 메뉴를 누르면 아래 패널과 서브메뉴가 내려옴 / 태블릿·모바일: 아코디언 -->
+        <nav class="gnb" id="gnb">
+          <ul class="gnb-list">
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-1" data-text="생태관 소개">생태관 소개</button>
+              <ul class="sub" id="sub-1">
+                <li><a href="about.html">곤충생태관은?</a></li>
+                <li><a href="history.html">연혁 및 조성개요</a></li>
+                <li><a href="organization.html">조직 및 업무</a></li>
+                <li><a href="industry.html">곤충산업육성</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-2" data-text="체험 프로그램">체험 프로그램</button>
+              <ul class="sub" id="sub-2">
+                <li><a href="program_Information.html">프로그램 안내</a></li>
+                <li><a href="program_reservation.html">프로그램 신청</a></li>
+                <li><a href="volunteer.html">자원봉사 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-3" data-text="이용안내">이용안내</button>
+              <ul class="sub" id="sub-3">
+                <li><a href="guide.html" aria-current="page">생태관 이용안내</a></li>
+                <li><a href="rules.html">유의사항</a></li>
+                <li><a href="#none">찾아오시는 길</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-4" data-text="커뮤니티">커뮤니티</button>
+              <ul class="sub" id="sub-4">
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="gallery.html">포토갤러리</a></li>
+                <li><a href="archive.html">자료실</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="gnb-panel" aria-hidden="true">
+      <div class="inner">
+        <p class="gnb-panel-title"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main sub-main">
+    <!-- 상단 비주얼 -->
+    <section class="sub-visual">
+      <div class="inner">
+        <ol class="breadcrumb">
+          <li><a href="index.html">홈</a></li>
+          <li>이용안내</li>
+          <li aria-current="page">생태관 이용안내</li>
+        </ol>
+        <h2 class="sub-title">생태관 이용안내</h2>
+        <p class="sub-desc">관람안내도를 보며 생태유리온실부터 곤충홍보관까지 차례로 둘러보세요.</p>
+      </div>
+    </section>
+
+    <section class="ntc">
+      <div class="inner ntc-layout">
+        <!-- 이용안내 미니 메뉴 -->
+        <aside class="lnb" aria-label="이용안내 메뉴">
+          <p class="lnb-title">이용안내</p>
+          <ul class="lnb-list">
+            <li><a href="guide.html" aria-current="page">생태관 이용안내<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="rules.html">유의사항<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="location.html">찾아오시는 길<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+        </aside>
+
+        <div class="ntc-main guide">
+          <!-- 이용 정보 -->
+          <ul class="guide-basic">
+            <li><i class="bi bi-clock" aria-hidden="true"></i><span class="gb-label">관람시간</span><strong>10:00 ~ 17:00</strong></li>
+            <li><i class="bi bi-calendar-x" aria-hidden="true"></i><span class="gb-label">휴관일</span><strong>매주 월요일</strong></li>
+            <li><i class="bi bi-telephone" aria-hidden="true"></i><span class="gb-label">문의</span><strong><a href="tel:042-270-5274">042-270-5274</a></strong></li>
+          </ul>
+
+          <!-- 관람 순서 -->
+          <section class="guide-sec">
+            <h3 class="guide-title"><i class="bi bi-signpost-2" aria-hidden="true"></i>관람 순서</h3>
+            <ol class="guide-flow">
+              <li><span class="flow-step">STEP 1</span><strong>안내데스크</strong><span>로비 입구</span></li>
+              <li><span class="flow-step">STEP 2</span><strong>생태유리온실</strong><span>로비 입구 좌측 · 1~8</span></li>
+              <li><span class="flow-step">STEP 3</span><strong>곤충홍보관</strong><span>9~21</span></li>
+              <li><span class="flow-step">STEP 4</span><strong>2층 관람</strong><span>계단을 따라 올라오세요</span></li>
+            </ol>
+          </section>
+
+          <!-- 관람안내도 -->
+          <section class="guide-sec" id="map">
+            <div class="guide-title guide-title--tabs">
+              <h3><i class="bi bi-map" aria-hidden="true"></i>관람안내도</h3>
+              <div class="floor-tabs" role="tablist" aria-label="층 선택">
+                <button type="button" class="floor-tab is-active" role="tab" aria-selected="true" data-floor-tab="1">1F</button>
+                <button type="button" class="floor-tab" role="tab" aria-selected="false" data-floor-tab="2">2F</button>
+              </div>
+            </div>
+            <!-- 1층 지도 -->
+            <div class="floor-panel" data-floor="1">
+            <figure class="guide-map">
+              <!-- 1층: 구역 고르기(전체 지도) → 구역 확대 지도 + 옆에 전시 사진 (js/guide.js) -->
+              <div class="zone-pick">
+                <div class="map-overview">
+                  <img class="ov-base" src="images/map_1f_base.png" alt="대전곤충생태관 1층 관람안내도: 왼쪽 생태유리온실, 오른쪽 곤충홍보관">
+                  <!-- 구역 모양 그대로 덮는 색 오버레이: 생태유리온실 푸른빛 / 곤충홍보관 주황빛 -->
+                  <img class="ov-zone ov-zone-left" src="images/map_1f_tint_left.png" alt="" aria-hidden="true">
+                  <img class="ov-zone ov-zone-right" src="images/map_1f_tint_right.png" alt="" aria-hidden="true">
+                  <button type="button" class="zone-btn zone-btn-left" data-zone-open="left">
+                    <span class="zone-btn-in"><span class="zone-no">01</span><strong>생태유리온실</strong><span class="zone-go">둘러보기<i class="bi bi-chevron-right" aria-hidden="true"></i></span></span>
+                  </button>
+                  <button type="button" class="zone-btn zone-btn-right" data-zone-open="right">
+                    <span class="zone-btn-in"><span class="zone-no">02</span><strong>곤충홍보관</strong><span class="zone-go">둘러보기<i class="bi bi-chevron-right" aria-hidden="true"></i></span></span>
+                  </button>
+                  <img class="ov-where" src="images/where.png" alt="어디가 궁금해?">
+                </div>
+              </div>
+              <div class="zone-view zone-view-left" data-zone="left" hidden>
+                <div class="zone-view-head">
+                  <p class="zone-chip"><span class="zone-no">01</span>생태유리온실</p>
+                  <button type="button" class="zone-back"><i class="bi bi-arrow-left" aria-hidden="true"></i>전체 지도</button>
+                </div>
+                <div class="zone-view-grid">
+                  <div class="zone-left">
+                  <div class="map-stage zone-stage">
+                    <img src="images/map_1f_zone_left.png" alt="생태유리온실 확대 안내도">
+                    <button type="button" class="mk mk-g" data-spot="1" data-name="곤충 체험장" style="left:5.49%;top:79.21%" aria-label="1번 곤충 체험장">1</button>
+                    <button type="button" class="mk mk-g" data-spot="2" data-name="닥터피쉬" style="left:23.5%;top:76.73%" aria-label="2번 닥터피쉬">2</button>
+                    <button type="button" class="mk mk-g" data-spot="3" data-name="생태연못" style="left:46.33%;top:51.81%" aria-label="3번 생태연못">3</button>
+                    <button type="button" class="mk mk-g" data-spot="4" data-name="배추흰나비 애벌레" style="left:51.95%;top:21.62%" aria-label="4번 배추흰나비 애벌레">4</button>
+                    <button type="button" class="mk mk-g" data-spot="5" data-name="포토존" style="left:75.63%;top:16.18%" aria-label="5번 포토존">5</button>
+                    <button type="button" class="mk mk-g" data-spot="6" data-name="식충식물" style="left:89.97%;top:26.89%" aria-label="6번 식충식물">6</button>
+                    <button type="button" class="mk mk-g" data-spot="7" data-name="장수풍뎅이 전시" style="left:90.29%;top:53.8%" aria-label="7번 장수풍뎅이 전시">7</button>
+                    <button type="button" class="mk mk-g" data-spot="8" data-name="나비 번데기" style="left:63.58%;top:70.31%" aria-label="8번 나비 번데기">8</button>
+                    <button type="button" class="mk mk-y" data-spot="9" data-name="곤충표본전시" style="left:72.95%;top:65.68%" aria-label="9번 곤충표본전시">9</button>
+                    <button type="button" class="mk mk-y" data-spot="10" data-name="곤충의 특징" style="left:89.88%;top:72.29%" aria-label="10번 곤충의 특징">10</button>
+                    <span class="mk mk-q" style="left:81.68%;top:16.18%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:90.2%;top:44.23%" title="퀴즈정답">Q</span>
+                  </div>
+                  </div>
+                  <img class="zone-guide" src="images/map-character-cut.png" alt="숫자 버튼을 자유롭게 클릭해 봐!">
+                  <figure class="zone-photo" aria-live="polite"><img alt=""><figcaption></figcaption></figure>
+                </div>
+              </div>
+              <div class="zone-view zone-view-right" data-zone="right" hidden>
+                <div class="zone-view-head">
+                  <p class="zone-chip"><span class="zone-no">02</span>곤충홍보관</p>
+                  <button type="button" class="zone-back"><i class="bi bi-arrow-left" aria-hidden="true"></i>전체 지도</button>
+                </div>
+                <div class="zone-view-grid">
+                  <div class="zone-left">
+                  <div class="map-stage zone-stage">
+                    <img src="images/map_1f_zone_right.png" alt="곤충홍보관 확대 안내도">
+                    <button type="button" class="mk mk-y" data-spot="11" data-name="곤충의 성장과정" style="left:7.18%;top:62.13%" aria-label="11번 곤충의 성장과정">11</button>
+                    <button type="button" class="mk mk-y" data-spot="12" data-name="거미도 곤충일까?" style="left:7.18%;top:41.71%" aria-label="12번 거미도 곤충일까?">12</button>
+                    <button type="button" class="mk mk-y" data-spot="13" data-name="곤충은 어떻게 숨을 쉴까?" style="left:7.18%;top:24.05%" aria-label="13번 곤충은 어떻게 숨을 쉴까?">13</button>
+                    <button type="button" class="mk mk-y" data-spot="14" data-name="곤충의 눈, 코, 입" style="left:21.74%;top:12.77%" aria-label="14번 곤충의 눈, 코, 입">14</button>
+                    <button type="button" class="mk mk-y" data-spot="15" data-name="눈으로 보는 곤충들" style="left:34.24%;top:32.34%" aria-label="15번 눈으로 보는 곤충들">15</button>
+                    <button type="button" class="mk mk-y" data-spot="16" data-name="숲속, 땅속, 물속 곤충" style="left:46.74%;top:17.46%" aria-label="16번 숲속, 땅속, 물속 곤충">16</button>
+                    <button type="button" class="mk mk-y" data-spot="17" data-name="해충을 잡는 이로운 곤충" style="left:77.93%;top:15.74%" aria-label="17번 해충을 잡는 이로운 곤충">17</button>
+                    <button type="button" class="mk mk-y" data-spot="18" data-name="곤충, 정말 먹는다구요?" style="left:90.76%;top:36.59%" aria-label="18번 곤충, 정말 먹는다구요?">18</button>
+                    <button type="button" class="mk mk-y" data-spot="19" data-name="뒤영벌" style="left:85.88%;top:74.9%" aria-label="19번 뒤영벌">19</button>
+                    <button type="button" class="mk mk-y" data-spot="20" data-name="인터렉티브 영상체험관" style="left:39.14%;top:60%" aria-label="20번 인터렉티브 영상체험관">20</button>
+                    <button type="button" class="mk mk-y" data-spot="21" data-name="먹이가 곤충인 동물 전시" style="left:72.29%;top:91.91%" aria-label="21번 먹이가 곤충인 동물 전시">21</button>
+                    <span class="mk mk-q" style="left:14.56%;top:13.2%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:38.03%;top:10.42%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:59.03%;top:25.31%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:71.4%;top:13.2%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:86.95%;top:27.65%" title="퀴즈정답">Q</span>
+                    <span class="mk mk-q" style="left:17.17%;top:51.06%" title="퀴즈정답">Q</span>
+                  </div>
+                  </div>
+                  <img class="zone-guide" src="images/map-character-cut.png" alt="숫자 버튼을 자유롭게 클릭해 봐!">
+                  <figure class="zone-photo" aria-live="polite"><img alt=""><figcaption></figcaption></figure>
+                </div>
+              </div>
+              <!-- 로비 복도: 지도 아래쪽(건물 앞) 복도에 왼쪽부터 순서대로 있는 시설 -->
+              <div class="map-lobby-wrap">
+                <p class="lobby-label"><i class="bi bi-signpost-split" aria-hidden="true"></i>1층 로비 복도<span>전시실 앞 복도에 왼쪽부터 순서대로 있어요</span></p>
+                <ul class="map-lobby" aria-label="1층 로비 복도 시설 (왼쪽부터)">
+                <li class="lobby-door"><i class="bi bi-arrow-left-right" aria-hidden="true"></i>출입구</li>
+                <li><i class="bi bi-info-circle" aria-hidden="true"></i>안내데스크</li>
+                <li><i class="bi bi-arrow-down-up" aria-hidden="true"></i>엘리베이터</li>
+                <li><i class="bi bi-person-standing-dress" aria-hidden="true"></i>화장실</li>
+                <li><i class="bi bi-camera" aria-hidden="true"></i>포토존</li>
+                <li><i class="bi bi-easel" aria-hidden="true"></i>교육실</li>
+                <li class="lobby-stair"><i class="bi bi-arrow-up-circle" aria-hidden="true"></i>2층 계단</li>
+              </ul>
+              </div>
+            </figure>
+            <ul class="map-legend" aria-label="범례">
+              <li><span class="mk mk-g" aria-hidden="true">1</span>생태유리온실</li>
+              <li><span class="mk mk-y" aria-hidden="true">9</span>곤충홍보관</li>
+              <li><span class="mk mk-q" aria-hidden="true">Q</span>퀴즈정답</li>
+            </ul>
+            </div>
+            <!-- 2층 지도: images/map_2f_base.png (1328×564) 위에 구역 색·번호 마크. 퀴즈·복도 안내 없음 -->
+            <div class="floor-panel" data-floor="2" hidden>
+            <!-- 2층: 구역 나눔 없이 한 화면 — 지도(번호) + 오른쪽 캐릭터 → 번호를 누르면 사진(1~4) 또는 안내 박스(5·6, 사진 비공개) -->
+            <figure class="guide-map">
+              <div class="zone-view zone-view-2f" data-zone="2f">
+                <div class="zone-view-head">
+                  <p class="zone-chip"><span class="zone-no">2F</span>전시시설 · 연구시설</p>
+                  <ul class="zone-legend" aria-label="범례">
+                    <li><span class="mk mk-e" aria-hidden="true">1</span>전시시설</li>
+                    <li><span class="mk mk-r" aria-hidden="true">3</span>연구시설</li>
+                  </ul>
+                </div>
+                <div class="zone-view-grid">
+                  <div class="zone-left">
+                    <div class="map-stage zone-stage">
+
+                      <img src="images/map_2f_base.png" alt="대전곤충생태관 2층 관람안내도: 왼쪽 전시시설(1~2), 오른쪽 연구시설(3~6)">
+                      <!-- [초안] 구역명 자리 (1층과 같은 회색 박스) -->
+                      <span class="zone-tag-draft zone-tag-above" style="left:calc(12% + 20px);top:calc(51.97% - 28px)">전시시설</span>
+                      <span class="zone-tag-draft zone-tag-above" style="left:67%;top:calc(13.85% - 4.5px)">연구시설</span>
+                      <!-- 연구시설 방 구역 색 -->
+                      <span class="room room-breed" style="left:39.46%;top:16.58%;width:29.37%;height:32.99%" aria-hidden="true"></span>
+                      <span class="room room-gray" style="left:69.58%;top:16.58%;width:13.55%;height:32.99%" aria-hidden="true"></span>
+                      <span class="room room-gray room-curve" style="left:83.58%;top:16.58%;width:10.4%;height:32.99%" aria-hidden="true"></span>
+                      <span class="room room-lab" style="left:43.83%;top:61.03%;width:42.47%;height:29.57%" aria-hidden="true"></span>
+                      <button type="button" class="mk mk-e" data-spot="2f-1" data-no="1" data-photo="images/2f_01.png" data-name="수서곤충 전시" style="left:11.07%;top:63.08%" aria-label="1번 수서곤충 전시">1</button>
+                      <button type="button" class="mk mk-e" data-spot="2f-2" data-no="2" data-photo="images/2f_02.png" data-name="대형개체 전시" style="left:29.14%;top:44.11%" aria-label="2번 대형개체 전시">2</button>
+                      <button type="button" class="mk mk-r" data-spot="2f-3" data-no="3" data-photo="images/2f_03.png" data-name="사육실" style="left:57.38%;top:29.92%" aria-label="3번 사육실">3</button>
+                      <button type="button" class="mk mk-r" data-spot="2f-4" data-no="4" data-photo="images/2f_04.png" data-name="연구실" style="left:62.5%;top:76.41%" aria-label="4번 연구실">4</button>
+                      <button type="button" class="mk mk-r" data-spot="2f-5" data-no="5" data-nophoto data-name="세척건조실" style="left:77.03%;top:30.77%" aria-label="5번 세척건조실">5</button>
+                      <button type="button" class="mk mk-r" data-spot="2f-6" data-no="6" data-nophoto data-name="저온창고" style="left:90.21%;top:30.77%" aria-label="6번 저온창고">6</button>
+                    </div>
+                  </div>
+                  <img class="zone-guide" src="images/map-character-cut.png" alt="숫자 버튼을 자유롭게 클릭해 봐!">
+                  <figure class="zone-photo" aria-live="polite"><img alt=""><figcaption></figcaption></figure>
+                  <div class="zone-note" aria-live="polite">
+                    <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                    <p class="zone-note-title"></p>
+                    <p class="zone-note-text">연구 공간이라 사진을 공개하지 않아요.<br>곤충을 키우고 연구하는 곳이에요.</p>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            </div>
+          </section>
+
+          <!-- 전시 구역 -->
+          <section class="guide-sec">
+            <h3 class="guide-title"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>전시 구역<span class="floor-badge" data-floor-label>1F</span></h3>
+            <!-- 퀴즈·2층 안내는 1층에서만 -->
+            <div class="guide-tips floor-panel" data-floor="1">
+              <p><i class="bi bi-patch-question" aria-hidden="true"></i><strong>퀴즈 찾기!</strong> 생태관 곳곳에 숨어 있는 <span class="quiz-q" aria-hidden="true">Q</span> 표시에서 뒷장 문제의 정답을 찾아보세요.</p>
+              <p><i class="bi bi-arrow-up-circle" aria-hidden="true"></i><strong>2층에도 곤충들이 살고 있어요.</strong> 계단을 따라 올라오세요!</p>
+            </div>
+            <div class="guide-zones floor-panel" data-floor="1">
+              <div class="zone zone-green">
+                <p class="zone-title"><i class="bi bi-flower2" aria-hidden="true"></i>생태유리온실</p>
+                <ol class="spot-list">
+                  <li data-spot="1"><span class="spot-num">1</span><span class="spot-name">곤충 체험장</span></li>
+                  <li data-spot="2"><span class="spot-num">2</span><span class="spot-name">닥터피쉬</span></li>
+                  <li data-spot="3"><span class="spot-num">3</span><span class="spot-name">생태연못</span></li>
+                  <li data-spot="4"><span class="spot-num">4</span><span class="spot-name">배추흰나비 애벌레</span></li>
+                  <li data-spot="5"><span class="spot-num">5</span><span class="spot-name">포토존</span></li>
+                  <li data-spot="6"><span class="spot-num">6</span><span class="spot-name">식충식물</span></li>
+                  <li data-spot="7"><span class="spot-num">7</span><span class="spot-name">장수풍뎅이 전시</span></li>
+                  <li data-spot="8"><span class="spot-num">8</span><span class="spot-name">나비 번데기</span></li>
+                </ol>
+              </div>
+              <div class="zone zone-yellow">
+                <p class="zone-title"><i class="bi bi-bug" aria-hidden="true"></i>곤충홍보관</p>
+                <ol class="spot-list">
+                  <li data-spot="9"><span class="spot-num">9</span><span class="spot-name">곤충표본전시</span></li>
+                  <li data-spot="10"><span class="spot-num">10</span><span class="spot-name">곤충의 특징</span></li>
+                  <li data-spot="11"><span class="spot-num">11</span><span class="spot-name">곤충의 성장과정</span></li>
+                  <li data-spot="12"><span class="spot-num">12</span><span class="spot-name">거미도 곤충일까?</span></li>
+                  <li data-spot="13"><span class="spot-num">13</span><span class="spot-name">곤충은 어떻게 숨을 쉴까?</span></li>
+                  <li data-spot="14"><span class="spot-num">14</span><span class="spot-name">곤충의 눈, 코, 입</span></li>
+                  <li data-spot="15"><span class="spot-num">15</span><span class="spot-name">눈으로 보는 곤충들</span></li>
+                  <li data-spot="16"><span class="spot-num">16</span><span class="spot-name">숲속, 땅속, 물속 곤충</span></li>
+                  <li data-spot="17"><span class="spot-num">17</span><span class="spot-name">해충을 잡는 이로운 곤충</span></li>
+                  <li data-spot="18"><span class="spot-num">18</span><span class="spot-name">곤충, 정말 먹는다구요?</span></li>
+                  <li data-spot="19"><span class="spot-num">19</span><span class="spot-name">뒤영벌</span></li>
+                  <li data-spot="20"><span class="spot-num">20</span><span class="spot-name">인터렉티브 영상체험관</span></li>
+                  <li data-spot="21"><span class="spot-num">21</span><span class="spot-name">먹이가 곤충인 동물 전시</span></li>
+                </ol>
+              </div>
+            </div>
+            <div class="guide-zones floor-panel" data-floor="2" hidden>
+              <div class="zone zone-green zone-2f-e">
+                <p class="zone-title"><i class="bi bi-droplet" aria-hidden="true"></i>전시시설</p>
+                <ol class="spot-list">
+                  <li data-spot="2f-1" data-photo="images/2f_01.png"><span class="spot-num">1</span><span class="spot-name">수서곤충 전시</span></li>
+                  <li data-spot="2f-2" data-photo="images/2f_02.png"><span class="spot-num">2</span><span class="spot-name">대형개체 전시</span></li>
+                </ol>
+              </div>
+              <div class="zone zone-gray zone-2f-r">
+                <p class="zone-title"><i class="bi bi-eyedropper" aria-hidden="true"></i>연구시설</p>
+                <ol class="spot-list">
+                  <li data-spot="2f-3" data-photo="images/2f_03.png"><span class="spot-num">3</span><span class="spot-name">사육실</span></li>
+                  <li data-spot="2f-4" data-photo="images/2f_04.png"><span class="spot-num">4</span><span class="spot-name">연구실</span></li>
+                  <li data-spot="2f-5"><span class="spot-num">5</span><span class="spot-name">세척건조실</span></li>
+                  <li data-spot="2f-6"><span class="spot-num">6</span><span class="spot-name">저온창고</span></li>
+                </ol>              </div>
+            </div>
+          </section>
+
+          <p class="vol-contact about-contact"><i class="bi bi-building" aria-hidden="true"></i>담당부서 농생명정책과 <span class="bar" aria-hidden="true"></span><i class="bi bi-telephone" aria-hidden="true"></i>문의전화 <a href="tel:042-270-5273">042-270-5273</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 띠 배너: 모든 페이지 공통 / 배너 전체가 반딧불이 불빛체험 예약으로 연결 -->
+  <a href="program_reservation.html?program=firefly-2026-summer" class="strip-banner" aria-label="2026 대전곤충생태관 반딧불이 불빛체험, 2차 예약 마감 D-Day. 예약 바로가기">
+    <span class="inner">
+      <span class="strip-title">2026 대전곤충생태관<strong>반딧불이 불빛체험</strong></span>
+      <span class="strip-dday">2차 예약 마감 D-Day</span>
+      <span class="strip-btn">예약 바로가기</span>
+    </span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="related">
+      <div class="inner">
+        <h2 class="related-title">
+          <svg class="related-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 10.5 12 4l8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          관련사이트
+        </h2>
+        <ul class="related-list">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_city.png" alt="대전광역시청"></a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/hanbat_arboretum.png" alt="한밭수목원"></a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_expo.png" alt="대전엑스포시민광장"></a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/natural_heritage_center.png" alt="천연기념물센터"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="inner">
+        <div class="footer-info">
+          <ul class="policy">
+            <li class="point"><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=2062" target="_blank" rel="noopener" title="새 창 열림">개인정보처리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=1757" target="_blank" rel="noopener" title="새 창 열림">영상정보처리기기 운영 · 관리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/board/boardNormalList.do?boardId=homepage_0001&amp;menuSeq=1507" target="_blank" rel="noopener" title="새 창 열림">누리집</a></li>
+          </ul>
+          <address>
+            <span>(35204) 대전광역시 서구 둔산대로 191(만년동)/한밭수목원내</span>
+            <span>대표전화 (042) 270-5274</span>
+          </address>
+          <p class="copyright">COPYRIGHT 2017 (c) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="footer-logo">
+          <img src="images/footer_logo.png" alt="대전광역시">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/guide.js"></script>
+</body>
+</html>

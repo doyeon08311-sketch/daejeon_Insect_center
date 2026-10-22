@@ -1,0 +1,102 @@
+/* Fonts: Pretendard, MBC 1961 → index.html <link> / Gmarket Sans → @font-face */
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Color styles */
+  --헤더푸터: rgba(55, 55, 55, 1);
+  --제목큰글씨그린: rgba(19, 76, 19, 1);
+  --작은-글씨버튼그레이: rgba(117, 117, 117, 1);
+  --선: rgba(64, 120, 96, 1);
+  --네비게이션: rgba(255, 255, 255, 1);
+  --운영-시간문의오시는-길-내용: rgba(54, 54, 54, 1);
+  --버튼그린: rgba(32, 178, 93, 1);
+  --포인트블루: rgba(73, 114, 202, 1);
+
+  /* Text-size styles */
+  --로고: 75px;
+  --히어로-버튼: 32px;
+  --h2: 38px;
+  --옵션라벨: 25px;
+  --h4: 27px;
+  --text: 23px;
+  --notice_text: 25px;
+  --notice_date: 20px;
+  --h3: 30px;
+  --banner: 60px;
+  --오시는-길-내용: 25px;
+
+  /* Font families */
+  --font-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --font-gmarket: 'GmarketSans', var(--font-base);
+  --font-mbc: 'MBC 1961', var(--font-base); /* MBC 1961 고딕 */
+
+  /* Layout */
+  --inner: 1200px;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  word-break: keep-all;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; vertical-align: top; border: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+address { font-style: normal; }
+
+/* Utilities */
+.inner {
+  width: 100%;
+  max-width: var(--inner);
+  margin: 0 auto;
+}
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1240px) {
+  .inner { padding: 0 20px; }
+}
+
+/* PC 화면 전체 배율: 브라우저 100%에서 90% 확대 상태처럼 보이게 (태블릿·모바일은 원래 크기) */
+@media (min-width: 1025px) {
+  html { zoom: 0.9; }
+}

@@ -1,0 +1,309 @@
+/* ===== 자원봉사 신청 (달력·입력·요약 등 공통 요소는 reservation.css 재사용) ===== */
+
+/* ----- 안내 ----- */
+/* 위계: 카드 라벨(작은 색 태그) < 핵심 값(굵고 큼) / 보조 문구(작은 회색) */
+.vol-guide { padding: 70px 0 20px; }
+.vol-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+/* 카드별 강조색: --c 진한색 / --c-soft 옅은 배경 */
+.vol-card.c-green { --c: rgb(32, 160, 85); --c-soft: rgb(234, 247, 238); }
+.vol-card.c-blue { --c: rgb(32, 160, 85); --c-soft: rgb(234, 247, 238); }
+.vol-card.c-amber { --c: rgb(32, 160, 85); --c-soft: rgb(234, 247, 238); }
+.vol-card.c-pink { --c: rgb(32, 160, 85); --c-soft: rgb(234, 247, 238); }
+.vol-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 34px 20px 30px;
+  border: 1px solid #e4e8e2;
+  border-top: 5px solid var(--c);
+  border-radius: 16px;
+  text-align: center;
+  background: #fff;
+}
+.vol-card > .bi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  font-size: 28px;
+  color: var(--c); /* 초록 아이콘 */
+  background: rgb(236, 243, 252); /* 연한 블루 원 */
+}
+.vol-card-label {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  margin-top: 18px;
+  padding: 3px 12px 0;
+  border-radius: 14px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--c);
+  background: var(--c-soft);
+}
+.vol-card-value {
+  margin-top: 12px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.45;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.vol-card-sub {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--작은-글씨버튼그레이);
+}
+
+.vol-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.vol-tasks,
+.vol-1365 {
+  padding: 30px 32px;
+  border-radius: 16px;
+}
+.vol-tasks { background: rgb(238, 246, 234); }
+.vol-1365 { background: rgb(255, 247, 229); } /* 동의 체크 상자(.agree)와 같은 연노랑 */
+.vol-sub-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--제목큰글씨그린);
+}
+/* 아이콘만 (배경 없음). 글자와 세로 중심이 맞도록 위치 보정 */
+.vol-sub-title .bi {
+  position: relative;
+  top: 1px;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--버튼그린);
+}
+.vol-1365 .vol-sub-title { color: var(--제목큰글씨그린); }
+.vol-1365 .vol-sub-title .bi { color: rgb(214, 160, 20); }
+.task-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.task-chips li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 44px;
+  padding: 0 18px 0 14px;
+  border-radius: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(19, 76, 19, 0.08);
+}
+.task-chips .bi { font-size: 17px; color: var(--버튼그린); }
+.vol-notes { margin-top: 18px; }
+.vol-notes li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.vol-notes li + li { margin-top: 8px; }
+.vol-notes li::before {
+  content: "";
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--선);
+}
+.vol-notes strong { font-weight: 700; color: var(--제목큰글씨그린); background: linear-gradient(transparent 60%, rgb(255, 236, 140) 60%); }
+.link-1365 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 42px;
+  margin-top: 20px;
+  padding: 3px 20px 0;
+  border-radius: 21px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+  background: var(--선);
+  transition: background-color 0.2s;
+}
+.link-1365 .bi { margin-top: -3px; }
+.link-1365:hover { background: var(--버튼그린); }
+
+.vol-group-call {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 18px 26px;
+  border-radius: 14px;
+  font-size: 17px;
+  color: #fff;
+  background: var(--선);
+}
+.vol-group-call .bi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 17px;
+  color: var(--선);
+  background: rgb(255, 244, 119);
+}
+.vol-group-call strong { color: rgb(255, 244, 119); }
+.vol-group-call a {
+  font-weight: 700;
+  color: rgb(255, 244, 119);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* ----- 신청 ----- */
+.vol-apply { padding: 70px 0 120px; }
+.vol-body { margin-top: 30px; }
+.vol-step {
+  min-width: 0;
+  border: 0;
+}
+.vol-step + .vol-step { margin-top: 56px; }
+.vol-step-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--제목큰글씨그린);
+}
+/* 단계 번호: 원 안 숫자 정중앙 (예약 페이지 step-num과 같은 방식) */
+.vol-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-family: var(--font-base);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background: var(--버튼그린);
+}
+.vol-step .date-time,
+.vol-step .form-grid { margin-top: 20px; }
+.vol-step .panel-guide { padding-top: 8px; }
+
+/* 달력: 신청 가능한 날 아래 초록 점, 마감은 빨간 점 */
+.cal-day.is-open { position: relative; }
+.cal-day.is-open::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--버튼그린);
+}
+.cal-day.is-full::after { background: rgb(212, 84, 84); }
+.cal-day.is-selected::after { background: #fff; }
+.cal-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--작은-글씨버튼그레이);
+}
+.cal-legend .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.dot-open { background: var(--버튼그린); }
+.dot-full { margin-left: 10px; background: rgb(212, 84, 84); }
+
+.agree .check + .check { margin-top: 12px; }
+.vol-body[hidden],
+.vol-done[hidden] { display: none; }
+.vol-done { margin-top: 30px; }
+
+.vol-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #e4e8e2;
+  font-size: 17px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.vol-contact .bi { color: var(--선); }
+.vol-contact a { font-weight: 700; color: var(--제목큰글씨그린); }
+.vol-contact .bar {
+  width: 1px;
+  height: 14px;
+  margin: 0 10px;
+  background: #cfd4cd;
+}
+
+/* ===== 태블릿 ===== */
+@media (max-width: 1024px) {
+  .vol-guide { padding: 50px 0 10px; }
+  .vol-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .vol-detail { grid-template-columns: 1fr; }
+  .vol-apply { padding: 50px 0 80px; }
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 768px) {
+  .vol-guide { padding: 36px 0 0; }
+  .vol-cards { gap: 12px; margin-top: 20px; }
+  .vol-card { padding: 22px 12px 20px; }
+  .vol-card > .bi { width: 48px; height: 48px; font-size: 21px; }
+  .vol-card-label { height: 24px; font-size: 12px; }
+  .vol-card-value { font-size: 16px; }
+  .vol-card-sub { font-size: 13px; }
+  .vol-tasks,
+  .vol-1365 { padding: 22px 20px; }
+  .vol-sub-title { font-size: 18px; }
+  .task-chips li { height: 36px; padding: 0 14px; font-size: 14px; }
+  .vol-notes li { font-size: 15px; }
+  .vol-group-call { align-items: flex-start; padding: 16px 18px; font-size: 15px; }
+  .vol-apply { padding: 40px 0 60px; }
+  .vol-step-title { font-size: 21px; }
+  .vol-step-num { width: 28px; height: 28px; font-size: 15px; }
+  .vol-contact { flex-wrap: wrap; font-size: 15px; }
+}

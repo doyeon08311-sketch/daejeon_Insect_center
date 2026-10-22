@@ -1,0 +1,131 @@
+/* ===== 조직 및 업무 (organization.html) — 제목·표·문의 줄은 history.css / about.css 재사용 ===== */
+
+/* 조직도: 과 → 팀 6개(가로 연결선) → 농업정책팀 아래 곤충생태관 */
+.org-chart {
+  margin-top: 24px;
+  padding: 40px 30px 44px;
+  border: 1px solid #e4e8e2;
+  border-radius: 16px;
+  background: #fafbf9;
+}
+.org-head {
+  position: relative;
+  width: 220px;
+  margin: 0 auto;
+  padding: 18px 0 15px;
+  border-radius: 12px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  color: #fff;
+  background: var(--선);
+  box-shadow: 0 6px 14px rgba(19, 76, 19, 0.18);
+}
+/* 과 → 가로선으로 내려가는 세로선 */
+.org-head::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #c9d6c4;
+}
+.org-teams {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 60px;
+}
+/* 팀들을 잇는 가로선: 첫 팀 가운데 ~ 마지막 팀 가운데 */
+.org-teams::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  height: 2px;
+  background: #c9d6c4;
+}
+.org-teams li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+/* 가로선 → 각 팀으로 내려가는 세로선 */
+.org-teams li::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #c9d6c4;
+}
+.org-team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 3px 6px 0;
+  border: 1.5px solid rgb(32, 160, 85);
+  border-radius: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: var(--선);
+  background: #fff;
+  word-break: keep-all;
+}
+/* 곤충생태관: 농업정책팀 아래, 강조색 */
+.org-ours {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  margin-top: 30px;
+  padding: 3px 6px 0;
+  border-radius: 10px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--제목큰글씨그린);
+  background: rgb(255, 222, 89);
+  box-shadow: 0 6px 14px rgba(196, 150, 20, 0.25);
+}
+.org-ours::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #c9d6c4;
+}
+
+/* 업무 표: 제목 아래 선과 겹치지 않게 표 위쪽 선 제거 */
+.org-table { border-top: 0; }
+.org-table td:first-child { font-weight: 600; color: var(--제목큰글씨그린); background: #fafbf9; }
+
+@media (max-width: 1024px) {
+  .org-chart { padding: 30px 20px 34px; }
+  .org-team, .org-ours { font-size: 14px; }
+}
+/* 모바일: 팀을 2열 격자로, 연결선은 숨기고 과 아래에 나열 */
+@media (max-width: 768px) {
+  .org-chart { padding: 24px 16px 26px; }
+  .org-head { width: 100%; font-size: 18px; }
+  .org-head::after { height: 20px; }
+  .org-teams { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 2px solid #c9d6c4; }
+  .org-teams::before,
+  .org-teams li::before { display: none; }
+  .org-teams li.has-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .org-ours { margin-top: 0; }
+  .org-ours::before { bottom: auto; top: 50%; left: auto; right: 100%; width: 10px; height: 2px; }
+  .org-team, .org-ours { height: 48px; font-size: 14px; }
+}

@@ -1,0 +1,1053 @@
+/* ===== 프로그램 예약 페이지 (공통 스타일은 sub.css) ===== */
+
+
+/* ===== 진행 단계 ===== */
+.reserve { padding: 60px 0 120px; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  scroll-margin-top: 150px;
+  counter-reset: step;
+}
+.steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 64px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--작은-글씨버튼그레이);
+  background: #f3f5f2;
+}
+/* 단계 사이 화살표 모양 */
+.steps li + li { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%); margin-left: -14px; }
+.steps li:first-child { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%); border-radius: 10px 0 0 10px; }
+.steps li:last-child { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 18px 50%); }
+/* 화살표 모양에서 실제로 보이는 면의 가운데에 내용이 오도록 보정 */
+.steps li:first-child { padding-right: 18px; }
+.steps li:last-child { padding-left: 18px; }
+/* 숫자는 Pretendard로 원 정중앙에 */
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-family: var(--font-base);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  background: #c6cbc4;
+}
+/* 숫자 박스를 실제 숫자 높이(cap~baseline)로 잘라, flex 가운데 정렬이 글자 모양 기준이 되도록 */
+.step-num > span {
+  display: block;
+  text-box: trim-both cap alphabetic;
+}
+/* Gmarket Sans 글자가 위로 뜨는 만큼 내려 박스 세로 중앙에 맞춤 */
+.step-name {
+  padding-top: 5px;
+  line-height: 1;
+}
+.steps .is-current {
+  color: #fff;
+  background: var(--버튼그린);
+}
+.steps .is-current .step-num { color: var(--버튼그린); background: #fff; }
+.steps .is-done {
+  color: var(--선);
+  background: rgb(232, 242, 229);
+}
+.steps .is-done .step-num { background: var(--선); }
+
+/* ===== 본문 2단: 폼 + 요약 ===== */
+.reserve-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 50px;
+}
+.reserve-form {
+  flex: 1;
+  min-width: 0;
+}
+.step-panel {
+  display: none;
+  min-width: 0;
+  border: 0;
+}
+.step-panel.is-active {
+  display: block;
+  animation: panelIn 0.4s ease-out;
+}
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.step-panel > legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+.step-panel > legend + * { clear: both; }
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 14px;
+}
+.panel-guide {
+  padding-top: 14px;
+  font-size: 18px;
+  color: var(--작은-글씨버튼그레이);
+}
+.panel-head .panel-guide { padding-top: 0; }
+.req { color: rgb(212, 84, 84); }
+.opt { font-size: 0.85em; font-weight: 400; color: var(--작은-글씨버튼그레이); }
+
+/* ===== STEP 1 프로그램 카드 ===== */
+.choice-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+/* 카드가 <button>이라 브라우저 기본값으로 내용이 세로 가운데 정렬됨 → 위에서부터 쌓이도록 flex로 지정 */
+.choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  border: 2px solid #e4e8e2;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.choice:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+.choice.is-selected {
+  border-color: var(--버튼그린);
+  box-shadow: 0 0 0 3px rgba(32, 178, 93, 0.2);
+}
+.choice:focus-visible { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+/* 선택 체크 표시 */
+.choice.is-selected::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--버튼그린) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+}
+/* 마감 프로그램: 흐리게 보이지만 상세 정보는 열람 가능 */
+.choice.is-closed .choice-thumb,
+.choice.is-closed .choice-name,
+.choice.is-closed .choice-meta { opacity: 0.55; }
+.choice-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--선);
+}
+.choice-more .bi { font-size: 0.8em; transition: transform 0.3s; }
+.choice:hover .choice-more .bi { transform: translateX(3px); }
+.choice-thumb {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  aspect-ratio: 370 / 240;
+  overflow: hidden;
+}
+/* 이미지 원본 크기가 비율을 바꾸지 않도록 영역에 겹쳐 채움 */
+.choice-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 메인 '이달의 프로그램'과 같은 라벨 */
+.choice-thumb .tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 7px 10px 0;
+  border-radius: 0 8px 0 0;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+.choice-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 3px 11px 0; /* Gmarket Sans가 위로 뜨는 만큼 보정 */
+  border-radius: 14px;
+  line-height: 1;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--제목큰글씨그린);
+  background: rgb(255, 244, 119);
+}
+.choice-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px 20px;
+}
+.choice-name {
+  margin-bottom: 4px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 21px;
+  color: var(--제목큰글씨그린);
+}
+.choice-meta {
+  font-size: 16px;
+  color: var(--작은-글씨버튼그레이);
+}
+
+/* ===== 프로그램 상세 팝업 ===== */
+.program-modal {
+  width: min(920px, calc(100% - 40px));
+  max-height: calc(100vh - 60px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: auto;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+/* 사진 | 정보, 사진은 버튼 줄까지 세로 전체를 채움 */
+.program-modal[open] {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  grid-template-rows: 1fr auto;
+  animation: modalIn 0.35s ease-out;
+}
+.program-modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s, color 0.2s;
+}
+.modal-close:hover { color: #fff; background: var(--선); }
+.modal-body { display: contents; }
+.modal-thumb {
+  position: relative;
+  grid-row: 1 / 3;
+}
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-thumb .tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 7px 12px 0;
+  border-radius: 0 10px 0 0;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 19px;
+  color: #fff;
+}
+.modal-info { padding: 40px 40px 10px; }
+.modal-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 3px 11px 0;
+  border-radius: 14px;
+  line-height: 1;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--제목큰글씨그린);
+  background: rgb(255, 244, 119);
+}
+/* 배지~제목, 제목~소개 사이 실제 간격이 같도록(18px) */
+.modal-title {
+  margin-top: 16px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  color: var(--제목큰글씨그린);
+}
+.modal-desc {
+  margin-top: 3px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.modal-spec {
+  margin-top: 22px;
+  border-top: 2px solid var(--선);
+}
+.modal-spec div {
+  display: flex;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf0ec;
+  font-size: 16px;
+}
+.modal-spec dt {
+  flex-shrink: 0;
+  width: 76px;
+  font-weight: 600;
+  color: var(--선);
+}
+.spec-sub { font-size: 14px; color: var(--작은-글씨버튼그레이); }
+/* 상세 정보 확인하기: 버튼이 아닌 오른쪽 정렬 글자 링크 (예약 버튼과 구분) */
+.modal-detail-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--선);
+}
+.modal-detail-btn .bi { font-size: 13px; transition: transform 0.2s; }
+.modal-detail-btn:hover { color: var(--버튼그린); text-decoration: underline; text-underline-offset: 4px; }
+.modal-detail-btn:hover .bi { transform: translateX(3px); }
+.modal-detail-btn:focus-visible { outline: 3px solid var(--포인트블루); outline-offset: 2px; border-radius: 4px; }
+.modal-notes {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: #f5f6f4;
+}
+.modal-notes-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--제목큰글씨그린);
+}
+.modal-notes ul { margin-top: 6px; }
+.modal-notes li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.modal-notes li::before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.modal-sub-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--제목큰글씨그린);
+}
+.modal-options { margin-top: 20px; }
+.modal-options ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.modal-options li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 10px 14px;
+  border: 1px solid #e4e8e2;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.modal-options img {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.opt-name { font-weight: 600; }
+.opt-meta { margin-left: auto; color: var(--작은-글씨버튼그레이); }
+.modal-terms {
+  margin-top: 14px;
+  font-size: 15px;
+}
+.modal-terms summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--선);
+}
+.modal-terms ul,
+.terms-list {
+  margin-top: 8px;
+  padding-left: 18px;
+  list-style: disc;
+  line-height: 1.6;
+  color: var(--작은-글씨버튼그레이);
+}
+/* 내용이 길어 팝업이 스크롤되어도 버튼은 항상 아래에 보이도록 */
+.modal-btns {
+  position: sticky;
+  bottom: 0;
+  grid-column: 2;
+  display: flex;
+  gap: 10px;
+  padding: 20px 40px 32px;
+  background: #fff;
+  box-shadow: 0 -8px 12px rgba(255, 255, 255, 0.9);
+}
+.modal-thumb {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: min(100%, calc(100vh - 60px));
+}
+.modal-btns .btn-green { flex: 1; }
+/* 정보 더보기 안의 상세페이지 링크 (detailUrl이 있을 때만) */
+.modal-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--선);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.modal-detail-link .bi { font-size: 0.8em; }
+
+/* ===== STEP 2 달력·시간 ===== */
+.date-time {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 28px;
+  margin-top: 24px;
+}
+.calendar,
+.time-box {
+  padding: 26px;
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+  background: #fff;
+}
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cal-title {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--제목큰글씨그린);
+}
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.cal-nav img { height: 16px; }
+.cal-nav:hover:not(:disabled) { background: rgb(232, 242, 229); }
+.cal-nav:disabled { opacity: 0.25; cursor: default; }
+.cal-week,
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.cal-week {
+  margin-top: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf0ec;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--작은-글씨버튼그레이);
+}
+.cal-week li:first-child { color: rgb(212, 84, 84); }
+.cal-week li:last-child { color: var(--포인트블루); }
+.cal-grid {
+  gap: 6px 0;
+  margin-top: 10px;
+}
+.cal-day {
+  justify-self: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--운영-시간문의오시는-길-내용);
+  transition: background-color 0.2s, color 0.2s;
+}
+.cal-day.is-sun { color: rgb(212, 84, 84); }
+.cal-day.is-sat { color: var(--포인트블루); }
+.cal-day:not(:disabled):hover { background: rgb(232, 242, 229); }
+.cal-day:disabled {
+  color: #c8ccc6;
+  cursor: default;
+}
+.cal-day.is-today { box-shadow: inset 0 0 0 1px var(--선); }
+.cal-day.is-selected {
+  color: #fff;
+  background: var(--버튼그린);
+}
+.time-date {
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--제목큰글씨그린);
+}
+.time-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+.time-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 58px;
+  padding: 0 20px;
+  border: 1px solid rgb(88, 156, 74);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.time-item input { position: absolute; opacity: 0; }
+.time-clock {
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 20px;
+  padding-top: 3px;
+}
+.time-left { font-size: 15px; color: var(--선); }
+.time-item:hover { background: rgb(240, 247, 238); }
+.time-item:has(input:checked) {
+  color: #fff;
+  background: rgb(88, 156, 74);
+}
+.time-item:has(input:checked) .time-left { color: #fff; }
+.time-item:has(input:focus-visible) { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+.time-item.is-full {
+  border-color: #dfe2dd;
+  color: #b9bdb7;
+  background: #f6f7f5;
+  cursor: not-allowed;
+}
+.time-item.is-full .time-left { color: #b9bdb7; }
+
+/* ===== STEP 3 신청자 정보 ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 28px;
+  margin-top: 24px;
+}
+.field-full { grid-column: 1 / -1; }
+.field label,
+.field .label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0 16px;
+  border: 1px solid #d5dad3;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 18px;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input { height: 54px; }
+.field textarea { padding: 14px 16px; resize: vertical; }
+.field input::placeholder,
+.field textarea::placeholder { color: #a9aea7; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--버튼그린);
+  box-shadow: 0 0 0 3px rgba(32, 178, 93, 0.15);
+}
+.field input[aria-invalid="true"] { border-color: rgb(212, 84, 84); }
+.field-msg {
+  min-height: 20px;
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgb(212, 84, 84);
+}
+#peopleMsg,
+#groupCountMsg { color: var(--작은-글씨버튼그레이); }
+#peopleMsg.is-error,
+#groupCountMsg.is-error { color: rgb(212, 84, 84); }
+
+/* 개인/단체 입력 전환 */
+.form-grid[data-mode="individual"] .group-only,
+.form-grid[data-mode="group"] .individual-only { display: none; }
+
+/* 단체 대상 선택 칩 */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip { position: relative; cursor: pointer; }
+/* 숨긴 라디오가 .field input(폭 100%) 스타일을 받아 옆 입력창을 덮지 않도록 칩 안에 작게 가둠 */
+.chip input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+}
+.chip span {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  padding: 0 22px;
+  border: 1px solid #d5dad3;
+  border-radius: 27px;
+  font-size: 17px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.chip:hover span { border-color: var(--버튼그린); }
+.chip input:checked + span {
+  border-color: var(--버튼그린);
+  color: #fff;
+  background: var(--버튼그린);
+}
+.chip input:focus-visible + span { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+
+/* 단체 인원 입력 */
+.count-input {
+  position: relative;
+}
+.count-input input { padding-right: 44px; }
+.count-unit {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  font-size: 17px;
+  color: var(--작은-글씨버튼그레이);
+}
+
+/* 체험 옵션 선택 */
+.option-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.option-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid #d5dad3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.option-item input { position: absolute; opacity: 0; }
+.option-item:hover { border-color: var(--버튼그린); }
+.option-item:has(input:checked) {
+  border-color: var(--버튼그린);
+  box-shadow: 0 0 0 3px rgba(32, 178, 93, 0.15);
+  background: rgb(240, 247, 238);
+}
+.option-item:has(input:focus-visible) { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+.option-item > span { display: block; }
+.option-name { font-size: 17px; font-weight: 700; color: var(--제목큰글씨그린); }
+.option-form { font-size: 14px; font-weight: 400; color: var(--작은-글씨버튼그레이); }
+.option-meta { font-size: 15px; color: var(--운영-시간문의오시는-길-내용); }
+.agree-item + .agree-item {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(64, 120, 96, 0.3);
+}
+.summary-fee-note {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+  color: var(--선);
+}
+.summary-fee-note:empty { display: none; }
+.people {
+  display: flex;
+  gap: 12px;
+}
+.counter {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  height: 54px;
+  padding: 0 8px 0 16px;
+  border: 1px solid #d5dad3;
+  border-radius: 6px;
+}
+.counter-name {
+  flex: 1;
+  font-size: 17px;
+}
+.counter-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--선);
+  background: rgb(232, 242, 229);
+  transition: background-color 0.2s, color 0.2s;
+}
+.counter-btn:hover:not(:disabled) { color: #fff; background: var(--버튼그린); }
+.counter-btn:disabled { color: #c8ccc6; background: #f1f2f0; cursor: default; }
+.counter-value {
+  min-width: 22px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.agree {
+  margin-top: 30px;
+  padding: 22px 24px;
+  border-radius: 10px;
+  background: rgb(255, 247, 229);
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* 동의 체크박스: 흰 박스 + 그린 테두리·체크 표시 (채우지 않음) */
+.check input {
+  position: relative;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border: 1.5px solid #c9c2ad;
+  border-radius: 6px;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.check input:checked { border-color: rgb(32, 160, 85); }
+.check input:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 6px;
+  height: 11px;
+  border: solid rgb(32, 160, 85);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+.check input:hover { border-color: rgb(32, 160, 85); }
+.check input:focus-visible { outline: 2px solid rgb(32, 160, 85); outline-offset: 2px; }
+.agree-detail { margin-top: 10px; font-size: 15px; color: var(--작은-글씨버튼그레이); }
+.agree-detail summary { cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.agree-detail p { margin-top: 8px; line-height: 1.6; }
+
+
+/* ===== 요약 박스 (스크롤해도 따라옴) ===== */
+.summary {
+  position: sticky;
+  top: 160px;
+  flex-shrink: 0;
+  width: 330px;
+  padding: 30px 28px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(19, 76, 19, 0.1);
+  border-top: 6px solid var(--버튼그린);
+}
+.summary[hidden],
+.summary-list div[hidden] { display: none; }
+.summary-title {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--제목큰글씨그린);
+}
+.summary-list { margin-top: 18px; }
+.summary-list div {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed #dde2db;
+  font-size: 16px;
+}
+.summary-list dt {
+  flex-shrink: 0;
+  width: 64px;
+  color: var(--작은-글씨버튼그레이);
+}
+.summary-list dd {
+  font-weight: 600;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+.summary-fee {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--작은-글씨버튼그레이);
+}
+.summary-fee strong {
+  font-family: var(--font-gmarket);
+  font-size: 24px;
+  color: var(--제목큰글씨그린);
+}
+.summary-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.summary-btns .btn { flex: 1; padding-left: 0; padding-right: 0; }
+.summary-btns .btn-line { flex: 0 0 96px; }
+.summary-help {
+  min-height: 20px;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--작은-글씨버튼그레이);
+}
+
+/* ===== STEP 4 완료 ===== */
+.step-done {
+  padding: 60px 40px;
+  border-radius: 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(240, 247, 238), #fff);
+}
+.step-done:focus { outline: none; }
+.done-icon {
+  width: 56px;
+  margin: 0 auto;
+}
+.done-title {
+  margin-top: 18px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: var(--h2);
+  color: var(--제목큰글씨그린);
+}
+.done-desc {
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.done-desc strong {
+  padding: 0 4px;
+  font-family: var(--font-gmarket);
+  font-size: 22px;
+  color: var(--제목큰글씨그린);
+  background: rgb(255, 244, 119);
+}
+.done-summary {
+  max-width: 560px;
+  margin: 30px auto 0;
+  padding: 10px 28px;
+  border-radius: 12px;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.done-summary div {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed #dde2db;
+  font-size: 17px;
+}
+.done-summary div:last-child { border-bottom: 0; }
+.done-summary dt { flex-shrink: 0; width: 72px; color: var(--작은-글씨버튼그레이); }
+.done-summary dd { font-weight: 600; }
+.done-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-panel.is-active,
+  .program-modal[open] { animation: none; }
+  .choice,
+  .btn,
+  .cal-day,
+  .time-item { transition: none; }
+}
+
+/* ===== 태블릿 ===== */
+@media (max-width: 1024px) {
+  .reserve { padding: 44px 0 80px; }
+  .steps { scroll-margin-top: 130px; }
+  .steps li { height: 56px; gap: 8px; font-size: 16px; }
+  .reserve-body { flex-direction: column; gap: 28px; margin-top: 36px; }
+  .reserve-form { width: 100%; }
+  .choice-list { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .program-modal[open] {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .modal-thumb { grid-row: auto; aspect-ratio: 16 / 9; }
+  .modal-info { padding: 28px 28px 6px; }
+  /* 내용이 길어도 예약 버튼이 항상 보이도록 아래에 고정 */
+  .modal-btns {
+    position: sticky;
+    bottom: 0;
+    grid-column: auto;
+    padding: 16px 28px 22px;
+    background: #fff;
+    box-shadow: 0 -6px 12px rgba(255, 255, 255, 0.9);
+  }
+  .date-time { grid-template-columns: 1fr; }
+  /* 요약은 화면 아래에 고정된 바로 */
+  .summary {
+    position: sticky;
+    top: auto;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  }
+  .summary-title,
+  .summary-fee { display: none; }
+  .summary-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    margin-top: 0;
+  }
+  .summary-list div { padding: 0; border: 0; font-size: 14px; gap: 6px; }
+  .summary-list dt { width: auto; }
+  .summary-btns { margin-top: 14px; }
+  .summary-help { margin-top: 8px; min-height: 0; }
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 768px) {
+  .reserve { padding: 30px 0 60px; }
+  .steps { scroll-margin-top: 110px; }
+  .steps li { flex-direction: column; gap: 3px; height: 64px; font-size: 12px; }
+  .steps li + li { margin-left: -8px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%); }
+  .steps li:first-child { clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); }
+  .steps li:last-child { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%); }
+  .step-num { width: 22px; height: 22px; font-size: 12px; }
+  .step-name { padding-top: 3px; }
+  .steps li:first-child { padding-right: 10px; }
+  .steps li:last-child { padding-left: 10px; }
+  .panel-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .panel-guide { font-size: 15px; }
+  .choice-list { grid-template-columns: 1fr; }
+  .choice-name { font-size: 18px; }
+  .program-modal { width: calc(100% - 24px); max-height: calc(100vh - 24px); border-radius: 16px; }
+  .modal-info { padding: 22px 20px 4px; }
+  .modal-title { font-size: 23px; }
+  .modal-desc { margin-top: 5px; font-size: 15px; }
+  .modal-spec div { gap: 10px; font-size: 14px; }
+  .modal-spec dt { width: 64px; }
+  .modal-btns { padding: 16px 20px 22px; }
+  .calendar,
+  .time-box { padding: 18px; }
+  .cal-day { width: 38px; height: 38px; font-size: 15px; }
+  .form-grid { grid-template-columns: 1fr; gap: 18px; }
+  .option-list { grid-template-columns: 1fr; }
+  .chip span { height: 46px; padding: 0 18px; font-size: 15px; }
+  .opt-meta { margin-left: 0; width: 100%; }
+  .field label,
+  .field .label { font-size: 16px; }
+  .field input { height: 50px; font-size: 16px; }
+  .counter { height: 50px; }
+  .step-done { padding: 40px 18px; }
+  .done-title { font-size: 26px; }
+  .done-desc { font-size: 15px; }
+  .done-summary { padding: 6px 18px; }
+  .done-summary div { font-size: 15px; }
+  .done-btns { flex-direction: column; }
+}

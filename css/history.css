@@ -1,0 +1,160 @@
+/* ===== 연혁 및 조성개요 (history.html) — 미니 메뉴·문의 줄은 notice.css / about.css 재사용 ===== */
+.hist-sec + .hist-sec { margin-top: 70px; }
+.hist-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--선);
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--제목큰글씨그린);
+}
+.hist-title .bi { font-size: 0.85em; color: rgb(32, 160, 85); }
+
+/* 연혁 타임라인: 왼쪽 연도 / 오른쪽 세로선 + 항목 */
+/* 연구실 사진(흐린 세로형 572×1024)을 연혁 오른쪽 아래에 배경으로 */
+.timeline {
+  position: relative;
+  isolation: isolate;
+  margin-top: 10px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  aspect-ratio: 572 / 1024;
+  max-width: 100%;
+  opacity: 0.95;
+  background: url("../images/timeLine_bg.png") right bottom / cover no-repeat;
+  /* 사진 왼쪽 끝이 세로선으로 보이지 않도록 왼쪽을 흐리게 */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 30%);
+  mask-image: linear-gradient(to right, transparent, #000 30%);
+}
+.tl-year {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  padding: 26px 0;
+  border-bottom: 1px solid #edf0ec;
+}
+.tl-year-num {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.1;
+  color: rgb(32, 160, 85);
+}
+.tl-items {
+  position: relative;
+  padding-left: 28px;
+}
+.tl-items::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 5px;
+  width: 2px;
+  background: rgb(220, 236, 214);
+}
+.tl-items li {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding: 6px 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.tl-items li::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -28px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(32, 160, 85);
+  border-radius: 50%;
+  background: #fff;
+}
+.tl-items li.is-key::before { background: rgb(32, 160, 85); }
+.tl-date {
+  flex-shrink: 0;
+  width: 70px;
+  font-weight: 600;
+  color: var(--선);
+}
+.tl-text { color: var(--운영-시간문의오시는-길-내용); word-break: keep-all; }
+.tl-items li.is-key .tl-text { font-weight: 700; color: var(--제목큰글씨그린); }
+
+/* 조성개요 */
+.ov-info {
+  margin-top: 24px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: rgb(234, 247, 238);
+}
+.ov-info div {
+  display: flex;
+  gap: 20px;
+  padding: 8px 0;
+  font-size: 17px;
+}
+.ov-info dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 100px;
+  font-weight: 700;
+  color: var(--선);
+}
+.ov-info dt .bi { color: rgb(32, 160, 85); }
+.ov-info dd { color: var(--운영-시간문의오시는-길-내용); }
+.ov-sub { font-size: 15px; color: var(--작은-글씨버튼그레이); }
+
+.ov-table {
+  width: 100%;
+  margin-top: 24px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.ov-col-floor { width: 140px; }
+.ov-col-area { width: 200px; }
+.ov-table th,
+.ov-table td {
+  height: 62px;
+  padding: 0 20px;
+  border-bottom: 1px solid #edf0ec;
+  font-size: 17px;
+  text-align: center;
+}
+.ov-table thead th {
+  font-weight: 600;
+  color: var(--선);
+  background: rgb(240, 247, 238);
+}
+.ov-table tbody th { font-weight: 700; color: var(--제목큰글씨그린); background: #fafbf9; }
+.ov-table td:last-child { text-align: left; color: var(--운영-시간문의오시는-길-내용); }
+
+@media (max-width: 1024px) {
+  .tl-year { grid-template-columns: 90px 1fr; }
+  .tl-year-num { font-size: 25px; }
+}
+@media (max-width: 768px) {
+  .hist-title { font-size: 22px; }
+  .hist-sec + .hist-sec { margin-top: 50px; }
+  .tl-year { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
+  .tl-year-num { font-size: 22px; }
+  .tl-items li { flex-direction: column; gap: 0; font-size: 15px; }
+  .tl-items li::before { top: 11px; }
+  .tl-date { width: auto; font-size: 13px; }
+  .ov-info { padding: 18px 18px; }
+  .ov-info div { flex-direction: column; gap: 4px; font-size: 15px; }
+  .ov-col-floor { width: 64px; }
+  .ov-col-area { width: 100px; }
+  .ov-table th, .ov-table td { height: auto; padding: 14px 8px; font-size: 14px; }
+}

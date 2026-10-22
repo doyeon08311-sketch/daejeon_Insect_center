@@ -1,0 +1,452 @@
+/* ===== 공지사항 목록 · 상세 (공통 스타일은 sub.css) ===== */
+.ntc { padding: 60px 0 120px; }
+
+/* 상단: 건수 + 검색 */
+.ntc-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.ntc-count { font-size: 17px; color: var(--작은-글씨버튼그레이); }
+.ntc-count strong { color: var(--제목큰글씨그린); }
+.ntc-page { margin-left: 4px; font-size: 15px; }
+.ntc-search {
+  display: flex;
+  width: 360px;
+  height: 52px;
+  border: 1px solid #d5dad3;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ntc-search:focus-within {
+  border-color: var(--버튼그린);
+  box-shadow: 0 0 0 3px rgba(32, 178, 93, 0.15);
+}
+.ntc-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0 0 22px;
+  border: 0;
+  font: inherit;
+  font-size: 17px;
+  outline: none;
+  background: none;
+}
+.ntc-search input::placeholder { color: #a9aea7; }
+.ntc-search button {
+  width: 56px;
+  font-size: 20px;
+  color: var(--선);
+}
+.ntc-search button:hover { color: var(--버튼그린); }
+
+/* 목록 표 */
+.ntc-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-top: 2px solid var(--선);
+  table-layout: fixed;
+}
+.col-no { width: 110px; }
+.col-date { width: 160px; }
+.ntc-table th {
+  height: 60px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--선);
+  background: rgb(240, 247, 238);
+  border-bottom: 1px solid #dde2db;
+}
+.ntc-table td {
+  height: 70px;
+  padding: 0 16px;
+  border-bottom: 1px solid #edf0ec;
+  font-size: 18px;
+  text-align: center;
+  color: var(--작은-글씨버튼그레이);
+}
+.ntc-table td.ntc-subject { text-align: left; }
+.ntc-subject-in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.ntc-subject a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.ntc-subject a:hover { color: var(--버튼그린); text-decoration: underline; text-underline-offset: 4px; }
+.ntc-table tr.is-pinned td { background: #f5f6f4; }
+.ntc-table tr.is-pinned .ntc-subject a { font-weight: 700; color: var(--제목큰글씨그린); }
+.ntc-table tr:hover td { background: rgb(250, 252, 249); }
+
+/* 공지 배지 / 새 글 / 첨부 아이콘 */
+.ntc-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 3px 12px 0;
+  border-radius: 14px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  background: var(--버튼그린);
+}
+.ntc-new {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: rgb(212, 84, 84);
+}
+.ntc-clip { flex-shrink: 0; color: var(--작은-글씨버튼그레이); }
+.ntc-empty {
+  padding: 70px 0;
+  font-size: 18px;
+  text-align: center;
+  color: var(--작은-글씨버튼그레이);
+  border-bottom: 1px solid #edf0ec;
+}
+
+/* 페이지 번호 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 40px;
+}
+.pagination button {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 6px;
+  border-radius: 21px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--작은-글씨버튼그레이);
+  transition: background-color 0.2s, color 0.2s;
+}
+.pagination button:hover:not(:disabled) { color: var(--선); background: rgb(240, 247, 238); }
+.pagination button[aria-current] { color: #fff; background: var(--버튼그린); }
+.pagination button:disabled { opacity: 0.3; cursor: default; }
+
+/* ===== 상세 ===== */
+.ntc-missing { padding: 60px 0; text-align: center; font-size: 18px; }
+.ntc-missing .btn { margin-top: 24px; }
+.ntc-view-head {
+  padding: 34px 10px 26px;
+  border-top: 2px solid var(--선);
+  border-bottom: 1px solid #dde2db;
+}
+.ntc-view-title {
+  margin-top: 12px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.35;
+  color: var(--제목큰글씨그린);
+}
+.ntc-view-head .ntc-pin + .ntc-view-title { margin-top: 14px; }
+.ntc-view-head > .ntc-view-title:first-child { margin-top: 0; }
+.ntc-view-meta {
+  display: flex;
+  gap: 28px;
+  margin-top: 16px;
+  font-size: 16px;
+}
+.ntc-view-meta div { display: flex; gap: 8px; }
+.ntc-view-meta dt { color: var(--작은-글씨버튼그레이); }
+.ntc-view-meta dd { font-weight: 600; }
+
+/* 첨부파일: 회색 배경 대신 흰 바탕 + 파일 칩(테두리) — 본문 안 회색 박스와 구분 */
+.ntc-files {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 10px;
+  border-bottom: 1px solid #dde2db;
+  font-size: 16px;
+}
+.ntc-files-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--선);
+}
+.ntc-files ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.ntc-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 8px 14px;
+  border: 1px solid #cfe3d3;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+.ntc-file span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ntc-file .bi { flex-shrink: 0; color: rgb(32, 160, 85); }
+.ntc-file-dl { margin-left: 4px; font-size: 14px; }
+.ntc-file:hover {
+  border-color: rgb(32, 160, 85);
+  color: var(--제목큰글씨그린);
+  background: rgb(240, 247, 238);
+}
+
+.ntc-view-body {
+  min-height: 260px;
+  padding: 44px 10px 60px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+/* 문단 사이 = 14px + 줄간격 여백(위아래 0.45em씩). 박스는 여백이 없으니 0.45em을 더해 글자↔박스 거리를 문단 사이와 같게 */
+.ntc-view-body p + p { margin-top: 14px; }
+.ntc-view-body ul + p,
+.ntc-view-body p + ul { margin-top: calc(14px + 0.45em); }
+.ntc-view-body ul {
+  padding: 20px 26px;
+  border-radius: 12px;
+  background: #f5f6f4;
+}
+.ntc-view-body li {
+  position: relative;
+  padding-left: 14px;
+}
+.ntc-view-body li::before {
+  content: "";
+  position: absolute;
+  top: 0.85em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--선);
+}
+
+/* 이전 글 / 다음 글 */
+.ntc-nav {
+  border-top: 1px solid #dde2db;
+  border-bottom: 1px solid #dde2db;
+}
+.ntc-nav li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+  padding: 0 10px;
+  font-size: 17px;
+}
+.ntc-nav li + li { border-top: 1px solid #edf0ec; }
+.ntc-nav-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 90px;
+  font-weight: 600;
+  color: var(--선);
+}
+.ntc-nav a {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ntc-nav a:hover { color: var(--버튼그린); text-decoration: underline; text-underline-offset: 4px; }
+.ntc-nav time { flex-shrink: 0; font-size: 15px; color: var(--작은-글씨버튼그레이); }
+.ntc-nav-none { color: #a9aea7; }
+.ntc-view-btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.ntc-view-btns .btn { min-width: 200px; }
+
+/* ===== 태블릿 ===== */
+@media (max-width: 1024px) {
+  .ntc { padding: 44px 0 80px; }
+  .col-no { width: 80px; }
+  .col-date { width: 130px; }
+  .ntc-view-title { font-size: 27px; }
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 768px) {
+  .ntc { padding: 30px 0 60px; }
+  .ntc-toolbar { flex-direction: column-reverse; align-items: stretch; }
+  .ntc-search { width: 100%; height: 46px; }
+  .ntc-search input { font-size: 15px; }
+  .ntc-count { font-size: 15px; }
+  /* 표를 카드형 목록으로: 번호 칸 숨기고 제목 아래에 날짜 */
+  .ntc-table thead,
+  .ntc-table colgroup { display: none; }
+  .ntc-table,
+  .ntc-table tbody,
+  .ntc-table tr,
+  .ntc-table td { display: block; width: 100%; }
+  .ntc-table tr { padding: 16px 4px; border-bottom: 1px solid #edf0ec; }
+  .ntc-table td { height: auto; padding: 0; border: 0; text-align: left; }
+  .ntc-table td.ntc-no { display: none; }
+  .ntc-table tr.is-pinned td.ntc-no { display: block; margin-bottom: 6px; }
+  .ntc-table td.ntc-subject { font-size: 16px; }
+  .ntc-table td.ntc-date { margin-top: 6px; font-size: 13px; }
+  .ntc-table tr.is-pinned { background: #f5f6f4; }
+  .ntc-table tr.is-pinned td { background: none; }
+  .pagination button { min-width: 36px; height: 36px; font-size: 14px; }
+  .ntc-view-head { padding: 24px 4px 20px; }
+  .ntc-view-title { font-size: 21px; }
+  .ntc-view-meta { gap: 18px; font-size: 14px; }
+  .ntc-files { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 14px; }
+  .ntc-file { font-size: 14px; }
+  .ntc-view-body { padding: 28px 4px 40px; font-size: 16px; }
+  .ntc-view-body ul { padding: 16px 18px; }
+  .ntc-nav li { gap: 12px; height: auto; padding: 14px 4px; font-size: 15px; flex-wrap: wrap; }
+  .ntc-nav-label { width: auto; }
+  .ntc-nav time { display: none; }
+}
+
+/* ===== 자료실 (archive.html): 공지사항 표 스타일 재사용 ===== */
+.col-file { width: 100px; }
+.arc-file {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 17px;
+  color: var(--선);
+  background: rgb(240, 247, 238);
+  transition: background-color 0.2s, color 0.2s;
+}
+.arc-file + .arc-file { margin-left: 4px; }
+.arc-file:hover { color: #fff; background: var(--버튼그린); }
+/* 자료가 없을 때: 표 머리만 남기고 안내 */
+.arc-table.is-empty tbody { display: none; }
+.arc-empty {
+  padding: 90px 0;
+  border-bottom: 1px solid #edf0ec;
+  text-align: center;
+  color: var(--작은-글씨버튼그레이);
+}
+.arc-empty .bi { display: block; font-size: 52px; line-height: 1; color: #c6d3c2; }
+.arc-empty p { margin-top: 14px; font-size: 18px; line-height: 1.4; }
+@media (max-width: 768px) {
+  .arc-table.is-empty thead { display: none; }
+  .arc-table td.arc-files { margin-top: 8px; }
+  .arc-empty { padding: 60px 0; }
+  .arc-empty .bi { font-size: 40px; }
+  .arc-empty p { font-size: 15px; }
+}
+/* ===== 커뮤니티 미니 메뉴 (공지사항·포토갤러리·자료실 왼쪽) ===== */
+.ntc-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+.ntc-main {
+  flex: 1;
+  min-width: 0;
+}
+.lnb {
+  position: sticky;
+  top: 40px;
+  flex-shrink: 0;
+  width: 230px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(19, 76, 19, 0.08);
+}
+.lnb-title {
+  display: flex;
+  align-items: center;
+  height: 84px;
+  padding: 7px 26px 0;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  background: var(--선);
+}
+.lnb-list {
+  padding: 10px 0;
+  background: #fff;
+  border: 1px solid #e4e8e2;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+}
+.lnb-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  margin: 0 12px;
+  padding: 2px 14px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--운영-시간문의오시는-길-내용);
+  transition: background-color 0.2s, color 0.2s;
+}
+.lnb-list .bi { font-size: 13px; color: #b9c2b6; transition: transform 0.2s, color 0.2s; }
+.lnb-list a:hover { color: var(--선); background: rgb(240, 247, 238); }
+.lnb-list a:hover .bi { color: var(--선); transform: translateX(3px); }
+.lnb-list a[aria-current] {
+  font-weight: 700;
+  color: var(--제목큰글씨그린);
+  background: rgb(240, 247, 238);
+}
+.lnb-list a[aria-current] .bi { color: var(--버튼그린); }
+
+@media (max-width: 1024px) {
+  .ntc-layout { gap: 30px; }
+  .lnb { width: 190px; }
+  .lnb-title { height: 70px; padding: 7px 20px 0; font-size: 20px; }
+  .lnb-list a { height: 52px; font-size: 16px; }
+}
+/* 모바일: 위쪽 가로 탭으로 */
+@media (max-width: 768px) {
+  .ntc-layout { flex-direction: column; align-items: stretch; gap: 24px; }
+  .lnb { position: static; width: 100%; border-radius: 12px; box-shadow: none; }
+  .lnb-title { display: none; }
+  .lnb-list {
+    display: flex;
+    padding: 4px;
+    border: 1px solid #e4e8e2;
+    border-radius: 12px;
+    background: #f5f6f4;
+  }
+  .lnb-list li { flex: 1; }
+  .lnb-list a {
+    justify-content: center;
+    height: 44px;
+    margin: 0;
+    padding: 1px 0 0;
+    font-size: 15px;
+  }
+  .lnb-list .bi { display: none; }
+  .lnb-list a[aria-current] { color: #fff; background: var(--버튼그린); }
+}

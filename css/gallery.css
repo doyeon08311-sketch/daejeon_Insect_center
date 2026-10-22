@@ -1,0 +1,154 @@
+/* ===== 포토갤러리 (표·미니메뉴·상세 머리 등 공통은 notice.css) ===== */
+
+/* 목록 카드 */
+.ph-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px 24px;
+  margin-top: 20px;
+  padding-top: 30px;
+  border-top: 2px solid var(--선);
+}
+.ph-card { display: block; }
+.ph-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f5f6f4;
+}
+.ph-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.ph-card:hover .ph-thumb img { transform: scale(1.05); }
+.ph-card:focus-visible { outline: 3px solid var(--포인트블루); outline-offset: 4px; border-radius: 14px; }
+.ph-num {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+}
+.ph-body { padding: 16px 4px 0; }
+.ph-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--제목큰글씨그린);
+}
+.ph-card:hover .ph-title { text-decoration: underline; text-underline-offset: 4px; }
+.ph-date { display: block; margin-top: 6px; font-size: 15px; color: var(--작은-글씨버튼그레이); }
+
+/* 상세: 큰 사진 + 썸네일 */
+.ph-viewer { padding: 0 0 50px; } /* 본문 아래에 사진, 사진 아래는 이전/다음 글 */
+.ph-stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1f2a1f;
+}
+.ph-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 세로 사진도 잘리지 않게 전체 표시 */
+}
+.ph-stage img.is-show { animation: phFade 0.35s ease-out; }
+@keyframes phFade { from { opacity: 0.2; } to { opacity: 1; } }
+.ph-arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: var(--선);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+  transition: background-color 0.2s, color 0.2s;
+}
+.ph-arrow[hidden] { display: none; }
+.ph-arrow:hover { color: #fff; background: var(--버튼그린); }
+.ph-arrow:focus-visible { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+.ph-prev { left: 20px; }
+.ph-next { right: 20px; }
+.ph-counter {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  padding: 4px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+}
+.ph-counter strong { color: rgb(255, 244, 119); }
+.ph-thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.ph-thumbs li { flex: 0 0 130px; }
+.ph-thumb-btn {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0.55;
+  outline: 3px solid transparent;
+  outline-offset: -3px;
+  transition: opacity 0.2s, outline-color 0.2s;
+}
+.ph-thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
+.ph-thumb-btn:hover { opacity: 0.85; }
+.ph-thumb-btn.is-active { opacity: 1; outline-color: var(--버튼그린); }
+.ph-thumb-btn:focus-visible { outline-color: var(--포인트블루); }
+.ph-body-text { min-height: 0; padding: 34px 10px 30px; } /* 제목 바로 아래 본문 */
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-thumb img,
+  .ph-arrow,
+  .ph-thumb-btn { transition: none; }
+  .ph-stage img.is-show { animation: none; }
+}
+
+@media (max-width: 1024px) {
+  .ph-list { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
+}
+@media (max-width: 768px) {
+  .ph-list { gap: 20px 12px; padding-top: 20px; }
+  .ph-title { font-size: 16px; }
+  .ph-date { font-size: 13px; }
+  .ph-viewer { padding-bottom: 36px; }
+  .ph-body-text { padding: 24px 4px 22px; }
+  .ph-stage { border-radius: 12px; }
+  .ph-arrow { width: 40px; height: 40px; font-size: 17px; }
+  .ph-prev { left: 10px; }
+  .ph-next { right: 10px; }
+  .ph-counter { right: 10px; bottom: 10px; font-size: 13px; }
+  .ph-thumbs { gap: 8px; }
+  .ph-thumbs li { flex-basis: 84px; }
+}

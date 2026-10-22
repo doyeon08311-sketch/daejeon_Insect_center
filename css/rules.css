@@ -1,0 +1,88 @@
+/* ===== 유의사항 (rules.html) — 미니 메뉴·문의 줄은 notice.css / about.css 재사용 ===== */
+
+/* 안내 배너 */
+.rules-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 34px 40px;
+  border-radius: 16px;
+  background: linear-gradient(110deg, rgb(234, 247, 238) 0%, rgb(255, 247, 229) 100%);
+}
+.rules-title {
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--제목큰글씨그린);
+}
+.rules-sub {
+  margin-top: 10px;
+  font-size: 17px;
+  color: var(--운영-시간문의오시는-길-내용);
+}
+.rules-banner-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  font-size: 38px;
+  color: rgb(32, 160, 85);
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(19, 76, 19, 0.1);
+}
+
+/* 번호 목록 */
+.rules-list { margin-top: 30px; border-top: 2px solid var(--선); }
+.rules-list li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 92px;
+  padding: 18px 10px;
+  border-bottom: 1px solid #edf0ec;
+}
+.rule-num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  padding-top: 3px;
+  border-radius: 50%;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+  background: rgb(32, 160, 85);
+}
+.rule-text {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--운영-시간문의오시는-길-내용);
+  word-break: keep-all;
+}
+.rule-icon {
+  flex-shrink: 0;
+  font-size: 26px;
+  color: #c9d6c4;
+}
+.rules-list li:hover { background: rgb(250, 252, 249); }
+.rules-list li:hover .rule-icon { color: rgb(32, 160, 85); }
+
+@media (max-width: 768px) {
+  .rules-banner { padding: 24px 20px; }
+  .rules-title { font-size: 21px; }
+  .rules-sub { font-size: 14px; }
+  .rules-banner-icon { width: 56px; height: 56px; font-size: 24px; }
+  .rules-list li { gap: 14px; min-height: 0; padding: 16px 4px; }
+  .rule-num { width: 40px; height: 40px; font-size: 15px; }
+  .rule-text { font-size: 15px; }
+  .rule-icon { display: none; }
+}

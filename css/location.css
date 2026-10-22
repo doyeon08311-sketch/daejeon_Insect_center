@@ -1,0 +1,64 @@
+/* ===== 찾아오시는 길 (location.html) — 지도·교통 안내 스타일은 style.css의 메인 섹션 재사용 ===== */
+
+/* 미니 메뉴 옆 좁은 본문에 맞게: 지도는 본문 폭 가득, 교통 안내는 아래 2열 */
+.loc-page .map-box {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 776 / 460;
+}
+.loc-page .route {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.loc-page .route-item {
+  margin: 0;
+  padding: 26px 28px;
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+}
+/* 본문 폭에 맞춰 메인보다 한 단계 작은 글자 (태블릿 크기 기준) */
+.loc-page .route-title { height: 46px; font-size: 21px; }
+.loc-page .route-item p,
+.loc-page .route-item dl { margin-top: 14px; font-size: 17px; line-height: 30px; }
+.loc-page .route-item dt,
+.loc-page .route-item dd { line-height: 30px; }
+.loc-page .route-item dd + dt { margin-top: 6px; }
+.loc-page .route-item dd strong { font-size: 20px; }
+
+/* 기본 정보 */
+.loc-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  margin-top: 24px;
+  padding: 22px 28px;
+  border-radius: 14px;
+  background: rgb(234, 247, 238);
+}
+.loc-info div { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+.loc-info div:first-child { grid-column: 1 / -1; } /* 주소는 한 줄 전체, 운영시간·대표전화는 아래 2칸 */
+.loc-info dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--선);
+}
+.loc-info dt .bi { color: rgb(32, 160, 85); }
+.loc-info dd { color: var(--운영-시간문의오시는-길-내용); }
+.loc-info a { font-weight: 700; color: var(--제목큰글씨그린); }
+.ov-sub { font-size: 14px; color: var(--작은-글씨버튼그레이); }
+
+@media (max-width: 1240px) {
+  .loc-info { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .loc-page .map-box { aspect-ratio: 4 / 3; }
+  .loc-page .route { grid-template-columns: 1fr; gap: 14px; }
+  .loc-page .route-item { padding: 20px; }
+  .loc-info { padding: 18px 18px; }
+  .loc-info div { flex-direction: column; align-items: flex-start; gap: 2px; font-size: 15px; }
+}

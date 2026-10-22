@@ -1,0 +1,14 @@
+# Vercel 로컬 연결 정보
+.vercel
+
+# Claude Code 작업 메모 (저장소에는 올리지 않음)
+CLAUDE.md
+
+# 테스트용 임시 파일
+zz_*.html
+
+# OS / 편집기
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/

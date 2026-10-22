@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>곤충산업육성 | 대전곤충생태관</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/MBC1961/MBC1961.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sub.css">
+  <link rel="stylesheet" href="css/notice.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/history.css">
+  <link rel="stylesheet" href="css/industry.css">
+</head>
+<body>
+
+  <!-- Header: 서브 페이지는 흰색 버전으로 상단 고정 (header--fixed) -->
+  <header class="header header--fixed" id="header">
+    <div class="top-bar">
+      <div class="inner">
+        <ul class="family-site">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림">대전광역시청</a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림">한밭수목원</a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림">대전엑스포시민광장</a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림">천연기념물센터</a></li>
+        </ul>
+        <ul class="util">
+          <li><a href="index.html">home</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/integMemberLogin.do?siteCd=drh&amp;subSiteCd=ist" target="_blank" rel="noopener" title="새 창 열림">login</a></li>
+          <li><a href="https://www.daejeon.go.kr/integ/registerMember/integMemberJoinClause.do" target="_blank" rel="noopener" title="새 창 열림">회원가입</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img class="logo-default" src="images/logo.png" alt="대전곤충생태관">
+            <img class="logo-active" src="images/logo_hover.png" alt="" aria-hidden="true">
+          </a>
+        </h1>
+        <button type="button" class="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- PC: 메뉴를 누르면 아래 패널과 서브메뉴가 내려옴 / 태블릿·모바일: 아코디언 -->
+        <nav class="gnb" id="gnb">
+          <ul class="gnb-list">
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-1" data-text="생태관 소개">생태관 소개</button>
+              <ul class="sub" id="sub-1">
+                <li><a href="about.html">곤충생태관은?</a></li>
+                <li><a href="history.html">연혁 및 조성개요</a></li>
+                <li><a href="organization.html">조직 및 업무</a></li>
+                <li><a href="industry.html" aria-current="page">곤충산업육성</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-2" data-text="체험 프로그램">체험 프로그램</button>
+              <ul class="sub" id="sub-2">
+                <li><a href="program_Information.html">프로그램 안내</a></li>
+                <li><a href="program_reservation.html">프로그램 신청</a></li>
+                <li><a href="volunteer.html">자원봉사 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-3" data-text="이용안내">이용안내</button>
+              <ul class="sub" id="sub-3">
+                <li><a href="guide.html">생태관 이용안내</a></li>
+                <li><a href="rules.html">유의사항</a></li>
+                <li><a href="location.html">찾아오시는 길</a></li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" class="gnb-link" aria-expanded="false" aria-controls="sub-4" data-text="커뮤니티">커뮤니티</button>
+              <ul class="sub" id="sub-4">
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="gallery.html">포토갤러리</a></li>
+                <li><a href="archive.html">자료실</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="gnb-panel" aria-hidden="true">
+      <div class="inner">
+        <p class="gnb-panel-title"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main sub-main">
+    <!-- 상단 비주얼 -->
+    <section class="sub-visual">
+      <div class="inner">
+        <ol class="breadcrumb">
+          <li><a href="index.html">홈</a></li>
+          <li>생태관 소개</li>
+          <li aria-current="page">곤충산업육성</li>
+        </ol>
+        <h2 class="sub-title">곤충산업육성</h2>
+        <p class="sub-desc">농식품부터 체험, 융복합까지 — 미래 신성장 산업으로 주목받는 곤충산업을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section class="ntc">
+      <div class="inner ntc-layout">
+        <!-- 생태관 소개 미니 메뉴 -->
+        <aside class="lnb" aria-label="생태관 소개 메뉴">
+          <p class="lnb-title">생태관 소개</p>
+          <ul class="lnb-list">
+            <li><a href="about.html">곤충생태관은?<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="history.html">연혁 및 조성개요<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="organization.html">조직 및 업무<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="industry.html" aria-current="page">곤충산업육성<i class="bi bi-chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+        </aside>
+
+        <div class="ntc-main hist">
+          <!-- 정의 -->
+          <div class="ind-banner">
+            <div>
+              <p class="ind-label">곤충산업이란?</p>
+              <p class="ind-def">곤충으로부터 유래하는 일반적인 상품들의 총합으로<br><strong>농식품, 체험 영역, 융복합 영역</strong>으로 나뉩니다.</p>
+            </div>
+            <span class="ind-banner-icon" aria-hidden="true"><i class="bi bi-bug"></i></span>
+          </div>
+
+          <!-- 주요 영역 -->
+          <section class="hist-sec">
+            <h3 class="hist-title"><i class="bi bi-grid-1x2" aria-hidden="true"></i>주요 영역</h3>
+            <table class="ov-table ind-table">
+              <caption class="blind">곤충산업 주요 영역별 세부내용</caption>
+              <colgroup><col class="ov-col-area"><col></colgroup>
+              <thead>
+                <tr><th scope="col">주요영역</th><th scope="col">세부내용</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">농식품</th>
+                  <td><p class="ind-keys">천적 · 화분매개 · 식용 · 사료용</p><p>친환경농업과 시설원예 확산으로 해충방제용 천적곤충, 꽃의 수정을 돕는 화분매개곤충, 식품·사료용 곤충의 산업화 활발</p></td>
+                </tr>
+                <tr>
+                  <th scope="row">체험</th>
+                  <td><p class="ind-keys">애완용 · 교육용 · 예술 · 관광</p><p>최근 학습·애완용 곤충분야는 가장 빨리 성장하는 분야이며, 곤충을 주제로 한 체험관광, 예술작품, 문화콘텐츠도 증가</p></td>
+                </tr>
+                <tr>
+                  <th scope="row">융복합</th>
+                  <td><p class="ind-keys">생명공학(의약) · 생체모방 · 환경정화</p><p>생명공학의 발달과 기술의 융복합 추세에 따라 곤충을 활용한 유전학 연구와 곤충의 생체모방 기술이 확산. 음식물쓰레기 등 유기성 폐기물의 친환경적 처리, 곤충유래물질을 이용한 기능성 의약품 소재 개발이 증가</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- 분야별 곤충 -->
+          <section class="hist-sec">
+            <h3 class="hist-title"><i class="bi bi-collection" aria-hidden="true"></i>분야별 곤충</h3>
+            <ul class="ind-list">
+              <li class="ind-item is-ours">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-heart"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">학습·애완곤충 <span class="ind-center">대전곤충생태관</span></p>
+                  <p class="ind-desc">사람들이 곁에 두고 기르면서 즐거워할 뿐 아니라 자연을 이해하고 이를 통하여 과학 공부를 하면서 심리적 안정화에 도움이 되는 곤충으로, 사람들에게 ‘즐거움 + 자연이해 + 심리적 안정’이라는 선물을 가져다주는 곤충들을 말합니다.</p>
+                  <p class="ind-kinds"><strong>곤충종류</strong>장수풍뎅이, 왕사슴벌레, 넓적사슴벌레, 배추흰나비, 호랑나비, 큰주홍부전나비, 반딧불이, 방울벌레, 울도하늘소, 뽕나무하늘소, 왕귀뚜라미, 대벌레 등</p>
+                </div>
+              </li>
+              <li class="ind-item">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">천적곤충 <span class="ind-center">경기도 지역곤충자원 산업화지원센터</span></p>
+                  <p class="ind-desc">인간이 재배하는 작물에 직간접으로 피해를 주는 해충으로부터 작물을 보호하여 경제적 손실을 막습니다.</p>
+                  <table class="ov-table ind-enemy">
+                    <caption>국내에서 사용하는 주요 천적</caption>
+                    <colgroup><col class="ind-col-pest"><col class="ind-col-enemy"><col></colgroup>
+                    <thead>
+                      <tr><th scope="col">대상해충</th><th scope="col">천적</th><th scope="col">주요적용작물</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th scope="row">잎응애류</th><td>칠레이리응애·사막이리응애</td><td>딸기, 파프리카, 고추, 오이, 호박 등</td></tr>
+                      <tr><th scope="row" rowspan="2">가루이류</th><td>지중해이리응애</td><td>파프리카, 고추, 가지, 오이 등</td></tr>
+                      <tr><td>담배장님노린재</td><td>파프리카, 고추, 토마토</td></tr>
+                      <tr><th scope="row">온실가루이</th><td>온실가루이좀벌</td><td>딸기, 파프리카, 고추, 피망, 토마토, 오이 등</td></tr>
+                      <tr><th scope="row" rowspan="3">총채벌레</th><td>미끌애꽃노린재</td><td rowspan="2">딸기, 파프리카, 고추, 피망, 오이, 멜론 등</td></tr>
+                      <tr><td>오이이리응애</td></tr>
+                      <tr><td>총채가시응애</td><td>딸기, 상추 등</td></tr>
+                      <tr><th scope="row" rowspan="4">진딧물류</th><td>콜레마니진디벌</td><td rowspan="2">딸기, 파프리카, 고추, 피망, 가지, 오이 등</td></tr>
+                      <tr><td>복숭아혹진디벌</td></tr>
+                      <tr><td>진디혹파리</td><td>딸기, 파프리카, 피망, 오이, 호박, 참외, 수박, 멜론 등</td></tr>
+                      <tr><td>무당벌레</td><td>참외, 오이, 수박, 호박, 상추, 시금치, 깻잎 등</td></tr>
+                      <tr><th scope="row">잎굴파리</th><td>굴파리좀벌·굴파리고치벌</td><td>오이, 호박, 멜론, 토마토, 국화</td></tr>
+                      <tr><th scope="row">나방 알</th><td>쌀알좀벌</td><td>파프리카, 고추, 피망, 토마토 등</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li class="ind-item">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-flower1"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">화분매개곤충 <span class="ind-center">경북 지역곤충자원 산업화지원센터</span></p>
+                  <p class="ind-desc">꽃가루를 매개하는 수분곤충으로 특히 농작물의 결실에 도움을 주는 유용한 곤충입니다. 친환경 농업, 노동력 절감, 고품질 농산물을 생산할 수 있는 경제적인 곤충이므로 앞으로 농업분야에서 화분매개곤충의 중요성은 더욱 커질 것입니다.</p>
+                  <p class="ind-kinds"><strong>곤충종류</strong>뒤영벌, 꿀벌, 뿔가위벌류</p>
+                </div>
+              </li>
+              <li class="ind-item">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-capsule"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">식·약용곤충 <span class="ind-center">경남 지역곤충자원 산업화지원센터</span></p>
+                  <p class="ind-desc">기존의 동물성 단백질보다 더 고단백질인 곤충을 식용으로 하여 미래의 먹거리 문제를 해결하고, 예전부터 전해 내려오는 곤충을 활용한 약용곤충산업의 발달로 천연약품의 개발이 지속적으로 연구되고 있습니다.</p>
+                  <p class="ind-kinds"><strong>곤충종류</strong>메뚜기, 누에번데기, 백강잠, 갈색거저리 유충, 쌍별귀뚜라미, 장수풍뎅이 유충, 흰점박이꽃무지 유충</p>
+                </div>
+              </li>
+              <li class="ind-item">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-basket"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">사료용곤충</p>
+                  <p class="ind-desc">닭과 조류·양어·개구리 사료와 낚시미끼 등으로 활용할 수 있습니다. 기능성 프리미엄 애완사료 시장에 우선 진출하고, 가격경쟁력 확보 후 가축사료화를 추진합니다.</p>
+                  <p class="ind-kinds"><strong>곤충종류</strong>거저리유충(밀웜, 슈퍼밀웜), 건조귀뚜라미, 건조메뚜기, 동애등에유충, 번데기(번데기박을 포함), 장구벌레, 파리유충, 혼합곤충</p>
+                </div>
+              </li>
+              <li class="ind-item">
+                <span class="ind-icon" aria-hidden="true"><i class="bi bi-recycle"></i></span>
+                <div class="ind-body">
+                  <p class="ind-name">환경정화곤충</p>
+                  <p class="ind-desc">동애등에를 이용한 친환경 분해시스템의 연구결과를 농가나 음식물쓰레기처리장 등 현장에 접목하면 곤충관련 산업을 육성할 수 있는 좋은 기회가 됩니다. 또한 동애등에의 유충 등은 동물의 사료나 식·약용으로 활용하며, 분해산물은 양질의 퇴비로 작물에 적용하여 새로운 부가가치를 창출할 수 있습니다.</p>
+                  <p class="ind-kinds"><strong>곤충종류</strong>소똥구리, 동애등에, 파리류 등</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <p class="vol-contact about-contact"><i class="bi bi-building" aria-hidden="true"></i>담당부서 농생명정책과 <span class="bar" aria-hidden="true"></span><i class="bi bi-telephone" aria-hidden="true"></i>문의전화 <a href="tel:042-270-5273">042-270-5273</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 띠 배너: 모든 페이지 공통 / 배너 전체가 반딧불이 불빛체험 예약으로 연결 -->
+  <a href="program_reservation.html?program=firefly-2026-summer" class="strip-banner" aria-label="2026 대전곤충생태관 반딧불이 불빛체험, 2차 예약 마감 D-Day. 예약 바로가기">
+    <span class="inner">
+      <span class="strip-title">2026 대전곤충생태관<strong>반딧불이 불빛체험</strong></span>
+      <span class="strip-dday">2차 예약 마감 D-Day</span>
+      <span class="strip-btn">예약 바로가기</span>
+    </span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="related">
+      <div class="inner">
+        <h2 class="related-title">
+          <svg class="related-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 10.5 12 4l8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          관련사이트
+        </h2>
+        <ul class="related-list">
+          <li><a href="https://www.daejeon.go.kr/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_city.png" alt="대전광역시청"></a></li>
+          <li><a href="https://www.daejeon.go.kr/gar/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/hanbat_arboretum.png" alt="한밭수목원"></a></li>
+          <li><a href="https://www.expoplaza.or.kr/" target="_blank" rel="noopener" title="새 창 열림"><img src="images/daejeon_expo.png" alt="대전엑스포시민광장"></a></li>
+          <li><a href="https://nrich.go.kr/nhc/index.do" target="_blank" rel="noopener" title="새 창 열림"><img src="images/natural_heritage_center.png" alt="천연기념물센터"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="inner">
+        <div class="footer-info">
+          <ul class="policy">
+            <li class="point"><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=2062" target="_blank" rel="noopener" title="새 창 열림">개인정보처리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/DrhContentsHtmlView.do?menuSeq=1757" target="_blank" rel="noopener" title="새 창 열림">영상정보처리기기 운영 · 관리방침</a></li>
+            <li><a href="https://www.daejeon.go.kr/drh/board/boardNormalList.do?boardId=homepage_0001&amp;menuSeq=1507" target="_blank" rel="noopener" title="새 창 열림">누리집</a></li>
+          </ul>
+          <address>
+            <span>(35204) 대전광역시 서구 둔산대로 191(만년동)/한밭수목원내</span>
+            <span>대표전화 (042) 270-5274</span>
+          </address>
+          <p class="copyright">COPYRIGHT 2017 (c) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="footer-logo">
+          <img src="images/footer_logo.png" alt="대전광역시">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
