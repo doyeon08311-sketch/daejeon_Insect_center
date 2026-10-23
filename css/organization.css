@@ -27,7 +27,7 @@
   content: "";
   position: absolute;
   top: 100%;
-  left: 50%;
+  left: calc(50% - 1px);
   width: 2px;
   height: 30px;
   background: #c9d6c4;
@@ -39,13 +39,14 @@
   gap: 12px;
   margin-top: 60px;
 }
-/* 팀들을 잇는 가로선: 첫 팀 가운데 ~ 마지막 팀 가운데 */
+/* 팀들을 잇는 가로선: 첫 팀 가운데 ~ 마지막 팀 가운데
+   (칸 사이 gap 12px × 5 = 60px를 빼야 칸 가운데와 정확히 맞음, 세로선 두께 2px만큼 양쪽 1px씩 더) */
 .org-teams::before {
   content: "";
   position: absolute;
   top: -30px;
-  left: calc(100% / 12);
-  right: calc(100% / 12);
+  left: calc((100% - 60px) / 12 - 1px);
+  right: calc((100% - 60px) / 12 - 1px);
   height: 2px;
   background: #c9d6c4;
 }
@@ -55,12 +56,12 @@
   flex-direction: column;
   align-items: stretch;
 }
-/* 가로선 → 각 팀으로 내려가는 세로선 */
+/* 가로선 → 각 팀으로 내려가는 세로선 (2px 선의 가운데가 칸 가운데에 오도록) */
 .org-teams li::before {
   content: "";
   position: absolute;
   top: -30px;
-  left: 50%;
+  left: calc(50% - 1px);
   width: 2px;
   height: 30px;
   background: #c9d6c4;
@@ -102,7 +103,7 @@
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 50%;
+  left: calc(50% - 1px);
   width: 2px;
   height: 30px;
   background: #c9d6c4;

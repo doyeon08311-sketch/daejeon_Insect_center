@@ -95,8 +95,3 @@ address { font-style: normal; }
 @media (max-width: 1240px) {
   .inner { padding: 0 20px; }
 }
-
-/* PC 화면 전체 배율: 브라우저 100%에서 90% 확대 상태처럼 보이게 (태블릿·모바일은 원래 크기) */
-@media (min-width: 1025px) {
-  html { zoom: 0.9; }
-}

@@ -1123,6 +1123,11 @@
   min-width: 0;
 }
 .route-item + .route-item { margin-top: 60px; }
+/* 1025~1240px: 고정 폭 지도(776px) 때문에 가로 스크롤이 생기지 않도록 지도를 비율로 줄임 */
+@media (max-width: 1240px) {
+  .location-body { gap: 40px; }
+  .map-box { flex-shrink: 1; width: 60%; height: auto; aspect-ratio: 776 / 515; }
+}
 .route-title {
   display: flex;
   justify-content: space-between;
