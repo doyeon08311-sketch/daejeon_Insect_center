@@ -906,6 +906,13 @@
   width: 56px;
   margin: 0 auto;
 }
+/* PC: 원래 나비 이미지 / 모바일: 날개만 있는 벡터 나비 (768px 이하에서 교체) */
+.done-icon-mo {
+  display: none;
+  height: auto;
+  color: var(--제목큰글씨그린);
+}
+.mo-only { display: none; }
 .done-title {
   margin-top: 18px;
   font-family: var(--font-gmarket);
@@ -925,6 +932,13 @@
   font-size: 22px;
   color: var(--제목큰글씨그린);
   background: rgb(255, 244, 119);
+}
+/* 예약번호 아래 안내: PC는 예전처럼 예약번호 바로 아래 같은 글씨로 이어서 (모바일은 아래에서 회색 작은 글씨로 구분) */
+.done-desc + .done-note { margin-top: 0; }
+.done-note {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--운영-시간문의오시는-길-내용);
 }
 .done-summary {
   max-width: 560px;
@@ -1014,14 +1028,41 @@
 @media (max-width: 768px) {
   .reserve { padding: 30px 0 60px; }
   .steps { scroll-margin-top: 110px; }
-  .steps li { flex-direction: column; gap: 3px; height: 64px; font-size: 12px; }
-  .steps li + li { margin-left: -8px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%); }
-  .steps li:first-child { clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); }
-  .steps li:last-child { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%); }
-  .step-num { width: 22px; height: 22px; font-size: 12px; }
-  .step-name { padding-top: 3px; }
-  .steps li:first-child { padding-right: 10px; }
-  .steps li:last-child { padding-left: 10px; }
+  /* 모바일 진행 단계: 화살표 띠 대신 "번호 원 + 연결선 + 아래 이름" 스테퍼 (좁은 폭에서도 여유 있게) */
+  .steps li,
+  .steps li + li,
+  .steps li:first-child,
+  .steps li:last-child { clip-path: none; margin: 0; padding: 0; border-radius: 0; background: none; }
+  .steps li {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7px;
+    height: auto;
+    font-size: 12px;
+    color: var(--작은-글씨버튼그레이);
+  }
+  /* 이전 단계 원 → 이 단계 원을 잇는 선 */
+  .steps li + li::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 13px;
+    left: calc(-50% + 18px);
+    right: calc(50% + 18px);
+    height: 2px;
+    border-radius: 1px;
+    background: #dfe4dd;
+  }
+  .step-num { position: relative; z-index: 1; width: 28px; height: 28px; font-size: 13px; color: #8a9289; background: #e9ece7; }
+  .step-name { padding-top: 0; line-height: 1.35; text-align: center; word-break: keep-all; max-width: 3.6em; } /* 네 단계 모두 두 줄로 같은 모양 */
+  .steps .is-current { color: var(--제목큰글씨그린); background: none; font-weight: 700; }
+  .steps .is-current .step-num { color: #fff; background: var(--버튼그린); box-shadow: 0 0 0 4px rgba(32, 178, 93, 0.18); }
+  .steps .is-done { color: var(--선); background: none; }
+  .steps .is-done .step-num { color: #fff; background: var(--선); }
+  .steps .is-done + li::before,
+  .steps .is-current + li::before { background: #dfe4dd; }
+  .steps .is-done + .is-done::before,
+  .steps .is-done + .is-current::before { background: var(--선); }
   .panel-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .panel-guide { font-size: 15px; }
   .choice-list { grid-template-columns: 1fr; }
@@ -1047,6 +1088,12 @@
   .step-done { padding: 40px 18px; }
   .done-title { font-size: 26px; }
   .done-desc { font-size: 15px; }
+  /* 모바일 완료 화면: 날개만 있는 벡터 나비 + 예약번호 아래 안내는 간격을 띄운 회색 작은 글씨 두 줄 */
+  .done-icon-pc { display: none; }
+  .done-icon-mo { display: block; }
+  .mo-only { display: inline; }
+  .done-desc + .done-note { margin-top: 10px; }
+  .done-note { font-size: 13px; line-height: 1.6; color: var(--작은-글씨버튼그레이); }
   .done-summary { padding: 6px 18px; }
   .done-summary div { font-size: 15px; }
   .done-btns { flex-direction: column; }

@@ -117,16 +117,20 @@
   .org-chart { padding: 30px 20px 34px; }
   .org-team, .org-ours { font-size: 14px; }
 }
-/* 모바일: 팀을 2열 격자로, 연결선은 숨기고 과 아래에 나열 */
+/* 모바일: PC와 같은 위계를 세로 나무 모양으로 — 과 → 왼쪽 세로 줄기 → 팀(한 줄에 하나) → 농업정책팀 아래 곤충생태관 */
 @media (max-width: 768px) {
   .org-chart { padding: 24px 16px 26px; }
   .org-head { width: 100%; font-size: 18px; }
-  .org-head::after { height: 20px; }
-  .org-teams { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 2px solid #c9d6c4; }
-  .org-teams::before,
-  .org-teams li::before { display: none; }
-  .org-teams li.has-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .org-ours { margin-top: 0; }
-  .org-ours::before { bottom: auto; top: 50%; left: auto; right: 100%; width: 10px; height: 2px; }
+  /* 과 → 줄기: 줄기 위치(왼쪽 24px)에서 내려옴 */
+  .org-head::after { left: 23px; height: 20px; }
+  .org-teams { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding-left: 40px; }
+  /* 세로 줄기: 과 아래부터 마지막 팀 가운데까지 */
+  .org-teams::before { top: 0; bottom: 23px; left: 23px; right: auto; width: 2px; height: auto; }
+  .org-teams li { display: flex; flex-direction: column; }
+  /* 줄기 → 각 팀 가지 */
+  .org-teams li::before { top: 23px; left: -17px; width: 17px; height: 2px; }
+  /* 곤충생태관: 농업정책팀 아래로 들여쓰기, ㄴ자 선으로 연결 */
+  .org-ours { margin: 10px 0 0 28px; }
+  .org-ours::before { bottom: auto; top: -10px; left: -16px; width: 14px; height: 34px; border-left: 2px solid #c9d6c4; border-bottom: 2px solid #c9d6c4; background: none; }
   .org-team, .org-ours { height: 48px; font-size: 14px; }
 }

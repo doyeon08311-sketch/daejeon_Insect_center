@@ -449,4 +449,12 @@
   }
   .lnb-list .bi { display: none; }
   .lnb-list a[aria-current] { color: #fff; background: var(--버튼그린); }
+  /* 메뉴 글자가 칸 안에서 줄바꿈되지 않게 */
+  .lnb-list a { white-space: nowrap; letter-spacing: -0.02em; }
+  /* 메뉴가 4개 이상(생태관 소개 등)이면 한 줄에 넣지 않고 2×2 칸으로 */
+  .lnb-list:has(> li:nth-child(4)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
 }

@@ -504,7 +504,7 @@ button.mk:hover,
   .guide-sec { margin-top: 40px; }
   .guide-title { font-size: 21px; }
   .guide-map { padding: 8px; }
-  .map-lobby-wrap { padding: 12px 12px 14px; }
+  .map-lobby-wrap { display: none; } /* 모바일: 1층 로비 복도 안내 숨김 */
   .lobby-label { flex-wrap: wrap; font-size: 14px; }
   .lobby-label span { flex-basis: 100%; margin: 2px 0 0; font-size: 12px; }
   .map-lobby { flex-wrap: wrap; justify-content: flex-start; gap: 6px; }
@@ -661,6 +661,7 @@ button.mk:hover,
 }
 /* 현재 구역 표시: 채움 없이 가볍게 — 구역 색 작은 번호 + 진한 글자 (지도로 가는 시선을 뺏지 않도록) */
 .zone-chip {
+  white-space: nowrap; /* 구역 이름이 두 줄로 꺾이지 않게 */
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
@@ -760,7 +761,7 @@ button.mk:hover,
   .map-overview .ov-where { width: 34%; }
   .zone-btn-in strong { font-size: 15px; }
   .zone-go { display: none; }
-  .zone-view-head { margin-bottom: 12px; }
+  .zone-view-head { margin-bottom: 20px; } /* 머리줄과 지도 사이 여유 */
   .zone-chip { gap: 6px; margin-left: 0; padding-left: 13px; font-size: 19.5px; }
   .zone-chip::before { height: 15px; }
   .zone-chip .zone-no { font-size: 15.5px; }
@@ -853,7 +854,7 @@ button.mk:hover,
 /* ===== 2층: 한 화면 (지도 + 캐릭터 → 사진 / 안내 박스) ===== */
 .zone-view-2f { --zone-left: 0, 112, 255; --zone-right: 255, 110, 0; --zc: 0, 150, 136; padding-top: 4px; }
 .zone-view-2f .zone-view-head { padding-left: 12px; }
-.zone-view-2f .zone-chip { margin-left: 0; }
+.zone-view-2f .zone-chip { margin-left: 0; position: relative; top: 1px; } /* Gmarket 글자가 범례보다 위로 떠 보여 1px 내림 */
 /* 머리줄 오른쪽 범례 ("전체 지도" 버튼 자리) */
 .zone-legend { display: flex; gap: 16px; }
 .zone-legend li { display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--운영-시간문의오시는-길-내용); }
