@@ -433,6 +433,8 @@
 }
 .sec-title span,
 .sec-title img { flex-shrink: 0; }
+/* 나비 아이콘은 고해상도(87×81) 이미지라 원래 크기(29px)로 고정 — 태블릿·모바일은 아래 미디어쿼리 크기를 그대로 따름 */
+.sec-title img:where([src$="icon_butterfly.png"]) { width: 29px; height: auto; }
 /* Gmarket Sans 글자가 위로 치우쳐 보이는 만큼 아이콘을 올려 시각적 중심 맞춤 */
 .sec-title img,
 .info-item dt img {
