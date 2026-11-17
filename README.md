@@ -18,6 +18,16 @@
 
 <br>
 
+### 🔙 BEFORE — 기존 사이트
+
+![기존 대전곤충생태관 홈페이지 PC 메인 화면](docs/before-pc-main.jpg)
+
+<sub>출처: [대전곤충생태관 공식 홈페이지](https://www.daejeon.go.kr/ist/index.do)</sub>
+
+<br>
+
+### ✨ AFTER — 리뉴얼
+
 ![PC 메인 첫 화면 — 꿈돌이 캐릭터와 프로그램·봉사활동 예약 버튼](docs/pc-main.jpg)
 
 <table>
