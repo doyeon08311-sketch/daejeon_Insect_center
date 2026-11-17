@@ -11,8 +11,8 @@
 | 프로젝트 구분 | 개인용 포트폴리오 |
 | 프로젝트 종류 | 공공기관 홈페이지 리뉴얼 (메인 + 서브 페이지 16개 반응형 구현) |
 | 작업자 | 윤도연 (기여도 100%) |
-| 사용 툴 | Figma, Photoshop, Visual Studio Code, ChatGPT, Claude Code |
-| 작업 기간 | 2026년 10월 00일 ~ 11월 00일 (n일간) |
+| 사용 툴 | Figma, Photoshop, Visual Studio Code (HTML · CSS · JavaScript), Claude Code |
+| 작업 기간 | 2026년 10월 19일 ~ 10월 23일 / 작업 기간 5일 (일 평균 4시간, 총 20시간) |
 
 **🔗 사이트 보기: https://daejeon-insect-center.vercel.app**
 
@@ -39,7 +39,8 @@
 
 ## 📝 기획서
 
-페이지의 기획 의도와 작업 과정은 기획서에 정리했습니다. 이미지를 누르면 기획서가 열립니다.
+페이지의 기획 의도와 작업 과정은 기획서에 정리했습니다.<br>
+👇 $\color{red}{\textbf{이미지를 누르면 기획서가 열립니다.}}$
 
 <a href="https://canva.link/r58p72il561jnwe"><img src="docs/plan-cover.jpg" width="50%" alt="대전곤충생태관 홈페이지 리뉴얼 기획서 표지"></a>
 
@@ -70,7 +71,7 @@
 
 <br>
 
-## 🛠️ 기술 스택 · 폴더 구조 · 실행 방법
+## 🛠️ 기술 스택 · 폴더 구조
 
 **스택** — 빌드 도구 없는 순수 HTML · CSS · JavaScript / Swiper 11 (프로그램 슬라이더) / 카카오 지도 API / Pretendard · Gmarket Sans · MBC 1961 고딕 폰트 / Bootstrap Icons / Vercel 배포
 
@@ -99,6 +100,3 @@
 ├── images/                    사진 · 일러스트 · 아이콘 (WebP / PNG)
 └── docs/                      README 이미지
 ```
-
-**실행** — VS Code Live Server 같은 정적 서버로 `index.html`을 엽니다.
-데이터를 `.js` 파일로 불러오기 때문에 `file://`로 직접 열어도 대부분 동작하지만, **카카오 지도는 등록된 도메인에서만** 표시되어 찾아오시는 길 지도가 비어 보입니다.
