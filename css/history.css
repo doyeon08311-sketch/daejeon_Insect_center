@@ -30,7 +30,7 @@
   aspect-ratio: 572 / 1024;
   max-width: 100%;
   opacity: 0.95;
-  background: url("../images/timeLine_bg.png") right bottom / cover no-repeat;
+  background: url("../images/timeLine_bg.webp") right bottom / cover no-repeat;
   /* 사진 왼쪽 끝이 세로선으로 보이지 않도록 왼쪽을 흐리게 */
   -webkit-mask-image: linear-gradient(to right, transparent, #000 30%);
   mask-image: linear-gradient(to right, transparent, #000 30%);

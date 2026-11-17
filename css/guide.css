@@ -796,7 +796,7 @@ button.mk:hover,
   .zone-view.is-enter .zone-view-head { animation: none; }
 }
 
-/* 오른쪽 칸: 처음엔 캐릭터(images/map-character-cut.png: map-character.png 흰 배경을 투명 처리) → 번호를 누르면(.has-photo) 같은 자리에 사진 박스 */
+/* 오른쪽 칸: 처음엔 캐릭터(images/map-character-cut.webp: map-character.png 흰 배경을 투명 처리) → 번호를 누르면(.has-photo) 같은 자리에 사진 박스 */
 .zone-view-grid,
 .zone-view-head { padding-right: 12px; } /* 사진 박스 오른쪽 여백 — "전체 지도" 버튼도 같은 선에 맞춤 */
 .zone-view-grid > .zone-left { grid-column: 1; grid-row: 1; padding-left: 5px; } /* 지도 5px 오른쪽으로 */

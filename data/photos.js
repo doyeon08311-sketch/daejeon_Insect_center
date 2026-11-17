@@ -24,8 +24,8 @@ window.PHOTO_DATA = [
       '질서있게 관람하고 재미있게 해설을 들어준 친구들에게 감사드립니다.^^',
     ],
     images: [
-      'images/photo_gallery01(01).jpg',
-      'images/photo_gallery01(02).jpg',
+      'images/photo_gallery01(01).webp',
+      'images/photo_gallery01(02).webp',
       'images/photo_gallery01(03).jpg',
     ],
   },

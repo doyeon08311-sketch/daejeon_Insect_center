@@ -19,7 +19,7 @@ window.PROGRAM_DATA ={
       "id": "insect-model-2026-h2",
       "type": "단체",
       "title": "곤충모형 만들기",
-      "image": "images/program02.png",
+      "image": "images/program02.webp",
       "year": 2026,
       "season": "하반기",
       "summary": "자연물을 이용한 곤충모형 만들기",
@@ -73,7 +73,7 @@ window.PROGRAM_DATA ={
           "ageMin": 5,
           "ageMax": 12,
           "ageLabel": "5세~12세(초등)",
-          "image": "images/options01.png"
+          "image": "images/options01.webp"
         },
         {
           "name": "반딧불이 만들기",
@@ -82,7 +82,7 @@ window.PROGRAM_DATA ={
           "ageMin": 7,
           "ageMax": 15,
           "ageLabel": "7세~15세(중학생)",
-          "image": "images/options02.png"
+          "image": "images/options02.webp"
         },
         {
           "name": "원목새 버드콜",
@@ -91,7 +91,7 @@ window.PROGRAM_DATA ={
           "ageMin": 7,
           "ageMax": null,
           "ageLabel": "7세~성인",
-          "image": "images/options03.png"
+          "image": "images/options03.webp"
         }
       ],
       "notices": [
@@ -104,7 +104,7 @@ window.PROGRAM_DATA ={
       "id": "guided-tour-2026-h2",
       "type": "단체",
       "title": "단체해설",
-      "image": "images/program01.png",
+      "image": "images/program01.webp",
       "year": 2026,
       "season": "하반기",
       "summary": "대전곤충생태관 내부를 돌아보며 1층, 2층에 전시된 전시생물 해설",
@@ -160,7 +160,7 @@ window.PROGRAM_DATA ={
       "id": "firefly-2026-summer",
       "type": "개인",
       "title": "반딧불이 불빛체험",
-      "image": "images/program03.jpg",
+      "image": "images/program03.webp",
       "year": 2026,
       "season": "하반기",
       "summary": "직접 번식·사육한 반딧불이 4만여 마리를 어두운 체험 공간에서 직접 관찰",
@@ -283,7 +283,7 @@ window.PROGRAM_DATA ={
       "id": "butterfly-exhibition-2026-spring",
       "type": "전시",
       "title": "나비 특별기획전",
-      "image": "images/Tab_Banner_Spring_01(03).png",
+      "image": "images/Tab_Banner_Spring_01(03).webp",
       "year": 2026,
       "season": "봄",
       "summary": "배추흰나비, 호랑나비, 암끝검은표범나비 등 다양한 나비를 관찰하고 애벌레와 번데기도 볼 수 있는 특별기획전",
@@ -338,7 +338,7 @@ window.PROGRAM_DATA ={
       "id": "butterfly-specimen-2026-spring",
       "type": "개인",
       "title": "나비 표본 만들기 체험",
-      "image": "images/Tab_Banner_Spring_01(01).png",
+      "image": "images/Tab_Banner_Spring_01(01).webp",
       "year": 2026,
       "season": "봄",
       "summary": "나비 특별기획전 연계 체험으로, 직접 나비 표본을 만드는 방법을 배우고 제작해보는 체험",

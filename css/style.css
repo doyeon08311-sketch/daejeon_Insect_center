@@ -142,7 +142,7 @@
     height: 100%;
     overflow: hidden; /* 실루엣 아래쪽은 패널 밖으로 나가지 않고 잘림 */
   }
-  /* 서브메뉴 패널 왼쪽에 흐린 캐릭터 실루엣 (images/silhouette.png, 1368×1091, 투명 배경) */
+  /* 서브메뉴 패널 왼쪽에 흐린 캐릭터 실루엣 (images/silhouette.webp, 1368×1091, 투명 배경) */
   .gnb-panel .inner::before {
     content: "";
     position: absolute;
@@ -150,7 +150,7 @@
     left: 0;
     width: 330px;
     aspect-ratio: 1368 / 1091;
-    background: url("../images/silhouette.png") left top / contain no-repeat;
+    background: url("../images/silhouette.webp") left top / contain no-repeat;
     opacity: 0.1;
     pointer-events: none;
   }
@@ -238,7 +238,7 @@
   position: relative;
   height: 990px;
   overflow: hidden;
-  background: url("../images/main_hero_bg.png") center top / cover no-repeat;
+  background: url("../images/main_hero_bg.webp") center top / cover no-repeat;
 }
 .hero-curve {
   position: absolute;
@@ -642,10 +642,10 @@
   opacity: 0;
   transition: opacity 0.6s;
 }
-.season-bg .bg-spring { background-image: url("../images/Tab_Banner_Spring_01.png"); }
-.season-bg .bg-summer { background-image: url("../images/Tab_Banner_Summer_02.png"); }
-.season-bg .bg-autumn { background-image: url("../images/Tab_Banner_Autumn_03.png"); }
-.season-bg .bg-winter { background-image: url("../images/Tab_Banner_Winter_04.png"); }
+.season-bg .bg-spring { background-image: url("../images/Tab_Banner_Spring_01.webp"); }
+.season-bg .bg-summer { background-image: url("../images/Tab_Banner_Summer_02.webp"); }
+.season-bg .bg-autumn { background-image: url("../images/Tab_Banner_Autumn_03.webp"); }
+.season-bg .bg-winter { background-image: url("../images/Tab_Banner_Winter_04.webp"); }
 .season[data-season="spring"] .bg-spring,
 .season[data-season="summer"] .bg-summer,
 .season[data-season="autumn"] .bg-autumn,
@@ -930,7 +930,7 @@
   overflow: hidden;
   /* 시안과 같은 배치: 1.06배(2205px), 1920px 화면 기준 left -68px / top -88px.
      화면이 더 넓으면(축소 보기 등) 화면 폭 + 149px로 커져 좌우 빈틈 없이 채움 */
-  background: url("../images/gallery_banner_bg.png") calc(50% + 74.5px) -88px / max(2205px, calc(100% + 149px)) auto no-repeat;
+  background: url("../images/gallery_banner_bg.webp") calc(50% + 74.5px) -88px / max(2205px, calc(100% + 149px)) auto no-repeat;
 }
 .gallery .inner {
   position: relative;
@@ -1171,7 +1171,7 @@
   position: relative;
   display: block;
   height: 190px; /* 시안 211px의 90% (글자·버튼 크기는 그대로) */
-  background: url("../images/strip_banner_bg.png") center / cover no-repeat;
+  background: url("../images/strip_banner_bg.webp") center / cover no-repeat;
 }
 /* 글자 가독성용: 가운데를 어두운 남색으로 */
 .strip-banner::before {
@@ -1733,7 +1733,7 @@
     left: 0;
     right: 0;
     height: 62vw;
-    background: url("../images/gallery_banner_bg.png") -18vw -17vw / 190vw auto no-repeat; /* 책 왼쪽 페이지가 왼쪽에 붙은 타이틀 뒤에 오도록 */
+    background: url("../images/gallery_banner_bg.webp") -18vw -17vw / 190vw auto no-repeat; /* 책 왼쪽 페이지가 왼쪽에 붙은 타이틀 뒤에 오도록 */
     -webkit-mask-image: linear-gradient(#000 45%, transparent 90%);
     mask-image: linear-gradient(#000 45%, transparent 90%);
   }
@@ -1806,7 +1806,7 @@
   /* 모바일 전용 배경 (이미 어둡게 만든 이미지라 남색 덮개는 옅게) */
   .strip-banner {
     padding: 30px 0;
-    background-image: url("../images/strip_banner_bg_mo.png");
+    background-image: url("../images/strip_banner_bg_mo.webp");
     background-position: center 70%;
   }
   .strip-banner::before { background: rgba(5, 12, 40, 0.25); }

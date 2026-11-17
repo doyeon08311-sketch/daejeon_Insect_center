@@ -93,7 +93,7 @@ if (document.querySelector('.program-swiper')) {
       <div class="swiper-slide" data-category="${p.category}">
         <a href="program_reservation.html?program=${encodeURIComponent(p.id)}" class="program-card">
           <div class="thumb">
-            <img src="${p.image}" alt="">
+            <img src="${p.image}" alt="" loading="lazy">
             <span class="tag tag-${p.category}">${p.categoryLabel}</span>
           </div>
           <h3 class="card-title">${p.title}</h3>

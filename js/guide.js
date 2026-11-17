@@ -45,7 +45,7 @@
       view.classList.add('has-note');
       return;
     }
-    fig.querySelector('img').src = btn.dataset.photo || 'images/greenhouse_' + ('0' + no).slice(-2) + '.png';
+    fig.querySelector('img').src = btn.dataset.photo || 'images/greenhouse_' + ('0' + no).slice(-2) + '.webp';
     fig.querySelector('img').alt = no + '번 ' + btn.dataset.name + ' 전시 모습';
     fig.querySelector('figcaption').textContent = no + '. ' + btn.dataset.name;
     view.classList.remove('has-note');
@@ -179,7 +179,7 @@
     var spot = li.dataset.spot;
     var btn = document.querySelector('.map-stage button.mk[data-spot="' + spot + '"]');
     var name = li.querySelector('.spot-name').textContent;
-    var photo = li.dataset.photo || (/^\d+$/.test(spot) ? 'images/greenhouse_' + ('0' + spot).slice(-2) + '.png' : '');
+    var photo = li.dataset.photo || (/^\d+$/.test(spot) ? 'images/greenhouse_' + ('0' + spot).slice(-2) + '.webp' : '');
     var hasPhoto = !!photo;
     var panelId = 'spot-photo-' + spot;
 

@@ -4,7 +4,7 @@
 .sub-visual {
   position: relative;
   padding: 70px 0 64px;
-  background: url("../images/main_hero_bg.png") center 35% / cover no-repeat;
+  background: url("../images/main_hero_bg.webp") center 35% / cover no-repeat;
 }
 .sub-visual::before {
   content: "";

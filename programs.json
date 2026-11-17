@@ -68,7 +68,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "ageLabel": "5세~12세(초등)",
-          "image": "images/options01.png"
+          "image": "images/options01.webp"
         },
         {
           "name": "반딧불이 만들기",
@@ -77,7 +77,7 @@
           "ageMin": 7,
           "ageMax": 15,
           "ageLabel": "7세~15세(중학생)",
-          "image": "images/options02.png"
+          "image": "images/options02.webp"
         },
         {
           "name": "원목새 버드콜",
@@ -86,7 +86,7 @@
           "ageMin": 7,
           "ageMax": null,
           "ageLabel": "7세~성인",
-          "image": "images/options03.png"
+          "image": "images/options03.webp"
         }
       ],
       "notices": [

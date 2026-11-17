@@ -15,3 +15,6 @@ desktop.ini
 
 .vercel
 .env*
+
+# 이미지 최적화 전 원본 백업 (배포 제외)
+_original_images/
