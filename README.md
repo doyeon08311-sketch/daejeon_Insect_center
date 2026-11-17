@@ -18,7 +18,7 @@
 
 <br>
 
-### 🔙 BEFORE — 기존 사이트
+### 🔍 BEFORE — 기존 사이트
 
 ![기존 대전곤충생태관 홈페이지 PC 메인 화면](docs/before-pc-main.jpg)
 
