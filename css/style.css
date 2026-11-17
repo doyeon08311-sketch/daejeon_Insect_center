@@ -1385,6 +1385,105 @@
   .quick-btn { transition: none; }
 }
 
+/* ===== 포트폴리오 안내 팝업 (상단 login·회원가입 클릭 시, main.js에서 생성) ===== */
+.pf-modal {
+  width: min(480px, calc(100% - 32px));
+  margin: auto;
+  padding: 44px 40px 36px;
+  border: 3px solid var(--버튼그린);
+  border-radius: 20px;
+  text-align: center;
+  color: var(--운영-시간문의오시는-길-내용);
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+.pf-modal::backdrop { background: rgba(10, 30, 15, 0.55); }
+.pf-modal[open] { animation: pfModalIn 0.25s ease-out; }
+@keyframes pfModalIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.pf-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--작은-글씨버튼그레이);
+  transition: color 0.2s, background-color 0.2s;
+}
+.pf-modal-close svg { width: 20px; height: 20px; }
+.pf-modal-close:hover { color: var(--제목큰글씨그린); background: #eef2ec; }
+/* 경고 아이콘 + 안내 (바탕 없이 아이콘·글자만) */
+.pf-modal-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-gmarket);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--제목큰글씨그린);
+}
+.pf-modal-label svg { flex-shrink: 0; width: 20px; height: 20px; margin-top: -2px; color: rgb(232, 128, 30); } /* Gmarket 글자 위치에 맞춰 살짝 올림 */
+.pf-modal-title {
+  margin-top: 16px;
+  font-family: var(--font-gmarket);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--제목큰글씨그린);
+  word-break: keep-all;
+}
+.pf-modal-text {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.pf-modal-text + .pf-modal-text { margin-top: 10px; }
+.pf-modal-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+.pf-modal-ok,
+.pf-modal-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 50px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.2s, color 0.2s;
+}
+.pf-modal-ok { min-width: 120px; color: #fff; background: var(--버튼그린); }
+.pf-modal-ok:hover { color: var(--제목큰글씨그린); background: rgb(255, 214, 102); } /* 퀵버튼 안내도와 같은 노랑 */
+.pf-modal-link { color: var(--제목큰글씨그린); border: 2px solid var(--버튼그린); }
+.pf-modal-link:hover { border-color: var(--선); background: rgb(232, 246, 236); } /* 연한 민트 바탕 */
+.pf-modal-ok:focus-visible,
+.pf-modal-link:focus-visible,
+.pf-modal-close:focus-visible { outline: 3px solid var(--포인트블루); outline-offset: 2px; }
+@media (max-width: 768px) {
+  .pf-modal { padding: 40px 22px 26px; border-radius: 16px; }
+  .pf-modal-title { font-size: 20px; }
+  .pf-modal-text { font-size: 15px; }
+  .pf-modal-text br { display: none; } /* 좁은 화면에선 자연스럽게 줄바꿈 */
+  .pf-modal-btns { flex-direction: column; gap: 8px; margin-top: 24px; }
+  .pf-modal-ok,
+  .pf-modal-link { width: 100%; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-modal[open] { animation: none; }
+}
+
 /* ===== Tablet ===== */
 @media (max-width: 1024px) {
   .quick { right: 18px; bottom: 18px; gap: 8px; }
@@ -1627,6 +1726,8 @@
   .quick { right: 12px; bottom: 12px; gap: 6px; }
   .quick-btn { gap: 1px; width: 54px; height: 54px; font-size: 11px; letter-spacing: -0.03em; }
   .quick-btn svg { width: 19px; height: 19px; }
+  /* 모바일은 메인 페이지에서도 퀵버튼을 처음부터 보이게 (PC·태블릿은 300px 스크롤 후) */
+  .quick:not(.is-scrolled) .quick-btn { opacity: 1; visibility: visible; transform: none; }
   .util { gap: 16px; font-size: 13px; }
   .top-bar .inner { height: 40px; }
 

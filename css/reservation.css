@@ -227,7 +227,7 @@
 .choice-name {
   margin-bottom: 4px;
   font-family: var(--font-gmarket);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 21px;
   color: var(--제목큰글씨그린);
 }
@@ -1065,8 +1065,17 @@
   .steps .is-done + .is-current::before { background: var(--선); }
   .panel-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .panel-guide { font-size: 15px; }
-  .choice-list { grid-template-columns: 1fr; }
-  .choice-name { font-size: 18px; }
+  /* 모바일: 프로그램 카드 한 줄에 2개씩 (프로그램 안내 목록과 같은 크기) */
+  .choice-list { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; margin-top: 20px; }
+  .choice { border-radius: 12px; }
+  .choice:hover { transform: none; }
+  .choice.is-selected::after { top: 8px; right: 8px; width: 24px; height: 24px; background-size: 15px; }
+  .choice-thumb .tag { height: 28px; padding: 4px 9px 0; font-size: 13px; }
+  .choice-status { top: 8px; left: 8px; height: 22px; padding: 2px 8px 0; font-size: 12px; }
+  .choice-body { flex: 1; gap: 2px; padding: 12px 12px 14px; }
+  .choice-name { font-size: 16px; line-height: 1.3; word-break: keep-all; }
+  .choice-meta { font-size: 12px; letter-spacing: -0.02em; }
+  .choice-more { margin-top: auto; padding-top: 6px; font-size: 13px; } /* 같은 줄 카드끼리 '자세히 보기'를 맨 아래로 맞춤 */
   .program-modal { width: calc(100% - 24px); max-height: calc(100vh - 24px); border-radius: 16px; }
   .modal-info { padding: 22px 20px 4px; }
   .modal-title { font-size: 23px; }

@@ -73,6 +73,40 @@ header.addEventListener('focusout', (e) => {
   onScroll();
 })();
 
+// 상단 login·회원가입(대전시 통합회원 링크): 공식 페이지 대신 "개인 포트폴리오" 안내 팝업 (모든 페이지 공통)
+(() => {
+  const OFFICIAL_URL = 'https://www.daejeon.go.kr/ist/index.do';
+  const modal = document.createElement('dialog');
+  modal.className = 'pf-modal';
+  modal.setAttribute('aria-labelledby', 'pfModalTitle');
+  modal.innerHTML = `
+    <button type="button" class="pf-modal-close" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <p class="pf-modal-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.9 18.2A2 2 0 0 0 3.6 21h16.8a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z" fill="currentColor"/><path d="M12 9v4.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="#fff"/></svg>안내</p>
+    <h2 class="pf-modal-title" id="pfModalTitle">이 사이트는 개인 포트폴리오입니다.</h2>
+    <p class="pf-modal-text">대전곤충생태관 홈페이지를 리뉴얼해 본 개인 작업물로, <br>실제 대전곤충생태관 공식 사이트가 아닙니다.</p>
+    <p class="pf-modal-text">대전광역시 통합 로그인 기능은 제공하지 않으며, <br>화면 속 프로그램과 예약 정보도 실제와 다를 수 있습니다.</p>
+    <div class="pf-modal-btns">
+      <button type="button" class="pf-modal-ok">확인</button>
+      <a href="${OFFICIAL_URL}" class="pf-modal-link" target="_blank" rel="noopener" title="새 창 열림">공식 홈페이지 바로가기 <span aria-hidden="true">↗</span></a>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const close = () => modal.close();
+  modal.querySelector('.pf-modal-close').addEventListener('click', close);
+  modal.querySelector('.pf-modal-ok').addEventListener('click', close);
+  modal.querySelector('.pf-modal-link').addEventListener('click', close);
+  // 바깥(어두운 배경) 클릭 시 닫기
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="daejeon.go.kr/integ/"]');
+    if (!link) return;
+    e.preventDefault();
+    modal.showModal();
+    modal.querySelector('.pf-modal-ok').focus();
+  });
+})();
+
 // 아래 섹션 기능은 메인 페이지에만 있으므로, 해당 요소가 있을 때만 실행 (서브 페이지에서 오류 방지)
 
 // 알림마당: data/notices.js에서 최신 공지 4개 (누르면 공지 상세로 이동)
